@@ -30,7 +30,23 @@ public class CitySubTileset {
         subsetValue = 0;
     }
     
-    private void changeTile(int x, int y, Tile tile){
+    private void ChangeTile(int x, int y, Tile tile){
         Tileset.get(y).set(x, tile);
+    }
+    
+    void NewParkTile(int x, int y){
+        ParkTile parkTile = new ParkTile();
+        InicializeParkTile(x,y,parkTile);
+        changeTile(x,y,parkTile);
+    }
+    
+    void InicializeParkTile(int x, int y, ParkTile pTile){
+        //recorrer un cuadrado centrado en (x,y) 
+        //para sumar los puntos de la nueva casilla
+    }
+    
+    boolean CheckIfVoid(int x, int y){
+        //comprobar si el camino está ocupado;
+        return Tileset.get(x).get(y).isVoid();
     }
 }

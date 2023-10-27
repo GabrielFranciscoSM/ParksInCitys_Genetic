@@ -10,4 +10,16 @@ package Individuals;
  */
 public class ParkTile extends Tile{
     int value;
+    
+    ParkTile(){
+        isVoid = false;
+    }
+    
+    void setValue(int v){
+        value = v;
+    }
+    
+    int getValue(){
+        return value;
+    }
 }

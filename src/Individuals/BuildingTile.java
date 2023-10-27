@@ -18,6 +18,23 @@ public class BuildingTile extends Tile{
     BuildingTile(){
         citycents = 0;
         parksInRange = 0;
+        isVoid = false;
+    }
+    
+    void setCitycents(int c){
+        citycents = c;
+    }
+    
+    int getCitycents(){
+        return citycents;
+    }
+    
+    void setParksInRange(int p){
+        parksInRange = p;
+    }
+    
+    int getParksInRange(){
+        return parksInRange;
     }
     
     

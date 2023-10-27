@@ -10,4 +10,8 @@ package Individuals;
  */
 public class RoadTile extends Tile {
     
+    RoadTile(){
+        isVoid = false;
+    }
+    
 }

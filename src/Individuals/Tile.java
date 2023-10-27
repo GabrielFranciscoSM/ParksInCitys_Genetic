@@ -10,4 +10,12 @@ package Individuals;
  */
 public class Tile {
     boolean isVoid;
+    
+    Tile(){
+        isVoid = true;
+    }
+    
+    boolean isVoid(){
+        return isVoid;
+    }
 }
