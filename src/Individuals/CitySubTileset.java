@@ -35,9 +35,12 @@ public class CitySubTileset {
     }
     
     void NewParkTile(int x, int y){
-        ParkTile parkTile = new ParkTile();
-        InicializeParkTile(x,y,parkTile);
-        changeTile(x,y,parkTile);
+        if(CheckIfVoid(x,y)){
+            ParkTile parkTile = new ParkTile();
+            InicializeParkTile(x,y,parkTile);
+            ChangeTile(x,y,parkTile);
+        }
+        
     }
     
     void InicializeParkTile(int x, int y, ParkTile pTile){

@@ -30,7 +30,8 @@ public class BuildingTile extends Tile{
     }
     
     void setParksInRange(int p){
-        parksInRange = p;
+        if(p <= MAXPARKSINRANGE)
+            parksInRange = p;
     }
     
     int getParksInRange(){
