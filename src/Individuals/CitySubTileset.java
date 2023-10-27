@@ -14,7 +14,7 @@ public class CitySubTileset {
     int nParkTiles;
     int subsetValue;
     
-    CitySubTileset(){
+    public CitySubTileset(){
         Tileset = new ArrayList<ArrayList<Tile>>();
         for(int i = 0; i < SUBSETSIZE; ++i){
             ArrayList<Tile> aux = new ArrayList<Tile>(); 
@@ -34,7 +34,7 @@ public class CitySubTileset {
         Tileset.get(y).set(x, tile);
     }
     
-    void NewParkTile(int x, int y){
+    public void NewParkTile(int x, int y){
         if(CheckIfVoid(x,y)){
             ParkTile parkTile = new ParkTile();
             InicializeParkTile(x,y,parkTile);
@@ -51,5 +51,19 @@ public class CitySubTileset {
     boolean CheckIfVoid(int x, int y){
         //comprobar si el camino está ocupado;
         return Tileset.get(x).get(y).isVoid();
+    }
+    
+    @Override
+    public String toString() {
+        String out = "";
+        for(int i = 0; i < SUBSETSIZE; ++i){
+            for(int j = 0; j < SUBSETSIZE; ++j){
+                out += Tileset.get(i).get(j).toString();
+            }
+            
+            out += "\n";
+        }
+        
+        return out;
     }
 }

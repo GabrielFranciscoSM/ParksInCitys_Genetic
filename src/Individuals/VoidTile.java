@@ -9,5 +9,12 @@ package Individuals;
  * @author gabriel
  */
 public class VoidTile extends Tile{
+    public VoidTile(){
+        isVoid = true;
+    }
     
+    @Override
+    public String toString(){
+        return " ";
+    }
 }

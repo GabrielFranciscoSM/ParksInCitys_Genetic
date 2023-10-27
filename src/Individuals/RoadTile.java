@@ -10,8 +10,13 @@ package Individuals;
  */
 public class RoadTile extends Tile {
     
-    RoadTile(){
+    public RoadTile(){
         isVoid = false;
     }
     
+    
+    @Override
+    public String toString(){
+        return "R";
+    }
 }

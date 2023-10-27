@@ -15,7 +15,7 @@ public class BuildingTile extends Tile{
     int citycents;
     int parksInRange; // < MAXPARKSINRANGE
     
-    BuildingTile(){
+    public BuildingTile(){
         citycents = 0;
         parksInRange = 0;
         isVoid = false;
@@ -38,5 +38,8 @@ public class BuildingTile extends Tile{
         return parksInRange;
     }
     
-    
+    @Override
+    public String toString(){
+        return "B";
+    }
 }

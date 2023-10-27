@@ -11,7 +11,7 @@ package Individuals;
 public class ParkTile extends Tile{
     int value;
     
-    ParkTile(){
+    public ParkTile(){
         isVoid = false;
     }
     
@@ -21,5 +21,10 @@ public class ParkTile extends Tile{
     
     int getValue(){
         return value;
+    }
+    
+    @Override
+    public String toString(){
+        return "P";
     }
 }

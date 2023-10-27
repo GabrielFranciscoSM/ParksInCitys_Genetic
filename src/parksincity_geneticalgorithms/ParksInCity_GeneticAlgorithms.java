@@ -4,6 +4,8 @@
  */
 package parksincity_geneticalgorithms;
 
+import Individuals.*;
+
 /**
  *
  * @author gabriel
@@ -15,6 +17,14 @@ public class ParksInCity_GeneticAlgorithms {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        CitySubTileset cst = new CitySubTileset();
+        
+        for(int i = 0; i < 10; ++i){
+            cst.NewParkTile(i, i);
+        }
+        
+        System.out.print(cst);
     }
     
 }

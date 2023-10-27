@@ -8,14 +8,13 @@ package Individuals;
  *
  * @author gabriel
  */
-public class Tile {
+public abstract class Tile {
     boolean isVoid;
-    
-    Tile(){
-        isVoid = true;
-    }
     
     boolean isVoid(){
         return isVoid;
     }
+    
+    @Override
+    public abstract String toString();
 }
