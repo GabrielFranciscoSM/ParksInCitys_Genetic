@@ -9,16 +9,21 @@ package Individuals.Tiles;
  * @author gabriel
  */
 public class ParkTile extends Tile{
+    //Determines the distance of reach of a park (Final area is:
+    //AREAOFEFFECT*2+1 x AREAOFEFFECT*2+1
     private final static int AREAOFEFFECT = 2;
+    
+    //Multiplicative coefficient to obtain value from citizens
     private final static int VALUEPERCITIZEN = 1;
     
     private int value;
     
-    //DefaultConstructor
+    //Default Constructor
     public ParkTile(){
         value = 0;
     }
     
+    //Constructor to inizilize value
     public ParkTile(int v){
         value = v;
     }
@@ -40,7 +45,7 @@ public class ParkTile extends Tile{
             return NOVALUETILE;
     }
     
-    //Increment value taking into account a value per citicent
+    //Increment value taking into account a value per citizen
     public void addValue(int v){
         value += v*VALUEPERCITIZEN;
     }

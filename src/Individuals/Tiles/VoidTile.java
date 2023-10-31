@@ -10,7 +10,7 @@ package Individuals.Tiles;
  */
 public class VoidTile extends Tile{
     
-    //getter
+    //Function to identificate if a generic tile is a Void tile
     @Override
     public int getValue(TileType type){
         if(type == TileType.VOID)

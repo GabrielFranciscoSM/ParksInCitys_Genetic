@@ -9,6 +9,8 @@ package Individuals.Tiles;
  * @author gabriel
  */
 public class BuildingTile extends Tile{    
+    
+    //Default number of citizens in a building tile.
     static final int DEFAULTCITIZENS = 20;
     
     final private int citizens;
@@ -36,7 +38,6 @@ public class BuildingTile extends Tile{
         else
             return NOVALUETILE;
     }
-    
     
     //toSetring method
     @Override

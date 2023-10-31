@@ -10,13 +10,12 @@ package Individuals.Tiles;
  */
 public abstract class Tile {
     
-    //Default value to send back to getVAlue()
+    //Default value to send back to getValue()
     static int NOVALUETILE = 0;
     
-    
-    //Give back a value
-    //NOVALUETILE if TileType is not its type
-    //Other value (usually 1 for existance or personalized value)
+    //Give back a value:
+    //  -NOVALUETILE if TileType is not its type
+    //  -Other value (usually 1 for existance or personalized value)
     public int getValue(){
         return getValue(TileType.VOID);
     }

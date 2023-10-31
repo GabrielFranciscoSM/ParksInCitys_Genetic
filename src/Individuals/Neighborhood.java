@@ -9,12 +9,17 @@ package Individuals;
  * @author gabriel
  */
 public class Neighborhood {
+    
+    //Number of parks inside de area of the Neighborhood
     private int nparks;
+    
+    //Maximun cuantity of parks. Infinite at default.
+    //Used so the parkTiles doesnt clump
     final private int maxParks;
     
     Neighborhood(){
         nparks = 0;
-        maxParks = 0;
+        maxParks = Integer.MAX_VALUE;
     }
     
     Neighborhood(int _maxParks){
@@ -22,9 +27,13 @@ public class Neighborhood {
         maxParks = _maxParks;
     }
     
-    protected void addPark(){
+    //Add a park in the neighborhood
+    protected boolean addPark(){
         if(nparks < maxParks){
             ++nparks;
+            return true;
         }
+        else
+            return false;
     }
 }

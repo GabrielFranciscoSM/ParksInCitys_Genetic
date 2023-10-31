@@ -10,7 +10,7 @@ package Individuals.Tiles;
  */
 public class RoadTile extends Tile {
     
-    //getter
+    //Function to identificate if a generic tile is a Road tile
     @Override
     public int getValue(TileType type){
         if(type == TileType.ROAD)

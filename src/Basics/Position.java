@@ -54,14 +54,18 @@ public class Position {
         setY(_y);
     }
     
-    public void mult(int m){
+    public Position mult(int m){
         x *= m;
         y *= m;
+        
+        return this;
     }
     
-    public void div(int d){
+    public Position div(int d){
         x /= d;
         y /= d;
+        
+        return this;
     }
     
     public boolean inRange(Position topRight, Position botLeft){

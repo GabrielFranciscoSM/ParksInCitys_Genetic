@@ -13,21 +13,30 @@ import java.util.ArrayList;
  * @author gabriel
  */
 
-//Individuo
+//Individual
 public class CityTileset {
+    
+    //Size of the array of Tiles
     static final int SETSIZE = 100;
+    
+    //Size of the neighborhoods. It works better if it divides SETSIZE
     static final int NEIGHBORHOODSIZE = 10;
     
-    
+    //Arrays of Tiles and Neighborhoods
     ArrayList<ArrayList<Tile>> tileset;
     ArrayList<ArrayList<Neighborhood>> neighborhoods;
     
-    //Constructor por defecto
+    
+    //Default constructor
     public CityTileset(){
-        tileset = new ArrayList<ArrayList<Tile>>();
+        
+        tileset = new ArrayList<>();
+        neighborhoods = new ArrayList<>();
+        
         for(int i = 0; i < SETSIZE; ++i){
-            ArrayList<Tile> aux = new ArrayList<Tile>(); 
-            ArrayList<Neighborhood> aux2 = new ArrayList<Neighborhood>(); 
+            
+            ArrayList<Tile> aux = new ArrayList<>(); 
+            ArrayList<Neighborhood> aux2 = new ArrayList<>(); 
             
             for(int j = 0; j < SETSIZE; ++j){
                 aux.add(new VoidTile());
@@ -44,7 +53,7 @@ public class CityTileset {
         }
     }
     
-    //Getters y setters
+    //Getters and setters
     Tile getTile(Position pos){
         if(pos.inRange(Position.ZERO, new Position(SETSIZE-1))){
             return tileset.get(pos.getX()).get(pos.getY());
@@ -54,21 +63,21 @@ public class CityTileset {
     }
     
     Tile getTile(int x, int y){
-        if(new Position(x,y).inRange(Position.ZERO, new Position(SETSIZE-1))){
-            return tileset.get(x).get(y);
-        }
-        else return null;
+        return getTile(new Position(x,y));
+    }
+    
+    Neighborhood getNeigborhoodWithTilePos(Position pos){
+        return getNeigborhood(pos.div(NEIGHBORHOODSIZE));
     }
     
     Neighborhood getNeigborhood(Position pos){
-        if(pos.inRange(Position.ZERO, new Position(neighborhoods.size()-1)))
-            return neighborhoods.get(pos.getX()/NEIGHBORHOODSIZE ).get(pos.getY()/NEIGHBORHOODSIZE);
+        if(pos.inRange(Position.ZERO,  new Position(neighborhoods.size()-1)))
+            return neighborhoods.get(pos.getX()).get(pos.getY());
         else
             return null;
     }
     
-    
-    //CAmbiar una Tile por otra
+    //Change a Tile to another
     private boolean ChangeTile(Position pos, Tile tile){
         if(pos.inRange(Position.ZERO, new Position(SETSIZE-1))){
             tileset.get(pos.getX()).set(pos.getY(), tile);
@@ -78,16 +87,16 @@ public class CityTileset {
             return false;
     }
     
-    
-    //Introducir una ParkTile, haciendo los cambios pertinentes
-    //Se actualiza el numero de parques de Neighborhoods
-    //Se recuentan los ciudadanos en el area de la nueva Tile
+    //Create a new ParkTile. Things to take in consideration:
+    //  -The number of parks in the Neighborhood of the park updates
+    //  -The citizens inside the Parks Area are counted
     boolean NewParkTile(Position pos){
         
         boolean canChange = false;
         
         if(getTile(pos).isVoid()){
-            getNeigborhood(pos).addPark();
+            
+            getNeigborhoodWithTilePos(pos).addPark();
             ChangeTile(pos, new ParkTile(getValueOfPark(pos)));
             
             canChange = true;
@@ -96,16 +105,21 @@ public class CityTileset {
         return canChange;
     }
     
+    //
     boolean NewParkTile(Position pos, Position neighbour){
         
         boolean canChange = false;
         
         if(getTile(pos).isVoid()){
-            getNeigborhood(pos).addPark();
+            
+            getNeigborhoodWithTilePos(pos).addPark();
+            
             int v  = getValueOfPark(pos, neighbour);
+            
             if(v < 0){
                 v = getValueOfPark(pos);
             }
+            
             ChangeTile(pos, new ParkTile(v));
             
             canChange = true;
@@ -114,6 +128,11 @@ public class CityTileset {
         return canChange;
     }
     
+    //Get the value of a new park, but generated with another park next to it.
+    //This is done to increase effciency by decreasing the number of tiles
+    //to count. 
+    //This method can be generalized so the "neighbour" tile doesn have to be
+    //next to de original.
     int getValueOfPark(Position pos, Position neighbour){
         int v = getTile(neighbour).getValue(TileType.PARK);
         int offset = ParkTile.getAreaOfEffect();
@@ -172,7 +191,7 @@ public class CityTileset {
         
     }
     
-    //Se cuantan los ciudadanos en el area de la ParkTile en la posición pos
+    //It counts the number of citizens in the ParkTile area
     int getValueOfPark(Position pos){
         int v = 0;
         int offset = ParkTile.getAreaOfEffect();
