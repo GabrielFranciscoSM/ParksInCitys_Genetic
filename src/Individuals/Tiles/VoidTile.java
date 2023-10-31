@@ -2,29 +2,26 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Individuals;
+package Individuals.Tiles;
 
 /**
  *
  * @author gabriel
  */
-public class ParkTile extends Tile{
-    int value;
+public class VoidTile extends Tile{
     
-    public ParkTile(){
-        isVoid = false;
+    //getter
+    @Override
+    public int getValue(TileType type){
+        if(type == TileType.VOID)
+            return 1;
+        else
+            return NOVALUETILE;
     }
     
-    void setValue(int v){
-        value = v;
-    }
-    
-    int getValue(){
-        return value;
-    }
-    
+    //toString method
     @Override
     public String toString(){
-        return "P";
+        return " ";
     }
 }
