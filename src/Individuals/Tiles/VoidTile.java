@@ -22,6 +22,6 @@ public class VoidTile extends Tile{
     //toString method
     @Override
     public String toString(){
-        return " ";
+        return "_";
     }
 }

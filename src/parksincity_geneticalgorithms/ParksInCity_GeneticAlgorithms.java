@@ -5,6 +5,7 @@
 package parksincity_geneticalgorithms;
 
 import Individuals.*;
+import inicializer.*;
 
 /**
  *
@@ -16,7 +17,22 @@ public class ParksInCity_GeneticAlgorithms {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-    
+        
+        CityTileset ct = new CityTileset(1000);
+        
+        RandomCityInicializer generator = new RandomCityInicializer(ct);
+        
+        //System.out.print(ct);
+        
+        generator.createBuildings(10);
+        
+        //System.out.print(ct);
+        
+        generator.createRoads(10);
+        
+        //System.out.print(ct);
+        
+        
     }
     
 }

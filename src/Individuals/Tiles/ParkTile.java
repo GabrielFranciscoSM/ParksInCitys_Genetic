@@ -18,14 +18,14 @@ public class ParkTile extends Tile{
     
     private int value;
     
-    //Default Constructor
-    public ParkTile(){
-        value = 0;
-    }
-    
     //Constructor to inizilize value
     public ParkTile(int v){
         value = v;
+    }
+    
+    //Default Constructor
+    public ParkTile(){
+        value = 0;
     }
     
     //getters and setters

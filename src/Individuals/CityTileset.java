@@ -16,8 +16,7 @@ import java.util.ArrayList;
 //Individual
 public class CityTileset {
     
-    //Size of the array of Tiles
-    static final int SETSIZE = 100;
+    static final int DEFAULTSIZE = 50;
     
     //Size of the neighborhoods. It works better if it divides SETSIZE
     static final int NEIGHBORHOODSIZE = 10;
@@ -33,12 +32,38 @@ public class CityTileset {
         tileset = new ArrayList<>();
         neighborhoods = new ArrayList<>();
         
-        for(int i = 0; i < SETSIZE; ++i){
+        for(int i = 0; i < DEFAULTSIZE; ++i){
             
             ArrayList<Tile> aux = new ArrayList<>(); 
             ArrayList<Neighborhood> aux2 = new ArrayList<>(); 
             
-            for(int j = 0; j < SETSIZE; ++j){
+            for(int j = 0; j < DEFAULTSIZE; ++j){
+                aux.add(new VoidTile());
+                
+                if(j % (NEIGHBORHOODSIZE) == 0){
+                    aux2.add(new Neighborhood());
+                }
+            }
+            
+            tileset.add(aux);
+            if(i % (NEIGHBORHOODSIZE) == 0){
+                neighborhoods.add(aux2);
+            }
+        }
+    }
+    
+    //Default constructor
+    public CityTileset(int size){
+        
+        tileset = new ArrayList<>();
+        neighborhoods = new ArrayList<>();
+        
+        for(int i = 0; i < size; ++i){
+            
+            ArrayList<Tile> aux = new ArrayList<>(); 
+            ArrayList<Neighborhood> aux2 = new ArrayList<>(); 
+            
+            for(int j = 0; j < size; ++j){
                 aux.add(new VoidTile());
                 
                 if(j % (NEIGHBORHOODSIZE) == 0){
@@ -54,15 +79,16 @@ public class CityTileset {
     }
     
     //Getters and setters
-    Tile getTile(Position pos){
-        if(pos.inRange(Position.ZERO, new Position(SETSIZE-1))){
+    public Tile getTile(Position pos){
+        
+        if(pos.inRange(Position.ZERO, new Position(getSize()-1))){
             return tileset.get(pos.getX()).get(pos.getY());
         }
         else return null;
         
     }
     
-    Tile getTile(int x, int y){
+    public Tile getTile(int x, int y){
         return getTile(new Position(x,y));
     }
     
@@ -77,14 +103,34 @@ public class CityTileset {
             return null;
     }
     
+    public int getSize(){
+        return tileset.size();
+    }
+    
+    int getNeighborhoodSize(){
+        return NEIGHBORHOODSIZE;
+    }
+    
     //Change a Tile to another
     private boolean ChangeTile(Position pos, Tile tile){
-        if(pos.inRange(Position.ZERO, new Position(SETSIZE-1))){
+        if(pos.inRange(Position.ZERO, new Position(getSize()-1))){
             tileset.get(pos.getX()).set(pos.getY(), tile);
             return true;
         }
         else
             return false;
+    }
+    
+    public void NewBuildingTile(Position pos){
+        ChangeTile(pos, new BuildingTile());
+    }
+    
+    public void NewBuildingTile(Position pos, Tile bt){
+        ChangeTile(pos, bt);
+    }
+    
+    public void NewRoadTile(Position pos){
+        ChangeTile(pos, new RoadTile());
     }
     
     //Create a new ParkTile. Things to take in consideration:
@@ -198,8 +244,8 @@ public class CityTileset {
         
         Position topLeft = new Position(Math.max(0, pos.getX() - offset), 
                 Math.max(0, pos.getY() - offset));
-        Position botRight = new Position(Math.min(SETSIZE-1, pos.getX() + offset), 
-                Math.min(SETSIZE-1, pos.getY() + offset));
+        Position botRight = new Position(Math.min(getSize()-1, pos.getX() + offset), 
+                Math.min(getSize()-1, pos.getY() + offset));
         
         for(int i = topLeft.getX(); i < botRight.getX(); ++i){
             for(int j = topLeft.getY(); j < botRight.getY(); ++j){
@@ -208,5 +254,19 @@ public class CityTileset {
         }
         
         return v;
+    }
+    
+    @Override
+    public String toString(){
+        String city = new String();
+        
+        for(int i = 0; i < tileset.size(); ++i){
+            for(int j = 0; j < tileset.size(); ++j){
+                city += getTile(j,i).toString();
+            }
+            city += "\n";
+        }
+        
+        return city;
     }
 }

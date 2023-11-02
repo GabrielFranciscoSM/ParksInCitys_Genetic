@@ -69,11 +69,18 @@ public class Position {
     }
     
     public boolean inRange(Position topRight, Position botLeft){
-        return(x < topRight.getX() && x > botLeft.getX() && 
-               y < topRight.getY() && y > botLeft.getY());
+        
+        return(x >= topRight.getX() && x <= botLeft.getX() && 
+               y >= topRight.getY() && y <= botLeft.getY());
     }
     
     public boolean isEqual(Position pos){
         return (getX() == pos.getX()) && (getY() == pos.getY());
     }
+    
+    @Override
+    public String toString(){
+        return "(" + Integer.toString(getX()) + ", " + Integer.toString(getY()) + ")";
+    }
+    
 }

@@ -17,14 +17,18 @@ public class Neighborhood {
     //Used so the parkTiles doesnt clump
     final private int maxParks;
     
+    int size;
+    
     Neighborhood(){
         nparks = 0;
         maxParks = Integer.MAX_VALUE;
+        size = 0;
     }
     
-    Neighborhood(int _maxParks){
+    Neighborhood(int _maxParks, int _size){
         nparks = 0;
         maxParks = _maxParks;
+        size = _size;
     }
     
     //Add a park in the neighborhood
