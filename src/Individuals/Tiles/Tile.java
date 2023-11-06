@@ -11,7 +11,7 @@ package Individuals.Tiles;
 public abstract class Tile {
     
     //Default value to send back to getValue()
-    static int NOVALUETILE = 0;
+    public static int NOVALUETILE = -1;
     
     //Give back a value:
     //  -NOVALUETILE if TileType is not its type

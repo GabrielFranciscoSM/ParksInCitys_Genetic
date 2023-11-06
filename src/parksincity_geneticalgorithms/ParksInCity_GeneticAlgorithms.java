@@ -4,6 +4,7 @@
  */
 package parksincity_geneticalgorithms;
 
+import Views.GUI.MainWindow;
 import Individuals.*;
 import inicializer.*;
 
@@ -18,7 +19,7 @@ public class ParksInCity_GeneticAlgorithms {
      */
     public static void main(String[] args) {
         
-        CityTileset ct = new CityTileset(1000);
+        CityTileset ct = new CityTileset(300);
         
         RandomCityInicializer generator = new RandomCityInicializer(ct);
         
@@ -32,6 +33,10 @@ public class ParksInCity_GeneticAlgorithms {
         
         //System.out.print(ct);
         
+        MainWindow gui = MainWindow.getInstance();
+        gui.createCityImage(ct);
+        
+        gui.showView();
         
     }
     
