@@ -11,7 +11,7 @@ package Individuals.Tiles;
 public abstract class Tile {
     
     //Default value to send back to getValue()
-    public static int NOVALUETILE = -1;
+    public static int NOVALUETILE = 0;
     
     //Give back a value:
     //  -NOVALUETILE if TileType is not its type
@@ -23,7 +23,27 @@ public abstract class Tile {
     
     //Specific function to know if TIle is VoidTile
     public boolean isVoid(){
-        return(getValue(TileType.VOID) == 1);
+        return(getValue(TileType.VOID) != NOVALUETILE);
+    }
+    
+    //Specific function to know if TIle is BuildingTile
+    public boolean isBuilding(){
+        return(getValue(TileType.BUILDING) != NOVALUETILE);
+    }
+    
+    //Specific function to know if TIle is ParkTile
+    public boolean isPark(){
+        return(getValue(TileType.PARK) != NOVALUETILE);
+    }
+    
+    //Specific function to know if TIle is RoadTile
+    public boolean isRoad(){
+        return(getValue(TileType.ROAD) != NOVALUETILE);
+    }
+    
+    //Function that defines in what Tile can be a Building build into
+    public boolean canBuild(){
+        return isVoid();
     }
     
     //toString method

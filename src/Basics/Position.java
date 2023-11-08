@@ -33,6 +33,10 @@ public class Position {
         return new Position(pos1.getX()-pos2.getX(),pos1.getY()-pos2.getY());
     }
     
+    static public Position sum(Position pos1, Position pos2){
+        return new Position(pos1.getX()+pos2.getX(),pos1.getY()+pos2.getY());
+    }
+    
     public int getX(){
         return x;
     }

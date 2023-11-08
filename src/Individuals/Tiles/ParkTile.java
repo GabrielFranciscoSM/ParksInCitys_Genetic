@@ -16,7 +16,7 @@ public class ParkTile extends Tile{
     //Multiplicative coefficient to obtain value from citizens
     private final static int VALUEPERCITIZEN = 1;
     
-    private int value;
+    private int value; // >= 1
     
     //Constructor to inizilize value
     public ParkTile(int v){
@@ -25,7 +25,7 @@ public class ParkTile extends Tile{
     
     //Default Constructor
     public ParkTile(){
-        value = 0;
+        value = 1;
     }
     
     //getters and setters

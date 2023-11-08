@@ -13,6 +13,9 @@ public class BuildingTile extends Tile{
     //Default number of citizens in a building tile.
     static final int DEFAULTCITIZENS = 20;
     
+    public final static int MAXCITIZEN = 100;
+    public final static int MINCITIZEN = 5;
+    
     final private int citizens;
     
     //Default Contructor
@@ -24,7 +27,6 @@ public class BuildingTile extends Tile{
     public BuildingTile(int nCitycents){
         citizens = nCitycents;
     }
-    
     
     //Getters and setters
     public int getCitizens(){

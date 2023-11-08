@@ -10,6 +10,8 @@ package Individuals;
  */
 public class Neighborhood {
     
+    final static public int DEFAULTMAXPARKS = Integer.MAX_VALUE;
+    
     //Number of parks inside de area of the Neighborhood
     private int nparks;
     
@@ -19,12 +21,14 @@ public class Neighborhood {
     
     int size;
     
+    //Default Constructor
     Neighborhood(){
         nparks = 0;
-        maxParks = Integer.MAX_VALUE;
+        maxParks = DEFAULTMAXPARKS;
         size = 0;
     }
     
+    //Parametter constructor
     Neighborhood(int _maxParks, int _size){
         nparks = 0;
         maxParks = _maxParks;

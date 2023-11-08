@@ -23,6 +23,7 @@ import Individuals.Tiles.*;
  * @author gabriel
  */
 public class MainWindow extends javax.swing.JFrame implements View {
+    final static int PIXELSIZE = 4;
     private static MainWindow instance = null;
     private String appName;
 
@@ -39,14 +40,6 @@ public class MainWindow extends javax.swing.JFrame implements View {
         setTitle (appName);
         repaint();
         setLocationRelativeTo(null);
-        
-        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
-        /*addWindowListener(new java.awt.event.WindowAdapter() {
-            @Override
-            public void windowClosing(java.awt.event.WindowEvent e) {
-                Controller.getInstance().finish(0);
-            }
-        });*/
     }
 
     /**
@@ -99,32 +92,36 @@ public class MainWindow extends javax.swing.JFrame implements View {
         
         int ctSize = ct.getSize();
         
-        BufferedImage ctImg = new BufferedImage(ctSize,ctSize, BufferedImage.TYPE_INT_RGB);
+        BufferedImage ctImg = new BufferedImage(ctSize*PIXELSIZE,ctSize*PIXELSIZE, BufferedImage.TYPE_INT_RGB);
         
         Graphics2D g = (Graphics2D) ctImg.getGraphics();
-        g.setStroke(new BasicStroke(1));
+        g.setStroke(new BasicStroke(PIXELSIZE));
         
         for(int i = 0; i < ctSize; ++i){
             for(int j = 0; j < ctSize; ++j){
                 g.setColor(getTileColor(ct.getTile(i, j)));
-                g.drawRect(i, j, 0, 0);
+                g.drawRect(i*PIXELSIZE, j*PIXELSIZE, 0, 0);
             }
         }
         
-        jLabel1.setIcon(new ImageIcon(ctImg));
         return ctImg;
+    }
+    
+    public void setIcon(CityTileset ct){
+                jLabel1.setIcon(new ImageIcon(createCityImage(ct)));
     }
     
     private Color getTileColor(Tile tl){
         Color clr = Color.white;
-        if(tl.getValue(TileType.VOID) != Tile.NOVALUETILE){
+        if(tl.isVoid()){
             clr = Color.WHITE;
-        }else if(tl.getValue(TileType.PARK) != Tile.NOVALUETILE){
+        }else if(tl.isPark()){
             clr = Color.GREEN;
-        }else if(tl.getValue(TileType.ROAD) != Tile.NOVALUETILE){
+        }else if(tl.isRoad()){
             clr = Color.BLACK;
-        }else if(tl.getValue(TileType.BUILDING) != Tile.NOVALUETILE){
-            clr = Color.GRAY;
+        }else if(tl.isBuilding()){
+            System.out.print(tl.getValue());
+            clr = new Color(200*tl.getValue(TileType.BUILDING)/BuildingTile.MAXCITIZEN,0,0);
         }
         
         return clr;

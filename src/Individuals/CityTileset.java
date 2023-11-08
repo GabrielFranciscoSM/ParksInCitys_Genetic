@@ -16,7 +16,7 @@ import java.util.ArrayList;
 //Individual
 public class CityTileset {
     
-    static final int DEFAULTSIZE = 50;
+    static final int DEFAULTSIZE = 100;
     
     //Size of the neighborhoods. It works better if it divides SETSIZE
     static final int NEIGHBORHOODSIZE = 10;
@@ -41,7 +41,9 @@ public class CityTileset {
                 aux.add(new VoidTile());
                 
                 if(j % (NEIGHBORHOODSIZE) == 0){
-                    aux2.add(new Neighborhood());
+                    aux2.add(new Neighborhood(
+                            Neighborhood.DEFAULTMAXPARKS, 
+                            NEIGHBORHOODSIZE));
                 }
             }
             
@@ -52,7 +54,7 @@ public class CityTileset {
         }
     }
     
-    //Default constructor
+    //Size parammeter constructor
     public CityTileset(int size){
         
         tileset = new ArrayList<>();
@@ -67,7 +69,9 @@ public class CityTileset {
                 aux.add(new VoidTile());
                 
                 if(j % (NEIGHBORHOODSIZE) == 0){
-                    aux2.add(new Neighborhood());
+                    aux2.add(new Neighborhood(
+                            Neighborhood.DEFAULTMAXPARKS, 
+                            NEIGHBORHOODSIZE));
                 }
             }
             
@@ -84,7 +88,7 @@ public class CityTileset {
         if(pos.inRange(Position.ZERO, new Position(getSize()-1))){
             return tileset.get(pos.getX()).get(pos.getY());
         }
-        else return null;
+        else return new NullTile();
         
     }
     
@@ -121,23 +125,35 @@ public class CityTileset {
             return false;
     }
     
+    //Create a building Tile
     public void NewBuildingTile(Position pos){
-        ChangeTile(pos, new BuildingTile());
+        NewBuildingTile(pos, new BuildingTile());
     }
     
     public void NewBuildingTile(Position pos, Tile bt){
-        ChangeTile(pos, bt);
+        if(getTile(pos).canBuild())
+            ChangeTile(pos, bt);
+    }
+    
+    public boolean canBuild(Position pos){
+        if(pos.inRange(Position.ZERO, new Position(getSize()-1))){
+            if(getTile(pos).canBuild()){
+                return true;
+            }
+        }
+        
+        return false;
     }
     
     public void NewRoadTile(Position pos){
-        ChangeTile(pos, new RoadTile());
+        if(getTile(pos).isVoid())
+            ChangeTile(pos, new RoadTile());
     }
     
     //Create a new ParkTile. Things to take in consideration:
     //  -The number of parks in the Neighborhood of the park updates
     //  -The citizens inside the Parks Area are counted
     boolean NewParkTile(Position pos){
-        
         boolean canChange = false;
         
         if(getTile(pos).isVoid()){
@@ -180,6 +196,7 @@ public class CityTileset {
     //This method can be generalized so the "neighbour" tile doesn have to be
     //next to de original.
     int getValueOfPark(Position pos, Position neighbour){
+        
         int v = getTile(neighbour).getValue(TileType.PARK);
         int offset = ParkTile.getAreaOfEffect();
 
@@ -188,16 +205,15 @@ public class CityTileset {
         switch (Math.abs(rePos.getX())+ Math.abs(rePos.getY())) {
             case 2:
                 
-                Position corner = new Position(
-                        pos.getX()-rePos.getX()*ParkTile.getAreaOfEffect(),
-                        pos.getY()-rePos.getY()*ParkTile.getAreaOfEffect());
-                Position opositeCorner = new Position(
-                        pos.getX()+rePos.getX()*ParkTile.getAreaOfEffect(),
-                        pos.getY()+rePos.getY()*ParkTile.getAreaOfEffect());
-                
+                Position corner = Position.substract
+                    (pos, rePos.mult(ParkTile.getAreaOfEffect()));
+                Position opositeCorner = Position.sum
+                    (pos, rePos.mult(ParkTile.getAreaOfEffect()));
+                                
                 v += getTile(corner).getValue(TileType.BUILDING);
+                v -= getTile(opositeCorner).getValue(TileType.BUILDING);
                 
-                for(int i = 1; i < ParkTile.getAreaOfEffect()*2+1; ++i){
+                for(int i = 1; i < ParkTile.getAreaOfEffect()*2; ++i){
                     v += getTile(corner.getX()+ i*rePos.getX(), 
                             corner.getY()).getValue(TileType.BUILDING);
                     v += getTile(corner.getX(), corner.getY()+ 
@@ -211,7 +227,7 @@ public class CityTileset {
                 break;
             case 1:
                 
-                int XindependentPart = (ParkTile.getAreaOfEffect())*rePos.getX()
+                int XindependentPart = ParkTile.getAreaOfEffect()*rePos.getX()
                         +pos.getX() + rePos.getY()*(ParkTile.getAreaOfEffect());
                 
                 int YindependentPart = (ParkTile.getAreaOfEffect())*rePos.getY()
@@ -247,8 +263,8 @@ public class CityTileset {
         Position botRight = new Position(Math.min(getSize()-1, pos.getX() + offset), 
                 Math.min(getSize()-1, pos.getY() + offset));
         
-        for(int i = topLeft.getX(); i < botRight.getX(); ++i){
-            for(int j = topLeft.getY(); j < botRight.getY(); ++j){
+        for(int i = topLeft.getX(); i <= botRight.getX(); ++i){
+            for(int j = topLeft.getY(); j <= botRight.getY(); ++j){
                 v += getTile(i,j).getValue(TileType.BUILDING);
             }
         }

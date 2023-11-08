@@ -19,22 +19,24 @@ public class ParksInCity_GeneticAlgorithms {
      */
     public static void main(String[] args) {
         
-        CityTileset ct = new CityTileset(300);
+        CityTileset ct = new CityTileset(200);
         
-        RandomCityInicializer generator = new RandomCityInicializer(ct);
-        
-        //System.out.print(ct);
-        
-        generator.createBuildings(10);
+        RandomCityInicializer generator = 
+                new RandomCityInicializer(ct,300);
         
         //System.out.print(ct);
         
-        generator.createRoads(10);
         
+        //System.out.print(ct);
+        
+        generator.createRoads();
+        generator.createBuildings(300, true);
+        generator.createBuildings(300, false);
+
         //System.out.print(ct);
         
         MainWindow gui = MainWindow.getInstance();
-        gui.createCityImage(ct);
+        gui.setIcon(ct);
         
         gui.showView();
         
