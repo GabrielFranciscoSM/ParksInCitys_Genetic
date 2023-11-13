@@ -2,9 +2,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Individuals;
+package Model.Individuals;
 
-import Individuals.Tiles.*;
+import Model.Individuals.Tiles.RoadTile;
+import Model.Individuals.Tiles.VoidTile;
+import Model.Individuals.Tiles.TileType;
+import Model.Individuals.Tiles.NullTile;
+import Model.Individuals.Tiles.Tile;
+import Model.Individuals.Tiles.ParkTile;
+import Model.Individuals.Tiles.BuildingTile;
 import Basics.*;
 import java.util.ArrayList;
 
@@ -16,14 +22,14 @@ import java.util.ArrayList;
 //Individual
 public class CityTileset {
     
-    static final int DEFAULTSIZE = 100;
+    static final private int DEFAULTSIZE = 100;
     
     //Size of the neighborhoods. It works better if it divides SETSIZE
-    static final int NEIGHBORHOODSIZE = 10;
+    static final private int NEIGHBORHOODSIZE = 10;
     
     //Arrays of Tiles and Neighborhoods
-    ArrayList<ArrayList<Tile>> tileset;
-    ArrayList<ArrayList<Neighborhood>> neighborhoods;
+    private ArrayList<ArrayList<Tile>> tileset;
+    private ArrayList<ArrayList<Neighborhood>> neighborhoods;
     
     
     //Default constructor
@@ -96,11 +102,11 @@ public class CityTileset {
         return getTile(new Position(x,y));
     }
     
-    Neighborhood getNeigborhoodWithTilePos(Position pos){
+    private Neighborhood getNeigborhoodWithTilePos(Position pos){
         return getNeigborhood(pos.div(NEIGHBORHOODSIZE));
     }
     
-    Neighborhood getNeigborhood(Position pos){
+    private Neighborhood getNeigborhood(Position pos){
         if(pos.inRange(Position.ZERO,  new Position(neighborhoods.size()-1)))
             return neighborhoods.get(pos.getX()).get(pos.getY());
         else
@@ -111,7 +117,7 @@ public class CityTileset {
         return tileset.size();
     }
     
-    int getNeighborhoodSize(){
+    public int getNeighborhoodSize(){
         return NEIGHBORHOODSIZE;
     }
     
@@ -153,7 +159,7 @@ public class CityTileset {
     //Create a new ParkTile. Things to take in consideration:
     //  -The number of parks in the Neighborhood of the park updates
     //  -The citizens inside the Parks Area are counted
-    boolean NewParkTile(Position pos){
+    public boolean NewParkTile(Position pos){
         boolean canChange = false;
         
         if(getTile(pos).isVoid()){
@@ -168,7 +174,7 @@ public class CityTileset {
     }
     
     //
-    boolean NewParkTile(Position pos, Position neighbour){
+    public boolean NewParkTile(Position pos, Position neighbour){
         
         boolean canChange = false;
         

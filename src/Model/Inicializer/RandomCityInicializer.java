@@ -2,10 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package inicializer;
+package Model.Inicializer;
 
-import Individuals.CityTileset;
-import Individuals.Tiles.*;
+import Model.Individuals.Tiles.BuildingTile;
+import Model.Individuals.CityTileset;
 import Basics.*;
 
 import java.util.Random;
@@ -20,14 +20,14 @@ import java.util.HashSet;
  */
 public class RandomCityInicializer {
     
-    final int MINSEPARATIONOFROADS = 4;
+    final private int MINSEPARATIONOFROADS = 4;
     
-    final int MAXBUILDINGSIZE = MINSEPARATIONOFROADS*2;
-    final int MINBUILDINGSIZE = MINSEPARATIONOFROADS/2;
+    final private int MAXBUILDINGSIZE = MINSEPARATIONOFROADS*2;
+    final private int MINBUILDINGSIZE = MINSEPARATIONOFROADS/2;
     
-    final double NEWROADPROB = 0.5; //<0.5
-    final double NEWBUILDINGPROB = 0.5;
-    final double STOPBUILDINGPROB = 0.05;
+    final private double NEWROADPROB = 0.5; //<0.5
+    final private double NEWBUILDINGPROB = 0.5;
+    final private double STOPBUILDINGPROB = 0.05;
     
     Random generator;
     HashSet<Position> nodes;
@@ -55,7 +55,7 @@ public class RandomCityInicializer {
     }
     
     //Create building defaults
-    public void createBuildings(){
+    private void createBuildings(){
         createBuildings(ct.getSize(),false);
         createBuildings(ct.getSize(),true);
     }
@@ -99,18 +99,8 @@ public class RandomCityInicializer {
         
     }
     
-    //Create Roads Based on nodes
-    public HashSet<Position> createRoads(){
-        
-        for(Position i: nodes){
-            createRoad(i);
-        }
-        
-        return nodes;
-    }
-    
     //Method to create buildings in the corner of road croses (nodes)
-    public void createBuildings(HashSet<Position> pos){
+    private void createBuildings(HashSet<Position> pos){
         
         for(Position n: pos){
             int i = 1;
@@ -182,6 +172,16 @@ public class RandomCityInicializer {
             }
         }
     }
+    
+    //Create Roads Based on nodes
+    public void createRoads(){
+        
+        for(Position i: nodes){
+            createRoad(i);
+        }
+    }
+    
+    
     
     //Method to create roads at four directions from positions.
     //Roads stop generating when they encounter another road

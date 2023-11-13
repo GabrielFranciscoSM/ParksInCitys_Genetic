@@ -4,9 +4,9 @@
  */
 package parksincity_geneticalgorithms;
 
+import Model.Inicializer.RandomCityInicializer;
+import Model.Individuals.CityTileset;
 import Views.GUI.MainWindow;
-import Individuals.*;
-import inicializer.*;
 
 /**
  *

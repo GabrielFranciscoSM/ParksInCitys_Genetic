@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Individuals;
+package Model.Individuals;
 
 /**
  *
@@ -17,27 +17,27 @@ public class Neighborhood {
     
     //Maximun cuantity of parks. Infinite at default.
     //Used so the parkTiles doesnt clump
-    final private int maxParks;
+    final private int MAXPARKS;
     
-    int size;
+    private int size;
     
     //Default Constructor
-    Neighborhood(){
+    protected Neighborhood(){
         nparks = 0;
-        maxParks = DEFAULTMAXPARKS;
+        MAXPARKS = DEFAULTMAXPARKS;
         size = 0;
     }
     
     //Parametter constructor
-    Neighborhood(int _maxParks, int _size){
+    protected Neighborhood(int _maxParks, int _size){
         nparks = 0;
-        maxParks = _maxParks;
+        MAXPARKS = _maxParks;
         size = _size;
     }
     
     //Add a park in the neighborhood
     protected boolean addPark(){
-        if(nparks < maxParks){
+        if(nparks < MAXPARKS){
             ++nparks;
             return true;
         }

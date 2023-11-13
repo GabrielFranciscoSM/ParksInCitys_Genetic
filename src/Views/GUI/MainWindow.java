@@ -4,6 +4,9 @@
  */
 package Views.GUI;
 
+import Model.Individuals.Tiles.TileType;
+import Model.Individuals.Tiles.Tile;
+import Model.Individuals.Tiles.BuildingTile;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.ImageIcon;
@@ -15,15 +18,14 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.BasicStroke;
 
-import Individuals.CityTileset;
-import Individuals.Tiles.*;
+import Model.Individuals.CityTileset;
 
 /**
  *
  * @author gabriel
  */
 public class MainWindow extends javax.swing.JFrame implements View {
-    final static int PIXELSIZE = 4;
+    final static int PIXELSIZE = 3;
     private static MainWindow instance = null;
     private String appName;
 
@@ -120,7 +122,6 @@ public class MainWindow extends javax.swing.JFrame implements View {
         }else if(tl.isRoad()){
             clr = Color.BLACK;
         }else if(tl.isBuilding()){
-            System.out.print(tl.getValue());
             clr = new Color(200*tl.getValue(TileType.BUILDING)/BuildingTile.MAXCITIZEN,0,0);
         }
         

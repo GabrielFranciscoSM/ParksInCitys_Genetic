@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Individuals.Tiles;
+package Model.Individuals.Tiles;
 
 /**
  *
@@ -11,32 +11,32 @@ package Individuals.Tiles;
 public class BuildingTile extends Tile{    
     
     //Default number of citizens in a building tile.
-    static final int DEFAULTCITIZENS = 20;
+    private static final int DEFAULTCITIZENS = 20;
     
     public final static int MAXCITIZEN = 100;
     public final static int MINCITIZEN = 5;
     
-    final private int citizens;
+    final private int CITIZENS;
     
     //Default Contructor
     public BuildingTile(){
-        citizens = DEFAULTCITIZENS;
+        CITIZENS = DEFAULTCITIZENS;
     }
     
     //Constructor that sets citizens
     public BuildingTile(int nCitycents){
-        citizens = nCitycents;
+        CITIZENS = nCitycents;
     }
     
     //Getters and setters
-    public int getCitizens(){
-        return citizens;
+    public int getCITIZENS(){
+        return CITIZENS;
     }
     
     @Override
     public int getValue(TileType type){
         if(type == TileType.BUILDING)
-            return getCitizens();
+            return getCITIZENS();
         else
             return NOVALUETILE;
     }
