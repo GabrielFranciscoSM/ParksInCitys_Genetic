@@ -9,5 +9,7 @@ package Model.operators.crossover;
  * @author gabriel
  */
 public class NeighborhoodCrossover {
-    
+    public void apply(){
+        
+    }
 }

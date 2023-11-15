@@ -9,5 +9,13 @@ package Model.fitness;
  * @author gabriel
  */
 public class PonderatedFunction {
+    MoneyFunction money;
+    ValueFunction value;
     
+    private double moneyPonderation;
+    private double valuePonderation;
+    
+    public void Evaluate(){
+        
+    }
 }

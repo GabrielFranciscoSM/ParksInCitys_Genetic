@@ -16,4 +16,8 @@ public class RandomParkInicializer {
     public RandomParkInicializer(CityTileset _ct){
         ct = _ct;
     }
+    
+    public void Inicialize(){
+        
+    }
 }

@@ -9,5 +9,7 @@ package Model.fitness;
  * @author gabriel
  */
 public class MoneyFunction {
-    
+    public void Evaluate(){
+        
+    }
 }

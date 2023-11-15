@@ -9,5 +9,7 @@ package Model.operators.mutation;
  * @author gabriel
  */
 public class MutationController {
-    
+    public void apply(){
+        
+    }
 }

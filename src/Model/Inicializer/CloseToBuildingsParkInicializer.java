@@ -9,5 +9,7 @@ package Model.Inicializer;
  * @author gabriel
  */
 public class CloseToBuildingsParkInicializer {
-    
+    public void Inicialize(){
+        
+    }
 }

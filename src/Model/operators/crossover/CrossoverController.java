@@ -9,5 +9,7 @@ package Model.operators.crossover;
  * @author gabriel
  */
 public class CrossoverController {
-    
+    public void apply(){
+        
+    }
 }
