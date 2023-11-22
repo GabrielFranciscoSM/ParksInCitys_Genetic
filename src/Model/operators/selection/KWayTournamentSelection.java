@@ -9,5 +9,7 @@ package Model.operators.selection;
  * @author gabriel
  */
 public class KWayTournamentSelection {
-    
+    public void apply(){
+        
+    }
 }

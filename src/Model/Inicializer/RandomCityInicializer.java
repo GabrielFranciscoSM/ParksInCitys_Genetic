@@ -175,7 +175,6 @@ public class RandomCityInicializer {
     
     //Create Roads Based on nodes
     public void createRoads(){
-        
         for(Position i: nodes){
             createRoad(i);
         }

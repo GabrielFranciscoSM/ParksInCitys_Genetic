@@ -6,6 +6,9 @@ package parksincity_geneticalgorithms;
 
 import Model.Inicializer.RandomCityInicializer;
 import Model.Individuals.CityTileset;
+import Model.Individuals.Population;
+import Model.Individuals.FixedSizePopulation;
+
 import Views.GUI.MainWindow;
 
 /**
@@ -20,23 +23,31 @@ public class ParksInCity_GeneticAlgorithms {
     public static void main(String[] args) {
         
         CityTileset ct = new CityTileset(200);
+        FixedSizePopulation<CityTileset> ctPop = new FixedSizePopulation<>(1,10);
+        
+        for(int i = 0; i < 10; ++i){
+            ctPop.add(new CityTileset(200));
+        }
+        
+        for(CityTileset i: ctPop){
+            RandomCityInicializer generator = 
+                new RandomCityInicializer(i,300);
+        
+            generator.createRoads();
+            generator.createBuildings(300, true);
+            generator.createBuildings(300, false);
+        }
         
         RandomCityInicializer generator = 
                 new RandomCityInicializer(ct,300);
-        
-        //System.out.print(ct);
-        
-        
-        //System.out.print(ct);
-        
+
         generator.createRoads();
         generator.createBuildings(300, true);
         generator.createBuildings(300, false);
 
-        //System.out.print(ct);
-        
         MainWindow gui = MainWindow.getInstance();
-        gui.setIcon(ct);
+        //gui.setIcon(ct);
+        gui.setPopulation(ctPop);
         
         gui.showView();
         

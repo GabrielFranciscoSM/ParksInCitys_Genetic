@@ -20,7 +20,7 @@ import java.util.ArrayList;
  */
 
 //Individual
-public class CityTileset {
+public class CityTileset extends Individual{
     
     static final private int DEFAULTSIZE = 100;
     
