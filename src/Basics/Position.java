@@ -29,6 +29,11 @@ public class Position {
         y = _y;
     }
     
+    public Position(Position p){
+        x = p.getX();
+        y = p.getY();
+    }
+    
     static public Position substract(Position pos1, Position pos2){
         return new Position(pos1.getX()-pos2.getX(),pos1.getY()-pos2.getY());
     }

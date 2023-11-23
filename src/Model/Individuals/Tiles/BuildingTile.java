@@ -28,6 +28,10 @@ public class BuildingTile extends Tile{
         CITIZENS = nCitycents;
     }
     
+    public BuildingTile makeCopy(){
+        return new BuildingTile(CITIZENS);
+    }
+    
     //Getters and setters
     public int getCITIZENS(){
         return CITIZENS;

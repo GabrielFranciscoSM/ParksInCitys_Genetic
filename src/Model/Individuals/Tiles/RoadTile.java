@@ -10,6 +10,10 @@ package Model.Individuals.Tiles;
  */
 public class RoadTile extends Tile {
     
+    public RoadTile makeCopy(){
+        return new RoadTile();
+    }
+    
     //Function to identificate if a generic tile is a Road tile
     @Override
     public int getValue(TileType type){

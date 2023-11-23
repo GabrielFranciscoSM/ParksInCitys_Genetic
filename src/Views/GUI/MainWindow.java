@@ -4,41 +4,26 @@
  */
 package Views.GUI;
 
-import Model.Individuals.Tiles.TileType;
-import Model.Individuals.Tiles.Tile;
-import Model.Individuals.Tiles.BuildingTile;
-import Model.Individuals.*;
-
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-import javax.swing.JFrame;
-import javax.swing.JScrollPane;
-import javax.swing.JPanel;
-
-
-import Views.View;
-import java.awt.image.BufferedImage;
-import java.awt.Color;
-import java.awt.Graphics2D;
-import java.awt.BasicStroke;
-import java.awt.Container;
-import java.awt.Dimension;
-
 import Model.Individuals.CityTileset;
-import javax.swing.ScrollPaneConstants;
+import Model.Individuals.Population;
+import Model.Individuals.Individual;
+import java.awt.image.BufferedImage;
+import java.util.ArrayList;
+import java.util.Vector;
+import javax.swing.JFrame;
+
 
 /**
  *
  * @author gabriel
  */
-public class MainWindow extends JFrame implements View {
-    final static int PIXELSIZE = 1;
+public class MainWindow extends javax.swing.JFrame {
+
     private static MainWindow instance = null;
     private String appName = "NeigborhoodParkGA";
     
-    private JFrame frame;
-    private CityView bestIndividual;
-
+    ArrayList<cityView> actualPopulation;
+    
     public static MainWindow getInstance () {
       if (instance == null) {
         instance = new MainWindow();
@@ -47,100 +32,30 @@ public class MainWindow extends JFrame implements View {
     }
     
     private MainWindow() {
-        frame = this; //JFrame Creation       
-        frame.setTitle(appName); //Add the title to frame
-        frame.setLayout(null); //Terminates default flow layout
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Terminate program on close button
-        frame.setBounds(100, 200, 600, 600); //Sets the position of the frame
+        setTitle(appName); //Add the title to frame
+        setLayout(null); //Terminates default flow layout
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Terminate program on close button
+        setBounds(100, 200, 600, 600); //Sets the position of the frame
         
+        actualPopulation = new ArrayList<>();
+        
+        initComponents();
     }
 
     public void updateView(){
-        //createCityImage();
+        repaint();
+        revalidate();
     }
     
-    public BufferedImage createCityImage(CityTileset ct, int aumFactor){
+    public void setPopulationCT(Population<CityTileset> p){
         
-        int ctSize = ct.getSize();
+        System.out.print(p.size());
         
-        BufferedImage ctImg = new BufferedImage(ctSize*PIXELSIZE*aumFactor,ctSize*PIXELSIZE*aumFactor, BufferedImage.TYPE_INT_RGB);
-        
-        Graphics2D g = (Graphics2D) ctImg.getGraphics();
-        g.setStroke(new BasicStroke(PIXELSIZE*aumFactor));
-        
-        for(int i = 0; i < ctSize; ++i){
-            for(int j = 0; j < ctSize; ++j){
-                g.setColor(getTileColor(ct.getTile(i, j)));
-                g.drawRect(i*PIXELSIZE*aumFactor, j*PIXELSIZE*aumFactor, 0, 0);
-            }
+        for(CityTileset i: p){
+           IndividualSelector.addItem(Integer.toString(i.getId()));
+           
+           actualPopulation.add(new cityView(i));
         }
-        
-        return ctImg;
-    }
-    
-    public BufferedImage createCityImage(CityTileset ct){
-        
-        int ctSize = ct.getSize();
-        
-        BufferedImage ctImg = new BufferedImage(ctSize*PIXELSIZE,ctSize*PIXELSIZE, BufferedImage.TYPE_INT_RGB);
-        
-        Graphics2D g = (Graphics2D) ctImg.getGraphics();
-        g.setStroke(new BasicStroke(PIXELSIZE));
-        
-        for(int i = 0; i < ctSize; ++i){
-            for(int j = 0; j < ctSize; ++j){
-                g.setColor(getTileColor(ct.getTile(i, j)));
-                g.drawRect(i*PIXELSIZE, j*PIXELSIZE, 0, 0);
-            }
-        }
-        
-        return ctImg;
-    }
-    
-    public void setIcon(CityTileset ct){
-        Container c = frame.getContentPane(); //Gets the content layer
-        
-        c.add(new CityView(ct,this)); //Adds objects to the container
-        frame.setVisible(true); // Exhibit the frame
-    }
-    
-    public void setPopulation(Population p){
-        //JScrollPane Pop = new JScrollPane();
-        JPanel jp = new JPanel();
-        
-        for(var i: p){
-            jp.add(new CityView((CityTileset)i,this));
-        }
-        
-        jp.setSize(jp.getPreferredSize());
-        jp.setVisible(true);
-        //Pop.add(jp);
-        //Pop.setSize(400,400);
-        
-        JScrollPane scroll = new JScrollPane(
-        jp, 
-        ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, 
-        ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS
-        );
-        scroll.setSize(400,300);
-        //Pop.setVisible(true);
-        
-        frame.getContentPane().add(scroll);
-    }
-    
-    private Color getTileColor(Tile tl){
-        Color clr = Color.white;
-        if(tl.isVoid()){
-            clr = Color.WHITE;
-        }else if(tl.isPark()){
-            clr = Color.GREEN;
-        }else if(tl.isRoad()){
-            clr = Color.BLACK;
-        }else if(tl.isBuilding()){
-            clr = new Color(200*tl.getValue(TileType.BUILDING)/BuildingTile.MAXCITIZEN,0,0);
-        }
-        
-        return clr;
     }
     
     public void showView() {
@@ -151,4 +66,72 @@ public class MainWindow extends JFrame implements View {
         return appName;
     }
     
+
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        IndividualShow_scroll = new javax.swing.JScrollPane();
+        IndividualShow_panel = new javax.swing.JPanel();
+        IndividualSelector = new javax.swing.JComboBox<>();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(100, 100));
+
+        IndividualShow_scroll.setMinimumSize(new java.awt.Dimension(100, 100));
+
+        IndividualShow_panel.setAutoscrolls(true);
+        IndividualShow_panel.setMinimumSize(new java.awt.Dimension(100, 100));
+        IndividualShow_scroll.setViewportView(IndividualShow_panel);
+
+        IndividualSelector.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
+        IndividualSelector.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                IndividualSelectorActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(IndividualSelector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(312, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(IndividualShow_scroll, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(IndividualSelector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(IndividualShow_scroll, javax.swing.GroupLayout.DEFAULT_SIZE, 264, Short.MAX_VALUE))
+        );
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void IndividualSelectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IndividualSelectorActionPerformed
+        // TODO add your handling code here:
+        IndividualShow_panel.removeAll();
+        IndividualShow_panel.add(actualPopulation.get(IndividualSelector.getSelectedIndex()));
+        
+        updateView();
+    }//GEN-LAST:event_IndividualSelectorActionPerformed
+
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> IndividualSelector;
+    private javax.swing.JPanel IndividualShow_panel;
+    private javax.swing.JScrollPane IndividualShow_scroll;
+    // End of variables declaration//GEN-END:variables
 }

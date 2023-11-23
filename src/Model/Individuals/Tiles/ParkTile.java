@@ -28,6 +28,10 @@ public class ParkTile extends Tile{
         value = 1;
     }
     
+    public ParkTile makeCopy(){
+        return new ParkTile(value);
+    }
+    
     //getters and setters
     static public int getAreaOfEffect(){
         return AREAOFEFFECT;

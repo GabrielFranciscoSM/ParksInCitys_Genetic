@@ -4,11 +4,14 @@
  */
 package parksincity_geneticalgorithms;
 
+import Basics.Position;
 import Model.Inicializer.RandomCityInicializer;
 import Model.Individuals.CityTileset;
 import Model.Individuals.Population;
 import Model.Individuals.FixedSizePopulation;
+import Model.Individuals.Tiles.ParkTile;
 
+import Views.GUI.MainWindow;
 import Views.GUI.MainWindow;
 
 /**
@@ -24,30 +27,25 @@ public class ParksInCity_GeneticAlgorithms {
         
         CityTileset ct = new CityTileset(200);
         FixedSizePopulation<CityTileset> ctPop = new FixedSizePopulation<>(1,10);
-        
-        for(int i = 0; i < 10; ++i){
-            ctPop.add(new CityTileset(200));
-        }
-        
-        for(CityTileset i: ctPop){
-            RandomCityInicializer generator = 
-                new RandomCityInicializer(i,300);
-        
-            generator.createRoads();
-            generator.createBuildings(300, true);
-            generator.createBuildings(300, false);
-        }
-        
+                        
         RandomCityInicializer generator = 
                 new RandomCityInicializer(ct,300);
-
         generator.createRoads();
         generator.createBuildings(300, true);
         generator.createBuildings(300, false);
 
+        for(int i = 0; i < 10; ++i){
+            
+            if(i >= 3){
+                 ct.NewParkTile(new Position(i,i));
+            }
+            ctPop.add(new CityTileset(ct));
+            
+        }
+
         MainWindow gui = MainWindow.getInstance();
         //gui.setIcon(ct);
-        gui.setPopulation(ctPop);
+        gui.setPopulationCT(ctPop);
         
         gui.showView();
         

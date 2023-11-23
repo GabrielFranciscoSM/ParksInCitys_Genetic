@@ -13,6 +13,8 @@ public abstract class Tile {
     //Default value to send back to getValue()
     public static int NOVALUETILE = 0;
     
+    public abstract Tile makeCopy();
+    
     //Give back a value:
     //  -NOVALUETILE if TileType is not its type
     //  -Other value (usually 1 for existance or personalized value)

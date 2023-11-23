@@ -10,6 +10,10 @@ package Model.Individuals.Tiles;
  */
 public class VoidTile extends Tile{
     
+    public VoidTile makeCopy(){
+        return new VoidTile();
+    }
+    
     //Function to identificate if a generic tile is a Void tile
     @Override
     public int getValue(TileType type){

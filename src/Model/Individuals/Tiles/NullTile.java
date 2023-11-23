@@ -10,6 +10,10 @@ package Model.Individuals.Tiles;
  */
 public class NullTile extends Tile{
     
+    public NullTile makeCopy(){
+        return new NullTile();
+    }
+    
     public int getValue(TileType t){
         return NOVALUETILE;
     }

@@ -35,6 +35,20 @@ public class Neighborhood {
         size = _size;
     }
     
+    protected Neighborhood(Neighborhood cp){
+        nparks = cp.getNParks();
+        MAXPARKS = cp.MAXPARKS;
+        size = cp.getSize();
+    }
+    
+    protected int getNParks(){
+        return nparks;
+    }
+    
+    protected int getSize(){
+        return size;
+    }
+    
     //Add a park in the neighborhood
     protected boolean addPark(){
         if(nparks < MAXPARKS){

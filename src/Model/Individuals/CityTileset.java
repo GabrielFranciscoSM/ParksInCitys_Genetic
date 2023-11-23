@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author gabriel
+ * @author Gabriel Sanchez
  */
 
 //Individual
@@ -27,16 +27,24 @@ public class CityTileset extends Individual{
     //Size of the neighborhoods. It works better if it divides SETSIZE
     static final private int NEIGHBORHOODSIZE = 10;
     
+    //Saves the numer of cities created. Used to asign id
+    static private int nCities = 0;
+    
     //Arrays of Tiles and Neighborhoods
     private ArrayList<ArrayList<Tile>> tileset;
     private ArrayList<ArrayList<Neighborhood>> neighborhoods;
     
+    
+    //id of a city.
+    private int id;
     
     //Default constructor
     public CityTileset(){
         
         tileset = new ArrayList<>();
         neighborhoods = new ArrayList<>();
+        ++nCities;
+        id = nCities;
         
         for(int i = 0; i < DEFAULTSIZE; ++i){
             
@@ -65,7 +73,9 @@ public class CityTileset extends Individual{
         
         tileset = new ArrayList<>();
         neighborhoods = new ArrayList<>();
-        
+        ++nCities;
+        id = nCities;
+
         for(int i = 0; i < size; ++i){
             
             ArrayList<Tile> aux = new ArrayList<>(); 
@@ -88,6 +98,37 @@ public class CityTileset extends Individual{
         }
     }
     
+    //Copy constructor. 
+    public CityTileset(CityTileset cp){
+        tileset = new ArrayList<>();
+        neighborhoods = new ArrayList<>();
+
+        ++nCities;
+        id = nCities;
+        for(int i = 0; i < cp.getSize(); ++i){
+            
+            ArrayList<Tile> aux = new ArrayList<>(); 
+            ArrayList<Neighborhood> aux2 = new ArrayList<>(); 
+            
+            for(int j = 0; j < cp.getSize(); ++j){
+                aux.add(cp.getTile(i,j).makeCopy());
+                
+                if(j % (NEIGHBORHOODSIZE) == 0){
+                    aux2.add(new Neighborhood(cp.getNeigborhoodWithTilePos(new Position(i,j))));
+                }
+            }
+            
+            tileset.add(aux);
+            if(i % (NEIGHBORHOODSIZE) == 0){
+                neighborhoods.add(aux2);
+            }
+        }
+    }
+    
+    public int getId(){
+        return id;
+    }
+    
     //Getters and setters
     public Tile getTile(Position pos){
         
@@ -97,13 +138,14 @@ public class CityTileset extends Individual{
         else return new NullTile();
         
     }
+
     
     public Tile getTile(int x, int y){
         return getTile(new Position(x,y));
     }
     
     private Neighborhood getNeigborhoodWithTilePos(Position pos){
-        return getNeigborhood(pos.div(NEIGHBORHOODSIZE));
+        return getNeigborhood(new Position(pos).div(NEIGHBORHOODSIZE));
     }
     
     private Neighborhood getNeigborhood(Position pos){
@@ -121,10 +163,15 @@ public class CityTileset extends Individual{
         return NEIGHBORHOODSIZE;
     }
     
+        
+    private void setTile(Position pos, Tile t){
+        tileset.get(pos.getX()).set(pos.getY(), t);
+    }
+    
     //Change a Tile to another
     private boolean ChangeTile(Position pos, Tile tile){
         if(pos.inRange(Position.ZERO, new Position(getSize()-1))){
-            tileset.get(pos.getX()).set(pos.getY(), tile);
+            setTile(pos,tile);
             return true;
         }
         else
@@ -163,13 +210,11 @@ public class CityTileset extends Individual{
         boolean canChange = false;
         
         if(getTile(pos).isVoid()){
-            
             getNeigborhoodWithTilePos(pos).addPark();
             ChangeTile(pos, new ParkTile(getValueOfPark(pos)));
             
             canChange = true;
         }
-        
         return canChange;
     }
     
@@ -255,6 +300,9 @@ public class CityTileset extends Individual{
                 break;
         }
         
+        if(v == 0)
+            v = 1;
+        
         return v;
         
     }
@@ -274,6 +322,9 @@ public class CityTileset extends Individual{
                 v += getTile(i,j).getValue(TileType.BUILDING);
             }
         }
+        
+        if(v == 0)
+            v  = 1;
         
         return v;
     }

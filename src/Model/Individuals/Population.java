@@ -1,7 +1,9 @@
 package Model.Individuals;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Objects;
+import java.util.Vector;
 
 public abstract class Population<T extends Individual> extends HashSet<T> implements Comparable<Population<T>> {
 
@@ -33,6 +35,10 @@ public abstract class Population<T extends Individual> extends HashSet<T> implem
         return super.stream()
                 .mapToDouble(Individual::getFitness)
                 .average().orElse(0.0);
+    }
+    
+    public ArrayList<T> getArrayList(){
+        return new ArrayList<>(this);
     }
 
     // Comparing two populations means comparing their average fitness scores
