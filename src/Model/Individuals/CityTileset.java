@@ -22,7 +22,9 @@ import java.util.ArrayList;
 //Individual
 public class CityTileset extends Individual{
     
-    static final private int DEFAULTSIZE = 100;
+    public static final int DEFAULTSIZE = 100;
+    static final public int MAXSIZE = 300;
+    static final public int MINSIZE = 10;
     
     //Size of the neighborhoods. It works better if it divides SETSIZE
     static final private int NEIGHBORHOODSIZE = 10;

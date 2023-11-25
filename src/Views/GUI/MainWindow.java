@@ -11,13 +11,14 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.Vector;
 import javax.swing.JFrame;
+import Views.View;
 
 
 /**
  *
  * @author gabriel
  */
-public class MainWindow extends javax.swing.JFrame {
+public class MainWindow extends javax.swing.JFrame implements View{
 
     private static MainWindow instance = null;
     private String appName = "NeigborhoodParkGA";

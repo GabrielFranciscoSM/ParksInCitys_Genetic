@@ -3,11 +3,15 @@ package Model.Individuals;
 
 public class FixedSizePopulation<T extends Individual> extends Population<T> {
 
+    final static public int MAXSIZE = 100;
+    final static public int MINSIZE = 5;
+    
     private final int maxSize;
 
     public FixedSizePopulation(long id, int maxSize) {
         super(id);
-        this.maxSize = Math.max(maxSize, 0);
+        int msize = Math.max(maxSize, MINSIZE);
+        this.maxSize = Math.min(msize, MAXSIZE);
     }
 
     public int getMaxSize() {

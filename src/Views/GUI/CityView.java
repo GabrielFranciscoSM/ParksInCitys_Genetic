@@ -12,12 +12,13 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import javax.swing.ImageIcon;
+import Views.View;
 
 /**
  *
  * @author gabriel
  */
-public class CityView extends javax.swing.JPanel {
+public class CityView extends javax.swing.JPanel{
     static int PIXELSIZE = 4;
     static final int MAXPIXELSIZE = 20;
     static final int MINPIXELSIZE = 1;
