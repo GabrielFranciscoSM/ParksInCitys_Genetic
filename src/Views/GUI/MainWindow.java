@@ -22,7 +22,7 @@ public class MainWindow extends javax.swing.JFrame {
     private static MainWindow instance = null;
     private String appName = "NeigborhoodParkGA";
     
-    ArrayList<cityView> actualPopulation;
+    ArrayList<CityView> actualPopulation;
     
     public static MainWindow getInstance () {
       if (instance == null) {
@@ -40,22 +40,33 @@ public class MainWindow extends javax.swing.JFrame {
         actualPopulation = new ArrayList<>();
         
         initComponents();
+        
+        IndividualSelector.setEnabled(false);
     }
 
     public void updateView(){
         repaint();
         revalidate();
+        System.out.print(CityView.PIXELSIZE);
+    }
+    
+    private void drawCity(){
+        IndividualShow_panel.removeAll();
+        actualPopulation.get(IndividualSelector.getSelectedIndex()).updateView();
+        IndividualShow_panel.add(actualPopulation.get(IndividualSelector.getSelectedIndex()));
+        
     }
     
     public void setPopulationCT(Population<CityTileset> p){
-        
-        System.out.print(p.size());
-        
+                
         for(CityTileset i: p){
            IndividualSelector.addItem(Integer.toString(i.getId()));
            
-           actualPopulation.add(new cityView(i));
+           actualPopulation.add(new CityView(i));
         }
+        
+        IndividualSelector.setEnabled(true);
+        drawCity();
     }
     
     public void showView() {
@@ -79,6 +90,9 @@ public class MainWindow extends javax.swing.JFrame {
         IndividualShow_scroll = new javax.swing.JScrollPane();
         IndividualShow_panel = new javax.swing.JPanel();
         IndividualSelector = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
+        plusSize = new javax.swing.JButton();
+        subSize = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(100, 100));
@@ -89,10 +103,25 @@ public class MainWindow extends javax.swing.JFrame {
         IndividualShow_panel.setMinimumSize(new java.awt.Dimension(100, 100));
         IndividualShow_scroll.setViewportView(IndividualShow_panel);
 
-        IndividualSelector.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
         IndividualSelector.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 IndividualSelectorActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("SIze");
+
+        plusSize.setText("+");
+        plusSize.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                plusSizeActionPerformed(evt);
+            }
+        });
+
+        subSize.setText("-");
+        subSize.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                subSizeActionPerformed(evt);
             }
         });
 
@@ -103,7 +132,13 @@ public class MainWindow extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(IndividualSelector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(312, Short.MAX_VALUE))
+                .addGap(47, 47, 47)
+                .addComponent(plusSize)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(subSize)
+                .addContainerGap(174, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addComponent(IndividualShow_scroll, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -112,7 +147,11 @@ public class MainWindow extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(IndividualSelector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(IndividualSelector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1)
+                    .addComponent(plusSize)
+                    .addComponent(subSize))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(IndividualShow_scroll, javax.swing.GroupLayout.DEFAULT_SIZE, 264, Short.MAX_VALUE))
         );
@@ -122,16 +161,35 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void IndividualSelectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IndividualSelectorActionPerformed
         // TODO add your handling code here:
-        IndividualShow_panel.removeAll();
-        IndividualShow_panel.add(actualPopulation.get(IndividualSelector.getSelectedIndex()));
-        
+        if(IndividualSelector.isEnabled())
+            drawCity();
         updateView();
     }//GEN-LAST:event_IndividualSelectorActionPerformed
+
+    private void plusSizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plusSizeActionPerformed
+        if(CityView.PIXELSIZE < CityView.MAXPIXELSIZE){
+            CityView.PIXELSIZE++;
+        }
+            
+        drawCity();
+        updateView();
+    }//GEN-LAST:event_plusSizeActionPerformed
+
+    private void subSizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subSizeActionPerformed
+        if(CityView.PIXELSIZE > CityView.MINPIXELSIZE)
+            CityView.PIXELSIZE--;
+        
+        drawCity();
+        updateView();
+    }//GEN-LAST:event_subSizeActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> IndividualSelector;
     private javax.swing.JPanel IndividualShow_panel;
     private javax.swing.JScrollPane IndividualShow_scroll;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton plusSize;
+    private javax.swing.JButton subSize;
     // End of variables declaration//GEN-END:variables
 }

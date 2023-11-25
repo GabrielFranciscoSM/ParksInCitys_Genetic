@@ -14,7 +14,5 @@ import java.util.ArrayList;
 public interface View {
     public void updateView();
     public void showView();
-    public String getAppName();
-    // Messages
-    //public boolean confirmExitMessage();   
+    public String getAppName();  
 }

@@ -17,14 +17,14 @@ import javax.swing.ImageIcon;
  *
  * @author gabriel
  */
-public class cityView extends javax.swing.JPanel {
-    final static int PIXELSIZE = 4;
-
-    CityTileset ct;
+public class CityView extends javax.swing.JPanel {
+    static int PIXELSIZE = 4;
+    static final int MAXPIXELSIZE = 20;
+    static final int MINPIXELSIZE = 1;
     
-    boolean isAum;
-        
-    cityView(CityTileset _ct){
+    CityTileset ct;
+            
+    CityView(CityTileset _ct){
         ct = _ct;
         
         initComponents();
@@ -35,7 +35,7 @@ public class cityView extends javax.swing.JPanel {
     public BufferedImage createCityImage(CityTileset ct, int aumFactor){
         
         int ctSize = ct.getSize();
-        int newPxlSize = PIXELSIZE*aumFactor;
+        int newPxlSize = CityView.PIXELSIZE*aumFactor;
         
         BufferedImage ctImg = new BufferedImage
         (ctSize*newPxlSize,ctSize*newPxlSize, BufferedImage.TYPE_INT_RGB);
@@ -71,6 +71,11 @@ public class cityView extends javax.swing.JPanel {
         }
         
         return clr;
+    }
+    
+    public void updateView(){
+        cityShow_label.setIcon(new ImageIcon(createCityImage(ct)));
+        System.out.print(PIXELSIZE);
     }
 
     /**
