@@ -4,7 +4,6 @@
  */
 package Views.GUI;
 
-import Model.Individuals.CityTileset;
 import Model.Individuals.FixedSizePopulation;
 
 /**
@@ -19,18 +18,12 @@ public class ModelParametersVIew extends javax.swing.JPanel {
     public ModelParametersVIew() {
         initComponents();
         slideBar1.setLimits(FixedSizePopulation.MAXSIZE,FixedSizePopulation.MINSIZE);
-        CitySlide.setLimits(CityTileset.MAXSIZE, CityTileset.MINSIZE);
-        CitySlide.setDefault(CityTileset.DEFAULTSIZE);
-        
     }
     
     public int getPopSizeValue(){
         return slideBar1.getValue();
     }
-    
-    public int getCitySizeValue(){
-        return CitySlide.getValue();
-    }
+            
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -41,15 +34,9 @@ public class ModelParametersVIew extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        CitySizeLabel = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         slideBar1 = new Views.GUI.SlideBar();
         PopSizeLabel1 = new javax.swing.JLabel();
-        CitySlide = new Views.GUI.SlideBar();
-
-        CitySizeLabel.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
-        CitySizeLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        CitySizeLabel.setText("City Size");
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
@@ -62,40 +49,33 @@ public class ModelParametersVIew extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(PopSizeLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 289, Short.MAX_VALUE)
-                    .addComponent(CitySizeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(PopSizeLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(CitySlide, javax.swing.GroupLayout.DEFAULT_SIZE, 369, Short.MAX_VALUE)
-                    .addComponent(slideBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                .addComponent(slideBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 323, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator1)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(PopSizeLabel1)
-                        .addGap(29, 29, 29)
-                        .addComponent(CitySizeLabel))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(slideBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(CitySlide, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(179, 367, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jSeparator1)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(17, 17, 17)
+                                .addComponent(PopSizeLabel1))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(21, 21, 21)
+                                .addComponent(slideBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 12, Short.MAX_VALUE)))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel CitySizeLabel;
-    private Views.GUI.SlideBar CitySlide;
     private javax.swing.JLabel PopSizeLabel1;
     private javax.swing.JSeparator jSeparator1;
     private Views.GUI.SlideBar slideBar1;

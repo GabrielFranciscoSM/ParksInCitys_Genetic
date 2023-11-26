@@ -31,24 +31,23 @@ public class StartView extends javax.swing.JFrame implements View{
         showView();
 
         initComponents();
+        
+        ParameterTab.setTitleAt(0, "General");
+        ParameterTab.setTitleAt(1, "City");
     }
 
     //Test
     public MainWindow generateMainWindow(){
-        CityTileset ct = new CityTileset(modelParametersVIew1.getCitySizeValue());
+        CityTileset ct = new CityTileset(cityParametersView1.getCitySizeValue());
         FixedSizePopulation<CityTileset> ctPop = new FixedSizePopulation<>(1,modelParametersVIew1.getPopSizeValue());
                         
         RandomCityInicializer generator = 
-                new RandomCityInicializer(ct,300);
+                new RandomCityInicializer(ct,ct.getSize()/10*cityParametersView1.getRoadDensity());
+        generator.setNewBuildingProb((double)cityParametersView1.getBuildingDensity()/100); 
         generator.createRoads();
-        generator.createBuildings(300, true);
-        generator.createBuildings(300, false);
+        generator.createBuildings();
 
         for(int i = 0; i < modelParametersVIew1.getPopSizeValue(); ++i){
-            
-            if(i >= 3){
-                 ct.NewParkTile(new Position(i,i));
-            }
             ctPop.add(new CityTileset(ct));
             
         }
@@ -71,7 +70,9 @@ public class StartView extends javax.swing.JFrame implements View{
 
         jLabel1 = new javax.swing.JLabel();
         startButton = new javax.swing.JButton();
+        ParameterTab = new javax.swing.JTabbedPane();
         modelParametersVIew1 = new Views.GUI.ModelParametersVIew();
+        cityParametersView1 = new Views.GUI.CityParametersView();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -86,17 +87,21 @@ public class StartView extends javax.swing.JFrame implements View{
             }
         });
 
+        ParameterTab.addTab("tab1", modelParametersVIew1);
+        ParameterTab.addTab("tab2", cityParametersView1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 644, Short.MAX_VALUE)
+                .addGap(161, 161, 161))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(startButton, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(modelParametersVIew1, javax.swing.GroupLayout.DEFAULT_SIZE, 642, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(67, 67, 67)
+                .addComponent(ParameterTab, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -107,10 +112,11 @@ public class StartView extends javax.swing.JFrame implements View{
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(startButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(modelParametersVIew1, javax.swing.GroupLayout.DEFAULT_SIZE, 433, Short.MAX_VALUE)
-                        .addContainerGap())))
+                    .addComponent(ParameterTab, javax.swing.GroupLayout.DEFAULT_SIZE, 439, Short.MAX_VALUE)))
         );
+
+        ParameterTab.getAccessibleContext().setAccessibleName("general");
+        ParameterTab.getAccessibleContext().setAccessibleDescription("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -124,6 +130,8 @@ public class StartView extends javax.swing.JFrame implements View{
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTabbedPane ParameterTab;
+    private Views.GUI.CityParametersView cityParametersView1;
     private javax.swing.JLabel jLabel1;
     private Views.GUI.ModelParametersVIew modelParametersVIew1;
     private javax.swing.JButton startButton;

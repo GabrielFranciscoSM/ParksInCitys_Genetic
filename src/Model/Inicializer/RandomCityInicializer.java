@@ -9,9 +9,6 @@ import Model.Individuals.CityTileset;
 import Basics.*;
 
 import java.util.Random;
-import java.util.PriorityQueue;
-import java.util.Vector;
-import java.util.Set;
 import java.util.HashSet;
 
 /**
@@ -20,13 +17,21 @@ import java.util.HashSet;
  */
 public class RandomCityInicializer {
     
-    final private int MINSEPARATIONOFROADS = 4;
+    final static private int MINSEPARATIONOFROADS = 4;
     
-    final private int MAXBUILDINGSIZE = MINSEPARATIONOFROADS*2;
-    final private int MINBUILDINGSIZE = MINSEPARATIONOFROADS/2;
+    final static private int MAXBUILDINGSIZE = MINSEPARATIONOFROADS*2;
+    final static private int MINBUILDINGSIZE = MINSEPARATIONOFROADS/2;
     
+    final static public int MAXBUILDINGDENSITY = 100;
+    final static public int MINBUILDINGDENSITY = 10;
+    final static public int DEFBUILDINGDENSITY = 70;
+    
+    final static public int MAXROADDENSITY = 50;
+    final static public int MINROADDENSITY = 1;
+    final static public int DEFROADDENSITY = 20;
+            
     final private double NEWROADPROB = 0.5; //<0.5
-    final private double NEWBUILDINGPROB = 0.5;
+    private double newBuildingProb = 0.8;
     final private double STOPBUILDINGPROB = 0.05;
     
     Random generator;
@@ -39,6 +44,10 @@ public class RandomCityInicializer {
         generator = new Random(System.currentTimeMillis());
         nodes = new HashSet();
         generateNodes(n_nodes);
+    }
+    
+    public void setNewBuildingProb(double nbp){
+        newBuildingProb = nbp;
     }
     
     //Function to generate nodes.
@@ -55,8 +64,8 @@ public class RandomCityInicializer {
     }
     
     //Create building defaults
-    private void createBuildings(){
-        createBuildings(ct.getSize(),false);
+    public void createBuildings(){
+        createBuildings(ct.getSize()*(int)(newBuildingProb*8),false);
         createBuildings(ct.getSize(),true);
     }
     
@@ -105,7 +114,7 @@ public class RandomCityInicializer {
         for(Position n: pos){
             int i = 1;
             
-            if(generator.nextDouble() < NEWBUILDINGPROB){
+            if(generator.nextDouble() < newBuildingProb){
                 while(ct.canBuild(Position.sum(n, new Position(i)))
                         && generator.nextDouble() >= STOPBUILDINGPROB){
                     ++i; 
@@ -116,7 +125,7 @@ public class RandomCityInicializer {
             }
             i=1;
 
-            if(generator.nextDouble() < NEWBUILDINGPROB){
+            if(generator.nextDouble() < newBuildingProb){
                 while(ct.canBuild(Position.sum(n, new Position(i,-i)))
                         && generator.nextDouble() >= STOPBUILDINGPROB){
                     ++i;
@@ -127,7 +136,7 @@ public class RandomCityInicializer {
             }
             i=1;
 
-            if(generator.nextDouble() < NEWBUILDINGPROB){
+            if(generator.nextDouble() < newBuildingProb){
                 while(ct.canBuild(Position.sum(n, new Position(-i,i)))
                         && generator.nextDouble() >= STOPBUILDINGPROB){
                     ++i;
@@ -139,7 +148,7 @@ public class RandomCityInicializer {
             }
             i=1;
 
-            if(generator.nextDouble() < NEWBUILDINGPROB){
+            if(generator.nextDouble() < newBuildingProb){
                 while(ct.canBuild(Position.substract(n, new Position(i)))
                         && generator.nextDouble() >= STOPBUILDINGPROB){
                     ++i;
