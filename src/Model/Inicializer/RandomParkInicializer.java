@@ -21,8 +21,14 @@ public class RandomParkInicializer {
     }
     
     public void Inicialize(CityTileset ct){
-        Position pos = new Position(
+        
+        while(ct.getNparkTiles() < InicializerController.MINPARKS/2){
+            Position pos = new Position(
              generator.nextInt(ct.getSize()),
              generator.nextInt(ct.getSize()));
+            
+            ct.NewParkTile(pos);
+        }
+        
     }
 }

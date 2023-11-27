@@ -137,6 +137,20 @@ public class CityTileset extends Individual{
         return id;
     }
      
+     public int getNparkTiles(){
+         return parkTiles.size();
+     }
+     
+     public Tile getParkTile(int i){
+         
+        Tile t = getTile(parkTiles.get(i));
+        
+        if(t.isPark()){
+            return t;
+        }else
+            return new NullTile();
+     }
+     
     public Tile getTile(Position pos){
         
         if(pos.inRange(Position.ZERO, new Position(getSize()-1))){
