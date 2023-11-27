@@ -39,11 +39,20 @@ public class RandomCityInicializer {
     CityTileset ct;
     
     //Inicializador con ciudad
-    public RandomCityInicializer(CityTileset _ct, int n_nodes){
-        ct = _ct;
+    public RandomCityInicializer(){
         generator = new Random(System.currentTimeMillis());
         nodes = new HashSet();
+    }
+    
+    public void setCt(CityTileset _ct){
+        ct = _ct;
+    }
+    
+    public void inicialize(CityTileset _ct, int n_nodes){
+        setCt(_ct);
         generateNodes(n_nodes);
+        createRoads();
+        createBuildings();
     }
     
     public void setNewBuildingProb(double nbp){
@@ -52,7 +61,9 @@ public class RandomCityInicializer {
     
     //Function to generate nodes.
     // This nodes will be used to generate random roads and Buildings
-    private void generateNodes(int n_nodes){
+    public void generateNodes(int n_nodes){
+        nodes.clear();
+        
         for(int  i = 0; i < n_nodes; ++i){
             nodes.add(new Position(
              generator.nextInt(ct.getSize()/MINSEPARATIONOFROADS)
@@ -77,7 +88,13 @@ public class RandomCityInicializer {
             createBuildings(nodes);
         }else{
             
-            for(int i = 0; i < n_buildings; ++i){
+            createBuildings(n_buildings);
+        }
+        
+    }
+    
+    private void createBuildings(int n_buildings){
+        for(int i = 0; i < n_buildings; ++i){
                 int citizens = generator.nextInt(BuildingTile.MAXCITIZEN-
                         BuildingTile.MINCITIZEN)+
                         BuildingTile.MINCITIZEN;
@@ -104,8 +121,6 @@ public class RandomCityInicializer {
 
             
             }
-        }
-        
     }
     
     //Method to create buildings in the corner of road croses (nodes)
@@ -193,7 +208,7 @@ public class RandomCityInicializer {
     
     //Method to create roads at four directions from positions.
     //Roads stop generating when they encounter another road
-    void createRoad(Position pos){
+    private void createRoad(Position pos){
         ct.NewRoadTile(pos);
         
         int i = pos.getX()-1;

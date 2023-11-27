@@ -90,8 +90,6 @@ public class CityView extends javax.swing.JPanel{
 
         cityShow_label = new javax.swing.JLabel();
 
-        cityShow_label.setText("jLabel1");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(

@@ -25,17 +25,17 @@ public class MainWindow extends javax.swing.JFrame implements View{
     
     ArrayList<CityView> actualPopulation;
     
-    public static MainWindow getInstance () {
+    /*public static MainWindow getInstance () {
       if (instance == null) {
         instance = new MainWindow();
       }
       return instance;
-    }
+    }*/
     
-    private MainWindow() {
+    public MainWindow() {
         setTitle(appName); //Add the title to frame
         setLayout(null); //Terminates default flow layout
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Terminate program on close button
+        //setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Terminate program on close button
         setBounds(100, 200, 600, 600); //Sets the position of the frame
         
         actualPopulation = new ArrayList<>();

@@ -35,6 +35,7 @@ public class CityTileset extends Individual{
     //Arrays of Tiles and Neighborhoods
     private ArrayList<ArrayList<Tile>> tileset;
     private ArrayList<ArrayList<Neighborhood>> neighborhoods;
+    private ArrayList<Position> parkTiles;
     
     
     //id of a city.
@@ -45,6 +46,7 @@ public class CityTileset extends Individual{
         
         tileset = new ArrayList<>();
         neighborhoods = new ArrayList<>();
+        parkTiles = new ArrayList<>();
         ++nCities;
         id = nCities;
         
@@ -75,6 +77,7 @@ public class CityTileset extends Individual{
         
         tileset = new ArrayList<>();
         neighborhoods = new ArrayList<>();
+        parkTiles = new ArrayList<>();
         ++nCities;
         id = nCities;
 
@@ -104,6 +107,7 @@ public class CityTileset extends Individual{
     public CityTileset(CityTileset cp){
         tileset = new ArrayList<>();
         neighborhoods = new ArrayList<>();
+        parkTiles = new ArrayList<>();
 
         ++nCities;
         id = nCities;
@@ -127,11 +131,12 @@ public class CityTileset extends Individual{
         }
     }
     
-    public int getId(){
+    //Getters and setters
+    
+     public int getId(){
         return id;
     }
-    
-    //Getters and setters
+     
     public Tile getTile(Position pos){
         
         if(pos.inRange(Position.ZERO, new Position(getSize()-1))){
@@ -140,7 +145,6 @@ public class CityTileset extends Individual{
         else return new NullTile();
         
     }
-
     
     public Tile getTile(int x, int y){
         return getTile(new Position(x,y));
@@ -214,6 +218,7 @@ public class CityTileset extends Individual{
         if(getTile(pos).isVoid()){
             getNeigborhoodWithTilePos(pos).addPark();
             ChangeTile(pos, new ParkTile(getValueOfPark(pos)));
+            parkTiles.add(pos);
             
             canChange = true;
         }
@@ -236,7 +241,7 @@ public class CityTileset extends Individual{
             }
             
             ChangeTile(pos, new ParkTile(v));
-            
+            parkTiles.add(pos);
             canChange = true;
         }
         
@@ -329,6 +334,15 @@ public class CityTileset extends Individual{
             v  = 1;
         
         return v;
+    }
+    
+    public void removeParkTile(Position pos){
+        if(pos.inRange(Position.ZERO, new Position(getSize()-1))){
+            if(tileset.get(pos.getX()).get(pos.getY()).isPark()){
+                parkTiles.remove(pos);
+                ChangeTile(pos,new VoidTile());
+            }
+        }
     }
     
     @Override

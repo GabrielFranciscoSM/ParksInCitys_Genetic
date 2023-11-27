@@ -4,20 +4,25 @@
  */
 package Model.Inicializer;
 
+import Basics.Position;
 import Model.Individuals.CityTileset;
+import java.util.Random;
 
 /**
  *
  * @author gabriel
  */
 public class RandomParkInicializer {
-    CityTileset ct;
+    Random generator;
+
     
     public RandomParkInicializer(CityTileset _ct){
-        ct = _ct;
+        generator = new Random(System.currentTimeMillis());
     }
     
-    public void Inicialize(){
-        
+    public void Inicialize(CityTileset ct){
+        Position pos = new Position(
+             generator.nextInt(ct.getSize()),
+             generator.nextInt(ct.getSize()));
     }
 }

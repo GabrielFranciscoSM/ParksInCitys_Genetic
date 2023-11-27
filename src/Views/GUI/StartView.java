@@ -7,7 +7,10 @@ package Views.GUI;
 import Basics.Position;
 import Model.Individuals.CityTileset;
 import Model.Individuals.FixedSizePopulation;
+import Model.Inicializer.CityParameters;
+import Model.Inicializer.ModelParameters;
 import Model.Inicializer.RandomCityInicializer;
+import Model.ParksInCityGA;
 import Views.View;
 import javax.swing.JFrame;
 
@@ -38,23 +41,21 @@ public class StartView extends javax.swing.JFrame implements View{
 
     //Test
     public MainWindow generateMainWindow(){
-        CityTileset ct = new CityTileset(cityParametersView1.getCitySizeValue());
-        FixedSizePopulation<CityTileset> ctPop = new FixedSizePopulation<>(1,modelParametersVIew1.getPopSizeValue());
-                        
-        RandomCityInicializer generator = 
-                new RandomCityInicializer(ct,ct.getSize()/10*cityParametersView1.getRoadDensity());
-        generator.setNewBuildingProb((double)cityParametersView1.getBuildingDensity()/100); 
-        generator.createRoads();
-        generator.createBuildings();
-
-        for(int i = 0; i < modelParametersVIew1.getPopSizeValue(); ++i){
-            ctPop.add(new CityTileset(ct));
-            
-        }
         
-        MainWindow gui = MainWindow.getInstance();
-        //gui.setIcon(ct);
-        gui.setPopulationCT(ctPop);
+        CityParameters cp = new CityParameters(
+                cityParametersView1.getCitySizeValue(), 
+                cityParametersView1.getRoadDensity(),
+                cityParametersView1.getBuildingDensity());
+        
+        ModelParameters mp = new ModelParameters(
+                modelParametersVIew1.getPopSizeValue());
+        
+        ParksInCityGA model = new ParksInCityGA(cp,mp);
+        model.run();
+        
+        MainWindow gui = new MainWindow();
+
+        gui.setPopulationCT(model.getPopulation());
         
         return gui;
     }

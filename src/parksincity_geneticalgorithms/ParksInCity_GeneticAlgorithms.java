@@ -4,12 +4,6 @@
  */
 package parksincity_geneticalgorithms;
 
-import Basics.Position;
-import Model.Inicializer.RandomCityInicializer;
-import Model.Individuals.CityTileset;
-import Model.Individuals.FixedSizePopulation;
-
-import Views.GUI.MainWindow;
 import Views.GUI.StartView;
 
 /**

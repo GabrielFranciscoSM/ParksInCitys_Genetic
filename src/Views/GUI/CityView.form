@@ -27,9 +27,6 @@
   </Layout>
   <SubComponents>
     <Component class="javax.swing.JLabel" name="cityShow_label">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel1"/>
-      </Properties>
     </Component>
   </SubComponents>
 </Form>
