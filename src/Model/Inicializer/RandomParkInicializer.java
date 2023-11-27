@@ -6,6 +6,7 @@ package Model.Inicializer;
 
 import Basics.Position;
 import Model.Individuals.CityTileset;
+import Model.Individuals.Tiles.Tile;
 import java.util.Random;
 
 /**
@@ -16,7 +17,7 @@ public class RandomParkInicializer {
     Random generator;
 
     
-    public RandomParkInicializer(CityTileset _ct){
+    public RandomParkInicializer(){
         generator = new Random(System.currentTimeMillis());
     }
     
@@ -30,5 +31,32 @@ public class RandomParkInicializer {
             ct.NewParkTile(pos);
         }
         
+        int restOfParks = (int)(generator.nextDouble()*(
+                InicializerController.MAXPARKS- 
+                InicializerController.MINPARKS)) + InicializerController.MINPARKS;
+        System.out.print(restOfParks);
+        while(ct.getNparkTiles() < (restOfParks)){
+            int aux = Math.abs(generator.nextInt()%ct.getNparkTiles());
+            extendPark(ct,
+                   ct.getParkTile(aux));
+            
+        }
+        
+    }
+    
+    public void extendPark(CityTileset ct, Position pos){
+        
+        Position aux = Position.substract(pos, new Position(1,1));
+        
+        for(int i = 0; i < 3; ++i){
+            for(int j = 0; j < 3; ++j){
+                if(ct.getTile(
+               Position.sum(aux, new Position(i,j)))
+                   .isVoid()){
+                    ct.NewParkTile(Position.sum(aux, new Position(i,j)));
+                    return;
+                }
+            }
+        }
     }
 }

@@ -24,13 +24,21 @@ public class InicializerController {
     
     public InicializerController(CityParameters _cp, ModelParameters _mp){
         cp = _cp;
-        MAXPARKS = cp.getSize()*cp.getSize()/3;
-        MINPARKS = cp.getSize()*cp.getSize()/5;
+        MAXPARKS = cp.getSize()*2;
+        MINPARKS = cp.getSize();
         mp = _mp;
+        
+        rdmPrk = new RandomParkInicializer();
     }
     
     public Population Inicialize(){
-        return InicializeCities();
+        Population<CityTileset> pop = InicializeCities();
+        
+        for(CityTileset ct: pop){
+            rdmPrk.Inicialize(ct);
+            System.out.print(ct.getId());
+        }
+        return pop;
     }
     
     public Population InicializeCities(){

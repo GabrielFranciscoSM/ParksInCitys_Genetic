@@ -141,14 +141,11 @@ public class CityTileset extends Individual{
          return parkTiles.size();
      }
      
-     public Tile getParkTile(int i){
+     public Position getParkTile(int i){
          
-        Tile t = getTile(parkTiles.get(i));
+        Position pos = parkTiles.get(i);
         
-        if(t.isPark()){
-            return t;
-        }else
-            return new NullTile();
+        return pos;
      }
      
     public Tile getTile(Position pos){
@@ -228,7 +225,6 @@ public class CityTileset extends Individual{
     //  -The citizens inside the Parks Area are counted
     public boolean NewParkTile(Position pos){
         boolean canChange = false;
-        
         if(getTile(pos).isVoid()){
             getNeigborhoodWithTilePos(pos).addPark();
             ChangeTile(pos, new ParkTile(getValueOfPark(pos)));
