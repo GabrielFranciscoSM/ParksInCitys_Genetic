@@ -13,8 +13,11 @@ import Model.Individuals.Population;
  * @author gabriel
  */
 public class InicializerController {
-    public static int MAXPARKS;
-    public static int MINPARKS;
+    public static int MAXPERCENTAGEOFPARKS;
+    public static int MINPERCENTAGEOFPARKS;
+    
+    ;public static int DEFPARKSPARCENTAGE = 7;
+    public static int PERCENTAGERANGE = 1;
     
     RandomParkInicializer rdmPrk;
     CloseToBuildingsParkInicializer ctbPrk;
@@ -24,11 +27,12 @@ public class InicializerController {
     
     public InicializerController(CityParameters _cp, ModelParameters _mp){
         cp = _cp;
-        MAXPARKS = cp.getSize()*2;
-        MINPARKS = cp.getSize();
         mp = _mp;
         
-        rdmPrk = new RandomParkInicializer();
+        MAXPERCENTAGEOFPARKS = _cp.getParksPercentage() + PERCENTAGERANGE;
+        MINPERCENTAGEOFPARKS = _cp.getParksPercentage() - PERCENTAGERANGE;
+        
+        rdmPrk = new RandomParkInicializer(_cp.getParkSpreadness());
     }
     
     public Population Inicialize(){
@@ -36,7 +40,6 @@ public class InicializerController {
         
         for(CityTileset ct: pop){
             rdmPrk.Inicialize(ct);
-            System.out.print(ct.getId());
         }
         return pop;
     }

@@ -5,7 +5,9 @@
 package Views.GUI;
 
 import Model.Individuals.CityTileset;
+import Model.Inicializer.InicializerController;
 import Model.Inicializer.RandomCityInicializer;
+import Model.Inicializer.RandomParkInicializer;
 
 /**
  *
@@ -21,10 +23,18 @@ public class CityParametersView extends javax.swing.JPanel {
         
         CitySlide.setLimits(CityTileset.MAXSIZE, CityTileset.MINSIZE);
         CitySlide.setDefault(CityTileset.DEFAULTSIZE);
+        
         roadDensitySlide.setLimits(RandomCityInicializer.MAXROADDENSITY, RandomCityInicializer.MINROADDENSITY);
         roadDensitySlide.setDefault(RandomCityInicializer.DEFROADDENSITY);
+        
         buildingDensitySlider.setLimits(RandomCityInicializer.MAXBUILDINGDENSITY,RandomCityInicializer.MINBUILDINGDENSITY);
         buildingDensitySlider.setDefault(RandomCityInicializer.DEFBUILDINGDENSITY);
+        
+        parksSpreadnessSlider.setLimits(RandomParkInicializer.MAXPARKSPREADNESS, RandomParkInicializer.MINPARKSPREADNESS);
+        parksSpreadnessSlider.setDefault(RandomParkInicializer.DEFPARKSPREADNESS);
+        
+        maxParksSlider.setLimits(100, 1);
+        maxParksSlider.setDefault(InicializerController.DEFPARKSPARCENTAGE);
     }
     
     public int getCitySizeValue(){
@@ -38,6 +48,14 @@ public class CityParametersView extends javax.swing.JPanel {
     public int getBuildingDensity(){
         return buildingDensitySlider.getValue();
     }
+    
+    public int getParkSpreadness(){
+        return parksSpreadnessSlider.getValue();
+    }
+    
+    public int getParksPercentage(){
+        return maxParksSlider.getValue();
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -48,17 +66,21 @@ public class CityParametersView extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buildingDensityLabel = new javax.swing.JLabel();
+        parksSpreadnessLabel = new javax.swing.JLabel();
         roadDensityLabel = new javax.swing.JLabel();
         CitySizeLabel = new javax.swing.JLabel();
         CitySlide = new Views.GUI.SlideBar();
         roadDensitySlide = new Views.GUI.SlideBar();
         buildingDensitySlider = new Views.GUI.SlideBar();
         jSeparator1 = new javax.swing.JSeparator();
+        buildingDensityLabel1 = new javax.swing.JLabel();
+        parksSpreadnessSlider = new Views.GUI.SlideBar();
+        maxParksSlider = new Views.GUI.SlideBar();
+        maxParksLabel = new javax.swing.JLabel();
 
-        buildingDensityLabel.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
-        buildingDensityLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        buildingDensityLabel.setText("Building Density");
+        parksSpreadnessLabel.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
+        parksSpreadnessLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        parksSpreadnessLabel.setText("Parks Spreadness");
 
         roadDensityLabel.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
         roadDensityLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -70,6 +92,14 @@ public class CityParametersView extends javax.swing.JPanel {
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
+        buildingDensityLabel1.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
+        buildingDensityLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        buildingDensityLabel1.setText("Building Density");
+
+        maxParksLabel.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
+        maxParksLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        maxParksLabel.setText("Cuantity of parks");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -77,16 +107,27 @@ public class CityParametersView extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(roadDensityLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(CitySizeLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(buildingDensityLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE))
-                .addGap(8, 8, 8)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(roadDensityLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)
+                            .addComponent(CitySizeLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(8, 8, 8))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(buildingDensityLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(maxParksLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
+                            .addComponent(parksSpreadnessLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(CitySlide, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)
-                    .addComponent(roadDensitySlide, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)
-                    .addComponent(buildingDensitySlider, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(CitySlide, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE)
+                    .addComponent(roadDensitySlide, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE)
+                    .addComponent(buildingDensitySlider, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(parksSpreadnessSlider, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(maxParksSlider, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -108,11 +149,22 @@ public class CityParametersView extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(buildingDensitySlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(buildingDensitySlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(parksSpreadnessSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(buildingDensityLabel)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(21, 21, 21)
+                        .addComponent(buildingDensityLabel1)
+                        .addGap(32, 32, 32)
+                        .addComponent(parksSpreadnessLabel)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(maxParksSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(maxParksLabel)))
+                .addContainerGap(190, Short.MAX_VALUE))
             .addComponent(jSeparator1)
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -121,9 +173,13 @@ public class CityParametersView extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel CitySizeLabel;
     private Views.GUI.SlideBar CitySlide;
-    private javax.swing.JLabel buildingDensityLabel;
+    private javax.swing.JLabel buildingDensityLabel1;
     private Views.GUI.SlideBar buildingDensitySlider;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel maxParksLabel;
+    private Views.GUI.SlideBar maxParksSlider;
+    private javax.swing.JLabel parksSpreadnessLabel;
+    private Views.GUI.SlideBar parksSpreadnessSlider;
     private javax.swing.JLabel roadDensityLabel;
     private Views.GUI.SlideBar roadDensitySlide;
     // End of variables declaration//GEN-END:variables

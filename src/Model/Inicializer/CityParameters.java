@@ -12,11 +12,15 @@ public class CityParameters {
     private int size;
     private int roadDensity;
     private int buildingDensity;
+    private int parkSpreadness;
+    private int parksPercentage;
     
-    public CityParameters(int s, int rd, int bd){
-        size = s;
-        roadDensity = rd;
-        buildingDensity = bd;
+    public CityParameters(int s, int rd, int bd, int ps, int pp){
+        size            =   s;
+        roadDensity     =   rd;
+        buildingDensity =   bd;
+        parkSpreadness  =   ps;
+        parksPercentage =   pp;
     }
     
     public int getSize(){
@@ -29,5 +33,13 @@ public class CityParameters {
     
     public int getBuildingDensity(){
         return buildingDensity;
+    }
+    
+    public int getParkSpreadness(){
+        return parkSpreadness;
+    }
+    
+    public int getParksPercentage(){
+        return parksPercentage;
     }
 }

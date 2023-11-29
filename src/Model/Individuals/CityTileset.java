@@ -35,9 +35,9 @@ public class CityTileset extends Individual{
     //Arrays of Tiles and Neighborhoods
     private ArrayList<ArrayList<Tile>> tileset;
     private ArrayList<ArrayList<Neighborhood>> neighborhoods;
+    
     private ArrayList<Position> parkTiles;
-    
-    
+    private int freeTiles;
     //id of a city.
     final private int id;
     
@@ -47,9 +47,10 @@ public class CityTileset extends Individual{
         tileset = new ArrayList<>();
         neighborhoods = new ArrayList<>();
         parkTiles = new ArrayList<>();
+
         ++nCities;
         id = nCities;
-        
+        freeTiles = DEFAULTSIZE*DEFAULTSIZE;
         for(int i = 0; i < DEFAULTSIZE; ++i){
             
             ArrayList<Tile> aux = new ArrayList<>(); 
@@ -78,9 +79,11 @@ public class CityTileset extends Individual{
         tileset = new ArrayList<>();
         neighborhoods = new ArrayList<>();
         parkTiles = new ArrayList<>();
+
         ++nCities;
         id = nCities;
-
+        freeTiles = size*size;
+        
         for(int i = 0; i < size; ++i){
             
             ArrayList<Tile> aux = new ArrayList<>(); 
@@ -111,6 +114,8 @@ public class CityTileset extends Individual{
 
         ++nCities;
         id = nCities;
+        freeTiles = cp.getFreeTiles();
+        
         for(int i = 0; i < cp.getSize(); ++i){
             
             ArrayList<Tile> aux = new ArrayList<>(); 
@@ -133,6 +138,10 @@ public class CityTileset extends Individual{
     
     //Getters and setters
     
+    public int getFreeTiles(){
+        return freeTiles;
+    }
+    
      public int getId(){
         return id;
     }
@@ -148,9 +157,10 @@ public class CityTileset extends Individual{
         return pos;
      }
      
+     
     public Tile getTile(Position pos){
         
-        if(pos.inRange(Position.ZERO, new Position(getSize()-1))){
+        if(inRange(pos)){
             return tileset.get(pos.getX()).get(pos.getY());
         }
         else return new NullTile();
@@ -159,6 +169,38 @@ public class CityTileset extends Individual{
     
     public Tile getTile(int x, int y){
         return getTile(new Position(x,y));
+    }
+    
+    public ArrayList<ArrayList<Tile>> getTiles(Position topLeft, Position botRight){
+        ArrayList<ArrayList<Tile>> part = new ArrayList<>();
+        if(inRange(topLeft) && inRange(botRight)){
+            for(int y = topLeft.getY(); y <= botRight.getY(); ++y){
+                
+                ArrayList<Tile> aux = new ArrayList<>();
+                
+                for(int x = topLeft.getX(); x <= botRight.getX(); ++x){
+                    aux.add(getTile(new Position(x,y)).makeCopy());
+                }
+                
+                part.add(aux);
+            }
+        }
+        
+        return part;
+        
+    }
+    
+    public void setTiles(Position topLeft, ArrayList<ArrayList<Tile>> tiles){
+        if(inRange(Position.sum(topLeft, new Position(tiles.size(),0))) &&
+           inRange(Position.sum(topLeft, new Position(0,tiles.get(0).size())))){
+            for(int y = topLeft.getY(); y <= topLeft.getY()+tiles.size(); ++y){
+                
+                for(int x = topLeft.getX(); x <= topLeft.getY()+tiles.get(0).size(); ++x){
+                    ChangeTile(topLeft,getTile(new Position(x,y)));
+                }                
+            }
+        }
+    
     }
     
     private Neighborhood getNeigborhoodWithTilePos(Position pos){
@@ -182,12 +224,24 @@ public class CityTileset extends Individual{
     
         
     private void setTile(Position pos, Tile t){
+        if(!t.toString().equals(getTile(pos).toString())){
+            if(t.isVoid()){
+                ++freeTiles;
+            } else if(!getTile(pos).isVoid()){
+                --freeTiles;
+            }
+        }
+        
         tileset.get(pos.getX()).set(pos.getY(), t);
+    }
+    
+    private boolean inRange(Position pos){
+        return pos.inRange(Position.ZERO, new Position(getSize()-1));
     }
     
     //Change a Tile to another
     private boolean ChangeTile(Position pos, Tile tile){
-        if(pos.inRange(Position.ZERO, new Position(getSize()-1))){
+        if(inRange(pos)){
             setTile(pos,tile);
             return true;
         }
@@ -206,7 +260,7 @@ public class CityTileset extends Individual{
     }
     
     public boolean canBuild(Position pos){
-        if(pos.inRange(Position.ZERO, new Position(getSize()-1))){
+        if(inRange(pos)){
             if(getTile(pos).canBuild()){
                 return true;
             }
@@ -347,7 +401,7 @@ public class CityTileset extends Individual{
     }
     
     public void removeParkTile(Position pos){
-        if(pos.inRange(Position.ZERO, new Position(getSize()-1))){
+        if(inRange(pos)){
             if(tileset.get(pos.getX()).get(pos.getY()).isPark()){
                 parkTiles.remove(pos);
                 ChangeTile(pos,new VoidTile());
@@ -367,5 +421,23 @@ public class CityTileset extends Individual{
         }
         
         return city;
+    }
+    
+    public boolean extendPark(Position pos){
+        
+        Position aux = Position.substract(pos, new Position(1,1));
+        
+        for(int i = 0; i < 3; ++i){
+            for(int j = 0; j < 3; ++j){
+                if(getTile(
+               Position.sum(aux, new Position(i,j)))
+                   .isVoid()){
+                    NewParkTile(Position.sum(aux, new Position(i,j)));
+                    return true;
+                }
+            }
+        }
+        
+        return false;
     }
 }

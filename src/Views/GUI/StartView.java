@@ -4,12 +4,8 @@
  */
 package Views.GUI;
 
-import Basics.Position;
-import Model.Individuals.CityTileset;
-import Model.Individuals.FixedSizePopulation;
 import Model.Inicializer.CityParameters;
 import Model.Inicializer.ModelParameters;
-import Model.Inicializer.RandomCityInicializer;
 import Model.ParksInCityGA;
 import Views.View;
 import javax.swing.JFrame;
@@ -45,7 +41,9 @@ public class StartView extends javax.swing.JFrame implements View{
         CityParameters cp = new CityParameters(
                 cityParametersView1.getCitySizeValue(), 
                 cityParametersView1.getRoadDensity(),
-                cityParametersView1.getBuildingDensity());
+                cityParametersView1.getBuildingDensity(),
+                cityParametersView1.getParkSpreadness(),
+                cityParametersView1.getParksPercentage());
         
         ModelParameters mp = new ModelParameters(
                 modelParametersVIew1.getPopSizeValue());
