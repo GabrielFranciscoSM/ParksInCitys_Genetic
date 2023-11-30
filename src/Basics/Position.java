@@ -42,6 +42,10 @@ public class Position {
         return new Position(pos1.getX()+pos2.getX(),pos1.getY()+pos2.getY());
     }
     
+    static public Position mul(Position pos1, int num){
+        return new Position(pos1.getX()*num,pos1.getY()*num);
+    }
+    
     public int getX(){
         return x;
     }

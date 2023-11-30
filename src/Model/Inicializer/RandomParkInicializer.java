@@ -64,7 +64,7 @@ public class RandomParkInicializer {
 
         int counter = 0;
         while(ct.getNparkTiles() < (totalParks)){
-            int aux = Math.abs(generator.nextInt()%ct.getNparkTiles());
+            int aux = generator.nextInt(ct.getNparkTiles());
             if(!ct.extendPark(ct.getParkTile(aux))){
                 ++counter;
             }

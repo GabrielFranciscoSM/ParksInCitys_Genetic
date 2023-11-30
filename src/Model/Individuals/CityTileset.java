@@ -27,7 +27,7 @@ public class CityTileset extends Individual{
     static final public int MINSIZE = 10;
     
     //Size of the neighborhoods. It works better if it divides SETSIZE
-    static final private int NEIGHBORHOODSIZE = 10;
+    static final public int NEIGHBORHOODSIZE = 10;
     
     //Saves the numer of cities created. Used to asign id
     static private int nCities = 0;
@@ -212,8 +212,11 @@ public class CityTileset extends Individual{
     }
     
     public void setTiles(Position topLeft, ArrayList<ArrayList<Tile>> tiles){
+        System.out.print(tiles.size());
+        
         if(inRange(Position.sum(topLeft, new Position(tiles.size(),0))) &&
            inRange(Position.sum(topLeft, new Position(0,tiles.get(0).size())))){
+            
             for(int y = topLeft.getY(); y <= topLeft.getY()+tiles.size(); ++y){
                 
                 for(int x = topLeft.getX(); x <= topLeft.getY()+tiles.get(0).size(); ++x){

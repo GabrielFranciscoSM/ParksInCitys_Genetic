@@ -6,11 +6,7 @@ package Views.GUI;
 
 import Model.Individuals.CityTileset;
 import Model.Individuals.Population;
-import Model.Individuals.Individual;
-import java.awt.image.BufferedImage;
 import java.util.ArrayList;
-import java.util.Vector;
-import javax.swing.JFrame;
 import Views.View;
 
 

@@ -30,6 +30,7 @@ public class ParksInCityGA {
     
     public ParksInCityGA(CityParameters cp, ModelParameters mp){
         inicializer = new InicializerController(cp, mp);
+        crossover = new CrossoverController();
     }
     
     public void run(){
@@ -37,6 +38,11 @@ public class ParksInCityGA {
     }
     
     public Population getPopulation(){
+        return pop;
+    }
+    
+    public Population applyCrossover(){
+        pop = crossover.apply(pop);
         return pop;
     }
 }

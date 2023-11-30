@@ -6,6 +6,7 @@ package Model.operators.crossover;
 
 import Basics.Position;
 import Model.Individuals.CityTileset;
+import Model.Individuals.Neighborhood;
 import Model.Individuals.Population;
 import Model.Individuals.Tiles.Tile;
 import java.util.ArrayList;
@@ -35,21 +36,31 @@ public class NeighborhoodCrossover extends CrossoverOperator<CityTileset>{
             CityTileset offspring1 = new CityTileset(pairing.firstParent);
             CityTileset offspring2 = new CityTileset(pairing.secondParent);
             
-            Position randNeigh = new Position(
-                    generator.nextInt()%offspring1.getNeighborhoodSize(),
-                    generator.nextInt()%offspring1.getNeighborhoodSize());
+            for(int i = 0; i < 100; i++){
+                Position randNeigh = new Position(
+                    generator.nextInt(offspring1.getNeighborhoodSize()),
+                    generator.nextInt(offspring1.getNeighborhoodSize()));
             
             ArrayList<ArrayList<Tile>> tilesAux = new ArrayList<>();
             
+            System.out.print("pos: " + randNeigh);
+            
             tilesAux = offspring1.getNeighborhoodTiles(randNeigh);
-            offspring1.setTiles(randNeigh, 
-                    offspring2.getNeighborhoodTiles(randNeigh));
-            offspring2.setTiles(randNeigh, tilesAux);
+            
+            
+            ArrayList<ArrayList<Tile>> tilesAux2 = offspring2.getNeighborhoodTiles(randNeigh); 
+            
+            offspring1.setTiles(Position.mul(randNeigh, CityTileset.NEIGHBORHOODSIZE), 
+                    tilesAux2);
+            
+            offspring2.setTiles(Position.mul(randNeigh, CityTileset.NEIGHBORHOODSIZE), tilesAux);
             
             int aux = offspring1.getNeighborhoodNParks(randNeigh);
             
             offspring1.setNeighborhoodNParks(randNeigh, offspring2.getNeighborhoodNParks(randNeigh));
             offspring2.setNeighborhoodNParks(randNeigh, aux);
+            }
+            
             
             offsprings.add(offspring1);
             offsprings.add(offspring2);
