@@ -41,6 +41,10 @@ public class Neighborhood {
         size = cp.getSize();
     }
     
+    protected void setNParks(int nparks){
+        this.nparks = nparks;
+    }
+    
     protected int getNParks(){
         return nparks;
     }

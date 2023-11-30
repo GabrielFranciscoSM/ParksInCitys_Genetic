@@ -138,6 +138,14 @@ public class CityTileset extends Individual{
     
     //Getters and setters
     
+    public int getNeighborhoodNParks(Position pos){
+        return getNeigborhood(pos).getNParks();
+    }
+    
+    public void setNeighborhoodNParks(Position pos, int nparks){
+        getNeigborhood(pos).setNParks(nparks);
+    }
+    
     public int getFreeTiles(){
         return freeTiles;
     }
@@ -187,7 +195,20 @@ public class CityTileset extends Individual{
         }
         
         return part;
+    }
+    
+    public ArrayList<ArrayList<Tile>> getNeighborhoodTiles(Position pos){
         
+        if(inRange(pos)){
+            Position botRight = new Position(
+                Math.min(pos.getX()+NEIGHBORHOODSIZE, getSize()-1),
+                Math.min(pos.getY()+NEIGHBORHOODSIZE, getSize()-1));
+            
+            return getTiles(pos,botRight);
+        }
+        
+        
+        return null;
     }
     
     public void setTiles(Position topLeft, ArrayList<ArrayList<Tile>> tiles){
@@ -219,7 +240,7 @@ public class CityTileset extends Individual{
     }
     
     public int getNeighborhoodSize(){
-        return NEIGHBORHOODSIZE;
+        return neighborhoods.size();
     }
     
         
