@@ -3,7 +3,6 @@ package Model.Individuals;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Objects;
-import java.util.Vector;
 
 public abstract class Population<T extends Individual> extends HashSet<T> implements Comparable<Population<T>> {
 
@@ -13,6 +12,11 @@ public abstract class Population<T extends Individual> extends HashSet<T> implem
     public Population(long id) {
         this.id = id;
         this.bestIndividual = null;
+    }
+    
+    public Population(Population p){
+        this.id = p.getId();
+        this.bestIndividual = (T)p.getBestIndividual();
     }
 
     public long getId() {

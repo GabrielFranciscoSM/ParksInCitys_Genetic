@@ -27,7 +27,7 @@ public class CityTileset extends Individual{
     static final public int MINSIZE = 10;
     
     //Size of the neighborhoods. It works better if it divides SETSIZE
-    static final public int NEIGHBORHOODSIZE = 10;
+    static final public int NEIGHBORHOODSIZE = 50;
     
     //Saves the numer of cities created. Used to asign id
     static private int nCities = 0;
@@ -136,6 +136,28 @@ public class CityTileset extends Individual{
         }
     }
     
+    public CityTileset(ArrayList<ArrayList<Tile>> tiles){
+        tileset = new ArrayList<>();
+        neighborhoods = new ArrayList<>();
+        parkTiles = new ArrayList<>();
+
+        ++nCities;
+        id = nCities;
+        freeTiles = 0;
+        
+        for(int i = 0; i < tiles.size(); ++i){
+            
+            ArrayList<Tile> aux = new ArrayList<>(); 
+            
+            for(int j = 0; j < tiles.size(); ++j){
+                aux.add(tiles.get(i).get(j).makeCopy());
+               
+            }
+            
+            tileset.add(aux);
+        }
+    }
+    
     //Getters and setters
     
     public int getNeighborhoodNParks(Position pos){
@@ -198,29 +220,28 @@ public class CityTileset extends Individual{
     }
     
     public ArrayList<ArrayList<Tile>> getNeighborhoodTiles(Position pos){
+        Position realPos = Position.mul(pos, NEIGHBORHOODSIZE);
         
-        if(inRange(pos)){
+        if(inRange(realPos)){
             Position botRight = new Position(
-                Math.min(pos.getX()+NEIGHBORHOODSIZE, getSize()-1),
-                Math.min(pos.getY()+NEIGHBORHOODSIZE, getSize()-1));
+                Math.min(realPos.getX()+NEIGHBORHOODSIZE, getSize()-1),
+                Math.min(realPos.getY()+NEIGHBORHOODSIZE, getSize()-1));
             
-            return getTiles(pos,botRight);
+            return getTiles(realPos,botRight);
         }
         
         
         return null;
     }
     
-    public void setTiles(Position topLeft, ArrayList<ArrayList<Tile>> tiles){
-        System.out.print(tiles.size());
-        
+    public void setTiles(Position topLeft, ArrayList<ArrayList<Tile>> tiles){        
         if(inRange(Position.sum(topLeft, new Position(tiles.size(),0))) &&
            inRange(Position.sum(topLeft, new Position(0,tiles.get(0).size())))){
             
-            for(int y = topLeft.getY(); y <= topLeft.getY()+tiles.size(); ++y){
+            for(int y = 0; y < tiles.size(); ++y){
                 
-                for(int x = topLeft.getX(); x <= topLeft.getY()+tiles.get(0).size(); ++x){
-                    ChangeTile(topLeft,getTile(new Position(x,y)));
+                for(int x = 0; x < tiles.get(0).size(); ++x){
+                    ChangeTile(new Position(topLeft.getX()+x,topLeft.getY()+y), tiles.get(y).get(x).makeCopy());
                 }                
             }
         }

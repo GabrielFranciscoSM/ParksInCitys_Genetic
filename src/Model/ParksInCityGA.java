@@ -42,7 +42,6 @@ public class ParksInCityGA {
     }
     
     public Population applyCrossover(){
-        pop = crossover.apply(pop);
-        return pop;
+        return crossover.apply(pop);
     }
 }

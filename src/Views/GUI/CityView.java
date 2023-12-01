@@ -12,7 +12,6 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import javax.swing.ImageIcon;
-import Views.View;
 
 /**
  *
@@ -31,6 +30,10 @@ public class CityView extends javax.swing.JPanel{
         initComponents();
         
         cityShow_label.setIcon(new ImageIcon(createCityImage(ct)));
+    }
+    
+    public CityTileset getCt(){
+        return ct;
     }
     
     public BufferedImage createCityImage(CityTileset ct, int aumFactor){
@@ -76,7 +79,6 @@ public class CityView extends javax.swing.JPanel{
     
     public void updateView(){
         cityShow_label.setIcon(new ImageIcon(createCityImage(ct)));
-        System.out.print(PIXELSIZE);
     }
 
     /**

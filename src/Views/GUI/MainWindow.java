@@ -5,7 +5,9 @@
 package Views.GUI;
 
 import Model.Individuals.CityTileset;
+import Model.Individuals.FixedSizePopulation;
 import Model.Individuals.Population;
+import Model.operators.crossover.CrossoverController;
 import java.util.ArrayList;
 import Views.View;
 
@@ -44,7 +46,6 @@ public class MainWindow extends javax.swing.JFrame implements View{
     public void updateView(){
         repaint();
         revalidate();
-        System.out.print(CityView.PIXELSIZE);
     }
     
     private void drawCity(){

@@ -13,7 +13,7 @@ public class FixedSizePopulation<T extends Individual> extends Population<T> {
         int msize = Math.max(maxSize, MINSIZE);
         this.maxSize = Math.min(msize, MAXSIZE);
     }
-
+    
     public int getMaxSize() {
         return maxSize;
     }
