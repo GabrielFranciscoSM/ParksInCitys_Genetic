@@ -38,6 +38,7 @@ public class CityTileset extends Individual{
     
     private ArrayList<Position> parkTiles;
     private int freeTiles;
+    private int disponibleTiles;
     //id of a city.
     final private int id;
     
@@ -51,6 +52,7 @@ public class CityTileset extends Individual{
         ++nCities;
         id = nCities;
         freeTiles = DEFAULTSIZE*DEFAULTSIZE;
+        disponibleTiles = freeTiles;
         for(int i = 0; i < DEFAULTSIZE; ++i){
             
             ArrayList<Tile> aux = new ArrayList<>(); 
@@ -83,6 +85,7 @@ public class CityTileset extends Individual{
         ++nCities;
         id = nCities;
         freeTiles = size*size;
+        disponibleTiles = freeTiles;
         
         for(int i = 0; i < size; ++i){
             
@@ -115,6 +118,7 @@ public class CityTileset extends Individual{
         ++nCities;
         id = nCities;
         freeTiles = cp.getFreeTiles();
+        disponibleTiles = freeTiles;
         
         for(int i = 0; i < cp.getSize(); ++i){
             
@@ -159,6 +163,18 @@ public class CityTileset extends Individual{
     }
     
     //Getters and setters
+    
+    public int getDisponibleTiles(){
+        return disponibleTiles;
+    }
+    
+    public void setDisponibleTiles(int i){
+        disponibleTiles = i;
+    }
+    
+    public double getPercentageOfParks(){
+        return ((double)parkTiles.size()/(double)getDisponibleTiles())*1000;
+    }
     
     public int getNeighborhoodNParks(Position pos){
         return getNeigborhood(pos).getNParks();

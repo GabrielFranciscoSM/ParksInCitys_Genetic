@@ -53,6 +53,7 @@ public class RandomCityInicializer {
         generateNodes(n_nodes);
         createRoads();
         createBuildings();
+        _ct.setDisponibleTiles(_ct.getFreeTiles());
     }
     
     public void setNewBuildingProb(double nbp){
