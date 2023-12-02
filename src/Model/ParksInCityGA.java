@@ -3,12 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Model;
-import Model.Inicializer.CityParameters;
 import java.util.ArrayList;
 import Model.Individuals.CityTileset;
 import Model.Individuals.Population;
 import Model.Inicializer.InicializerController;
-import Model.Inicializer.ModelParameters;
 import Model.operators.crossover.CrossoverController;
 import Model.operators.mutation.MutationController;
 import Model.operators.selection.SelectionController;

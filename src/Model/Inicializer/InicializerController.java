@@ -4,6 +4,8 @@
  */
 package Model.Inicializer;
 
+import Model.ModelParameters;
+import Model.CityParameters;
 import Model.Individuals.CityTileset;
 import Model.Individuals.FixedSizePopulation;
 import Model.Individuals.Population;
