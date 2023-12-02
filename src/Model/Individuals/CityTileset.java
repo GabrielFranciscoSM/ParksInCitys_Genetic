@@ -501,4 +501,79 @@ public class CityTileset extends Individual{
         
         return false;
     }
+
+    public void getRandomNeighborhood(int neighborhoodSelector, int operation, int tileSelector) {
+    	// Get the dimensions of the neighborhoods
+    	int lengthRow = this.neighborhoods.size();
+        int lengthColumn = this.neighborhoods.get(0).size();
+
+        neighborhoodSelector %= (lengthRow * lengthColumn);	 // Ensure neighborhoodSelector is within bounds
+
+        // Calculate the row and column within the neighborhoods
+        int row = neighborhoodSelector / lengthRow;
+        int column = neighborhoodSelector % lengthColumn;
+
+        // Consider what operation to do in the neighborhood
+        if (operation == 0) {	// Priority for add operation
+            operation = handleAddOperation(row, column);
+        } else {				// Priority for delete operation
+            operation = handleDeleteOperation(row, column);
+        }
+
+        // Set the area size for the tileset (within bounds)
+        int area = NEIGHBORHOODSIZE * NEIGHBORHOODSIZE;
+        tileSelector %= area;
+        
+        // Calculate the indices for the tileset
+        int i = tileSelector / this.tileset.size();
+        int j = tileSelector % this.tileset.get(0).size();
+
+        // Performs the operation on a neighborhood tile according to the specified operation
+        if (operation == 0) {
+        	handleAddPark(i, j, area);
+        } else {
+        	handleDeletePark(i, j);
+        }
+    }
+
+    // Handle operation selection to mutate the neighborhood (priority to add a park tile)
+    private int handleAddOperation(int row, int column) {
+        if (!this.neighborhoods.get(row).get(column).addPark()) {
+            this.neighborhoods.get(row).get(column).deletePark();
+            return 1;
+        }
+        return 0;
+    }
+
+    // Handle operation selection to mutate the neighborhood (priority to delete a park tile)
+    private int handleDeleteOperation(int row, int column) {
+        if (!this.neighborhoods.get(row).get(column).deletePark()) {
+            this.neighborhoods.get(row).get(column).addPark();
+            return 0;
+        }
+        return 1;
+    }
+
+    // Handle adding a park from the neighborhood
+    private void handleAddPark(int i, int j, int area) {
+        int counter = 0;
+        do {
+            while (!this.tileset.get(i).get(j).isPark()) {
+                j++;
+                i = (i + (j % NEIGHBORHOODSIZE)) % NEIGHBORHOODSIZE;
+                j %= NEIGHBORHOODSIZE;
+                counter++;
+            }
+        } while (!this.extendPark(new Position(i, j)) || counter < area);
+    }
+
+    // Handle deleting a park from the neighborhood
+    private void handleDeletePark(int i, int j) {
+        while (!this.tileset.get(i).get(j).isPark()) {
+            j++;
+            i = (i + (j % NEIGHBORHOODSIZE)) % NEIGHBORHOODSIZE;
+            j %= NEIGHBORHOODSIZE;
+        }
+        this.removeParkTile(new Position(i, j));
+    }
 }

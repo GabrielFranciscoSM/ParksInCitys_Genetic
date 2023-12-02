@@ -62,4 +62,14 @@ public class Neighborhood {
         else
             return false;
     }
+    
+    //Delete a park in the neighborhood
+    protected boolean deletePark(){
+        if(nparks > 0){
+            --nparks;
+            return true;
+        }
+        else
+            return false;
+    }
 }
