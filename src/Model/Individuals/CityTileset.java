@@ -203,6 +203,9 @@ public class CityTileset extends Individual{
         return pos;
      }
      
+     public ArrayList<Position> getArrayPark(){
+    	 return this.parkTiles;
+     }
      
     public Tile getTile(Position pos){
         
@@ -440,7 +443,7 @@ public class CityTileset extends Individual{
     }
     
     //It counts the number of citizens in the ParkTile area
-    int getValueOfPark(Position pos){
+    public int getValueOfPark(Position pos){
         int v = 0;
         int offset = ParkTile.getAreaOfEffect();
         
