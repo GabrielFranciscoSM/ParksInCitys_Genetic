@@ -465,6 +465,7 @@ public class CityTileset extends Individual{
         if(inRange(pos)){
             if(tileset.get(pos.getX()).get(pos.getY()).isPark()){
                 parkTiles.remove(pos);
+                getNeigborhoodWithTilePos(pos).deletePark();
                 ChangeTile(pos,new VoidTile());
             }
         }
@@ -512,14 +513,15 @@ public class CityTileset extends Individual{
         // Calculate the row and column within the neighborhoods
         int row = neighborhoodSelector / lengthRow;
         int column = neighborhoodSelector % lengthColumn;
-
+        
+        /*
         // Consider what operation to do in the neighborhood
         if (operation == 0) {	// Priority for add operation
-            operation = handleAddOperation(row, column);
+        operation = handleAddOperation(row, column);
         } else {				// Priority for delete operation
-            operation = handleDeleteOperation(row, column);
-        }
-
+        operation = handleDeleteOperation(row, column);
+        }*/
+        
         // Set the area size for the tileset (within bounds)
         int area = NEIGHBORHOODSIZE * NEIGHBORHOODSIZE;
         tileSelector %= area;

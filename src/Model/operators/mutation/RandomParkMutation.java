@@ -14,9 +14,9 @@ import java.util.Random;
  * @author gabriel
  */
 public class RandomParkMutation {
-	private static final double MUTATION_PROBABILITY = 0.01; // Mutation probability (1%)
+    private static final double MUTATION_PROBABILITY = 0.01; // Mutation probability (1%)
 
-	public static void RandomParkMutation(Population<CityTileset> population) {
+    public static void RandomParkMutation(Population<CityTileset> population) {
         Random random = new Random();
         double probability;
         
