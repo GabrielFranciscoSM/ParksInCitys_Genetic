@@ -39,6 +39,7 @@ public class CityTileset extends Individual{
     private ArrayList<Position> parkTiles;
     private int freeTiles;
     private int disponibleTiles;
+    
     //id of a city.
     final private int id;
     
