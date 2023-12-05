@@ -9,7 +9,7 @@ package Model;
  * @author gabriel
  */
 public class ModelParameters {
-    private int populationSize;
+    private final int populationSize;
     
     public ModelParameters(int popSize){
         populationSize = popSize;

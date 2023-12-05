@@ -29,12 +29,11 @@ public class NeighborhoodCrossover extends CrossoverOperator<CityTileset>{
         
         offsprings.setId(pop.getId() + 1);
         offsprings.clear();
-        int contador = 0;
         ArrayList<Pairing> pairings = makeRandomPairings(pop);
         for (Pairing pairing : pairings) {
             
-            CityTileset offspring1 = new CityTileset(pairing.firstParent);
-            CityTileset offspring2 = new CityTileset(pairing.secondParent);
+            CityTileset offspring1 = pairing.firstParent;
+            CityTileset offspring2 = pairing.secondParent;
             
             for(int i = 0; i < 2; i++){
                 Position randNeigh = new Position(

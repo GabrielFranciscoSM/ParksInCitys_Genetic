@@ -12,11 +12,12 @@ import Model.Individuals.Population;
  * @author gabriel
  */
 public class MutationController {
-	RandomParkMutation rpm;
+    RandomParkMutation rpm;
 	
-	public MutationController() {
-		rpm = new RandomParkMutation();
-	}
+    public MutationController() {
+	rpm = new RandomParkMutation();
+    }
+    
     public void apply(Population<CityTileset> pop){
     	rpm.apply(pop);
     }

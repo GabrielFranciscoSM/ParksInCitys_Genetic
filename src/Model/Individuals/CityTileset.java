@@ -4,13 +4,7 @@
  */
 package Model.Individuals;
 
-import Model.Individuals.Tiles.RoadTile;
-import Model.Individuals.Tiles.VoidTile;
-import Model.Individuals.Tiles.TileType;
-import Model.Individuals.Tiles.NullTile;
-import Model.Individuals.Tiles.Tile;
-import Model.Individuals.Tiles.ParkTile;
-import Model.Individuals.Tiles.BuildingTile;
+import Model.Individuals.Tiles.*;
 import Basics.*;
 import java.util.ArrayList;
 
@@ -22,6 +16,7 @@ import java.util.ArrayList;
 //Individual
 public class CityTileset extends Individual{
     
+    //Size of a side of the tileset
     public static final int DEFAULTSIZE = 200;
     static final public int MAXSIZE = 400;
     static final public int MINSIZE = 10;
@@ -36,19 +31,24 @@ public class CityTileset extends Individual{
     private ArrayList<ArrayList<Tile>> tileset;
     private ArrayList<ArrayList<Neighborhood>> neighborhoods;
     
+    //Saves the positions of the parkTiles in th city
     private ArrayList<Position> parkTiles;
+    //Numeber of disponible tiles (void tiles)
     private int freeTiles;
+    //number of park tiles and free tiles
     private int disponibleTiles;
+    
     //id of a city.
     final private int id;
     
     //Default constructor
     public CityTileset(){
         
+        //Inicialize arrays
         tileset = new ArrayList<>();
         neighborhoods = new ArrayList<>();
         parkTiles = new ArrayList<>();
-
+        
         ++nCities;
         id = nCities;
         freeTiles = DEFAULTSIZE*DEFAULTSIZE;

@@ -9,11 +9,11 @@ package Model;
  * @author gabriel
  */
 public class CityParameters {
-    private int size;
-    private int roadDensity;
-    private int buildingDensity;
-    private int parkSpreadness;
-    private int parksPercentage;
+    private final int size;
+    private final int roadDensity;
+    private final int buildingDensity;
+    private final int parkSpreadness;
+    private final int parksPercentage; //1 to 1000
     
     public CityParameters(int s, int rd, int bd, int ps, int pp){
         size            =   s;

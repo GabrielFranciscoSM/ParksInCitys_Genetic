@@ -6,9 +6,6 @@ package Model.fitness;
 
 import Model.Individuals.CityTileset;
 import Model.Individuals.Population;
-import Model.Individuals.Tiles.BuildingTile;
-import Model.Individuals.Tiles.ParkTile;
-import Basics.Position;
 
 /**
  *

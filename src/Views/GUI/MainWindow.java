@@ -5,9 +5,7 @@
 package Views.GUI;
 
 import Model.Individuals.CityTileset;
-import Model.Individuals.FixedSizePopulation;
 import Model.Individuals.Population;
-import Model.operators.crossover.CrossoverController;
 import java.util.ArrayList;
 import Views.View;
 

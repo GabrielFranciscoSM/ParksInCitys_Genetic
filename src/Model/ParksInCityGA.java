@@ -5,6 +5,7 @@
 package Model;
 import java.util.ArrayList;
 import Model.Individuals.CityTileset;
+import Model.Individuals.FixedSizePopulation;
 import Model.Individuals.Population;
 import Model.Inicializer.InicializerController;
 import Model.operators.crossover.CrossoverController;
@@ -16,15 +17,13 @@ import Model.operators.selection.SelectionController;
  * @author gabriel
  */
 public class ParksInCityGA {
-    
-    private ArrayList<CityTileset> population;
-    
+        
     private InicializerController inicializer;
     private CrossoverController crossover;
     private MutationController mutation;
     private SelectionController selection;
     
-    private Population pop;
+    private Population<CityTileset> pop;
     
     public ParksInCityGA(CityParameters cp, ModelParameters mp){
         inicializer = new InicializerController(cp, mp);
@@ -41,5 +40,16 @@ public class ParksInCityGA {
     
     public Population applyCrossover(){
         return crossover.apply(pop);
+    }
+    
+    public Population savePopulation(){
+        Population auxpop = pop.clone();
+        pop.clear();
+        
+        for(CityTileset ct: pop){
+            auxpop.add(new CityTileset(ct));
+        }
+        
+        return auxpop;
     }
 }

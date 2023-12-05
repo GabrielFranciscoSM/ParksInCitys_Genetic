@@ -56,6 +56,16 @@ public class StartView extends javax.swing.JFrame implements View{
 
         gui.setPopulationCT(model.getPopulation());
         
+        MainWindow gui2 = new MainWindow();
+        
+        for(int i = 0; i < 1000; i++){
+            model.applyCrossover();
+        }
+        
+        gui2.setPopulationCT(model.applyCrossover());
+        
+        gui2.showView();
+        
         return gui;
     }
     
