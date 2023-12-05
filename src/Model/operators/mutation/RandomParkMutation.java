@@ -15,16 +15,21 @@ import java.util.Random;
  */
 public class RandomParkMutation {
     private static final double MUTATION_PROBABILITY = 0.01; // Mutation probability (1%)
+    
+    private Random generator;
+    
+    RandomParkMutation(){
+    	this.generator = new Random();
+    }
 
-    public static void RandomParkMutation(Population<CityTileset> population) {
-        Random random = new Random();
+    public void apply(Population<CityTileset> pop) {
         double probability;
         
-        for (CityTileset city : population) {
+        for (CityTileset city : pop) {
             // Decides whether the individual is mutated with the given probability
-        	probability = random.nextDouble();
+        	probability = generator.nextDouble();
             if (probability < MUTATION_PROBABILITY) {
-            	city.getRandomNeighborhood(random.nextInt(101), random.nextInt(2), random.nextInt());
+            	city.getRandomNeighborhood(generator.nextInt(101), generator.nextInt(2), generator.nextInt());
             }
         }
     }
