@@ -4,12 +4,15 @@
  */
 package Model.fitness;
 
+import Model.Individuals.CityTileset;
+
 /**
  *
  * @author gabriel
  */
 public class MoneyFunction {
-    public void Evaluate(){
-        
+    public static double Evaluate(CityTileset city){
+        // Percentage of the remaining available park tiles
+        return 1 - (city.getNparkTiles() / city.getSize()*city.getSize());	
     }
 }
