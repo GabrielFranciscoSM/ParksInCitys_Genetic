@@ -9,6 +9,15 @@ package Model;
  * @author gabriel
  */
 public class CityParameters {
+
+    //Size of a side of the tileset
+    public static final int DEFAULTSIZE = 200;
+    public static final int MINSIZE = 10;
+    public static final int MAXSIZE = 400;
+    
+    //Size of the neighborhoods. It works better if it divides SETSIZE
+    public static final int NEIGHBORHOODSIZE = 50;
+    
     private final int size;
     private final int roadDensity;
     private final int buildingDensity;

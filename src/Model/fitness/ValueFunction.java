@@ -19,7 +19,7 @@ public class ValueFunction {
                       (ParkTile.getAreaOfEffect() * 2 + 1) *
                       BuildingTile.MAXCITIZEN;
         int counter = 0;
-        for (Position park : city.getArrayPark()) {	// Get each park from the city
+        for (Position park : city.getArrayOfParkPositions()) {	// Get each park from the city
             int val = city.getValueOfPark(park);
             counter += val;
     	}

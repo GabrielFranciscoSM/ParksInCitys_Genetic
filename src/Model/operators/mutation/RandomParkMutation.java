@@ -23,14 +23,14 @@ public class RandomParkMutation {
     }
 
     public void apply(Population<CityTileset> pop) {
-        double probability;
+        /*double probability;
         
         for (CityTileset city : pop) {
-            // Decides whether the individual is mutated with the given probability
-        	probability = generator.nextDouble();
-            if (probability < MUTATION_PROBABILITY) {
-            	city.getRandomNeighborhood(generator.nextInt(101), generator.nextInt(2), generator.nextInt());
-            }
+        // Decides whether the individual is mutated with the given probability
+        probability = generator.nextDouble();
+        if (probability < MUTATION_PROBABILITY) {
+        city.getRandomNeighborhood(generator.nextInt(101), generator.nextInt(2), generator.nextInt());
         }
+        }*/
     }
 }

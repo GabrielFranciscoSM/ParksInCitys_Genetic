@@ -4,6 +4,7 @@
  */
 package Views.GUI;
 
+import Model.CityParameters;
 import Model.Individuals.CityTileset;
 import Model.Inicializer.InicializerController;
 import Model.Inicializer.RandomCityInicializer;
@@ -21,8 +22,8 @@ public class CityParametersView extends javax.swing.JPanel {
     public CityParametersView() {
         initComponents();
         
-        CitySlide.setLimits(CityTileset.MAXSIZE, CityTileset.MINSIZE);
-        CitySlide.setDefault(CityTileset.DEFAULTSIZE);
+        CitySlide.setLimits(CityParameters.MAXSIZE, CityParameters.MINSIZE);
+        CitySlide.setDefault(CityParameters.DEFAULTSIZE);
         
         roadDensitySlide.setLimits(RandomCityInicializer.MAXROADDENSITY, RandomCityInicializer.MINROADDENSITY);
         roadDensitySlide.setDefault(RandomCityInicializer.DEFROADDENSITY);

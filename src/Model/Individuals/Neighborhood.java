@@ -4,6 +4,9 @@
  */
 package Model.Individuals;
 
+import Model.Individuals.Tiles.ParkTile;
+import Model.Individuals.Tiles.TileType;
+
 /**
  *
  * @author gabriel
@@ -14,6 +17,8 @@ public class Neighborhood {
     
     //Number of parks inside de area of the Neighborhood
     private int nparks;
+    //Total value of parks
+    private int totalValue;
     
     //Maximun cuantity of parks. Infinite at default.
     //Used so the parkTiles doesnt clump
@@ -24,6 +29,7 @@ public class Neighborhood {
     //Default Constructor
     protected Neighborhood(){
         nparks = 0;
+        totalValue = 0;
         MAXPARKS = DEFAULTMAXPARKS;
         size = 0;
     }
@@ -31,14 +37,24 @@ public class Neighborhood {
     //Parametter constructor
     protected Neighborhood(int _maxParks, int _size){
         nparks = 0;
+        totalValue = 0;
         MAXPARKS = _maxParks;
         size = _size;
     }
     
     protected Neighborhood(Neighborhood cp){
         nparks = cp.getNParks();
+        totalValue = cp.getTotalValue();
         MAXPARKS = cp.MAXPARKS;
         size = cp.getSize();
+    }
+    
+    protected int getTotalValue(){
+        return totalValue;
+    }
+    
+    protected void setTotalValue(int tv){
+        totalValue = tv;
     }
     
     protected void setNParks(int nparks){
@@ -54,9 +70,18 @@ public class Neighborhood {
     }
     
     //Add a park in the neighborhood
-    protected boolean addPark(){
-        if(nparks < MAXPARKS){
+    protected boolean addPark(ParkTile p){
+        if(this.canAddPark()){
             ++nparks;
+            this.totalValue += p.getValue(TileType.PARK);
+            return true;
+        }
+        else
+            return false;
+    }
+    
+    protected boolean canAddPark(){
+        if(nparks < MAXPARKS){
             return true;
         }
         else
@@ -64,9 +89,10 @@ public class Neighborhood {
     }
     
     //Delete a park in the neighborhood
-    protected boolean deletePark(){
+    protected boolean deletePark(ParkTile p){
         if(nparks > 0){
             --nparks;
+            this.totalValue -= p.getValue(TileType.PARK);
             return true;
         }
         else

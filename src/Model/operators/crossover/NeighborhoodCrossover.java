@@ -5,6 +5,7 @@
 package Model.operators.crossover;
 
 import Basics.Position;
+import Model.CityParameters;
 import Model.Individuals.CityTileset;
 import Model.Individuals.CityTilesetPopulation;
 import Model.Individuals.Population;
@@ -36,22 +37,18 @@ public class NeighborhoodCrossover extends CrossoverOperator<CityTileset>{
             
             for(int i = 0; i < 2; i++){
                 Position randNeigh = new Position(
-                    generator.nextInt(offspring1.getNeighborhoodSize()),
-                    generator.nextInt(offspring1.getNeighborhoodSize()));
+                    generator.nextInt(offspring1.getNNeighborhood()),
+                    generator.nextInt(offspring1.getNNeighborhood()));
                         
                 ArrayList<ArrayList<Tile>> tilesAux = offspring1.getNeighborhoodTiles(randNeigh);
 
                 ArrayList<ArrayList<Tile>> tilesAux2 = offspring2.getNeighborhoodTiles(randNeigh); 
-                            int aux = offspring1.getNeighborhoodNParks(randNeigh);
-
-                offspring1.setTiles(Position.mul(randNeigh, CityTileset.NEIGHBORHOODSIZE), 
+                
+                offspring1.setTiles(Position.mul(randNeigh, CityParameters.NEIGHBORHOODSIZE), 
                         tilesAux2);
 
-                offspring2.setTiles(Position.mul(randNeigh, CityTileset.NEIGHBORHOODSIZE), 
+                offspring2.setTiles(Position.mul(randNeigh, CityParameters.NEIGHBORHOODSIZE), 
                         tilesAux);
-
-                offspring1.setNeighborhoodNParks(randNeigh, offspring2.getNeighborhoodNParks(randNeigh));
-                offspring2.setNeighborhoodNParks(randNeigh, aux);
             }
             
             
