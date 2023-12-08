@@ -6,8 +6,7 @@ package Model.operators.crossover;
 
 import Basics.Position;
 import Model.Individuals.CityTileset;
-import Model.Individuals.FixedSizePopulation;
-import Model.Individuals.Neighborhood;
+import Model.Individuals.CityTilesetPopulation;
 import Model.Individuals.Population;
 import Model.Individuals.Tiles.Tile;
 import java.util.ArrayList;
@@ -24,7 +23,7 @@ public class NeighborhoodCrossover extends CrossoverOperator<CityTileset>{
         generator = new Random(System.currentTimeMillis());
     }
     
-    public Population<CityTileset> apply(Population<CityTileset> pop){
+    public Population<CityTileset> apply(CityTilesetPopulation pop){
         Population<CityTileset> offsprings = pop.clone();
         
         offsprings.setId(pop.getId() + 1);

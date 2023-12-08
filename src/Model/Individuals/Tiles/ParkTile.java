@@ -9,6 +9,7 @@ package Model.Individuals.Tiles;
  * @author gabriel
  */
 public class ParkTile extends Tile{
+    
     //Determines the distance of reach of a park (Final area is:
     //AREAOFEFFECT*2+1 x AREAOFEFFECT*2+1
     private final static int AREAOFEFFECT = 2;

@@ -7,6 +7,9 @@ package Model.Individuals;
 import Model.Individuals.Tiles.*;
 import Basics.*;
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  *
@@ -32,7 +35,7 @@ public class CityTileset extends Individual{
     private ArrayList<ArrayList<Neighborhood>> neighborhoods;
     
     //Saves the positions of the parkTiles in th city
-    private ArrayList<Position> parkTiles;
+    private List<Position> parkTiles;
     //Numeber of disponible tiles (void tiles)
     private int freeTiles;
     //number of park tiles and free tiles
@@ -164,6 +167,20 @@ public class CityTileset extends Individual{
     
     //Getters and setters
     
+    public Position getMaxPark(){
+        int max = 0;
+        Position position = new Position();
+        for(Position pos: parkTiles){
+            if(getTile(pos).getValue(TileType.PARK)>max){
+                max = getTile(pos).getValue();
+                position = pos;
+            }
+                
+        }
+        
+        return position;
+    }
+    
     public int getDisponibleTiles(){
         return disponibleTiles;
     }
@@ -203,7 +220,7 @@ public class CityTileset extends Individual{
         return pos;
      }
      
-     public ArrayList<Position> getArrayPark(){
+     public List<Position> getArrayPark(){
     	 return this.parkTiles;
      }
      

@@ -5,6 +5,7 @@
 package Model.operators.selection;
 
 import Model.Individuals.CityTileset;
+import Model.Individuals.CityTilesetPopulation;
 import Model.Individuals.Population;
 
 /**
@@ -15,26 +16,13 @@ public class SelectionController{
     
     RankSelection rs;
     
-    SelectionController(){
+    public SelectionController(){
         rs = new RankSelection();
     }
     
     //include elitism and truncation.
-    /*public Population<CityTileset> apply(Population<CityTileset> pop,boolean useElitism, boolean truncate){
-    
-    }*/    
-    public Population<CityTileset> truncate(Population<CityTileset> pop, double minFitness){
-        Population<CityTileset> offsprings = pop.clone();
-        
-        offsprings.setId(pop.getId() + 1);
-        offsprings.clear();
-        
-        for(CityTileset ct: pop){
-            if(ct.getFitness() >= minFitness){
-                pop.add(ct);
-            }
-        }
-        
-        return pop;
+    public Population<CityTileset> apply(CityTilesetPopulation pop,boolean useElitism, boolean truncate){
+        return rs.apply(pop,useElitism,truncate);
     }
+    
 }

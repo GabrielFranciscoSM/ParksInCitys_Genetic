@@ -7,7 +7,6 @@ package Views.GUI;
 import Model.CityParameters;
 import Model.ModelParameters;
 import Model.ParksInCityGA;
-import Model.operators.crossover.CrossoverController;
 import Views.View;
 import javax.swing.JFrame;
 
@@ -57,13 +56,7 @@ public class StartView extends javax.swing.JFrame implements View{
         gui.setPopulationCT(model.getPopulation());
         
         MainWindow gui2 = new MainWindow();
-        
-        for(int i = 0; i < 1000; i++){
-            model.applyCrossover();
-        }
-        
-        gui2.setPopulationCT(model.applyCrossover());
-        
+                
         gui2.showView();
         
         return gui;

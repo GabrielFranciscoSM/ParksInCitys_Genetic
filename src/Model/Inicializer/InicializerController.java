@@ -7,8 +7,7 @@ package Model.Inicializer;
 import Model.ModelParameters;
 import Model.CityParameters;
 import Model.Individuals.CityTileset;
-import Model.Individuals.FixedSizePopulation;
-import Model.Individuals.Population;
+import Model.Individuals.CityTilesetPopulation;
 
 /**
  *
@@ -37,8 +36,8 @@ public class InicializerController {
         rdmPrk = new RandomParkInicializer(_cp.getParkSpreadness());
     }
     
-    public Population Inicialize(){
-        Population<CityTileset> pop = InicializeCities();
+    public CityTilesetPopulation Inicialize(){
+        CityTilesetPopulation pop = InicializeCities();
         
         for(CityTileset ct: pop){
             rdmPrk.Inicialize(ct);
@@ -46,9 +45,9 @@ public class InicializerController {
         return pop;
     }
     
-    public Population InicializeCities(){
+    public CityTilesetPopulation InicializeCities(){
         CityTileset ct = new CityTileset(cp.getSize());
-        FixedSizePopulation<CityTileset> ctPop = new FixedSizePopulation<>(1,mp.getPopulationSize());
+        CityTilesetPopulation ctPop = new CityTilesetPopulation(1,mp.getPopulationSize());
                         
         RandomCityInicializer generator = 
                 new RandomCityInicializer();

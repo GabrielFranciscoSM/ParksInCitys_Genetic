@@ -3,11 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Model;
-import java.util.ArrayList;
 import Model.Individuals.CityTileset;
-import Model.Individuals.FixedSizePopulation;
+import Model.Individuals.CityTilesetPopulation;
 import Model.Individuals.Population;
 import Model.Inicializer.InicializerController;
+import Model.fitness.PonderatedFunction;
 import Model.operators.crossover.CrossoverController;
 import Model.operators.mutation.MutationController;
 import Model.operators.selection.SelectionController;
@@ -22,24 +22,38 @@ public class ParksInCityGA {
     private CrossoverController crossover;
     private MutationController mutation;
     private SelectionController selection;
+    private PonderatedFunction fitness;
     
-    private Population<CityTileset> pop;
+    private CityTilesetPopulation pop;
     
     public ParksInCityGA(CityParameters cp, ModelParameters mp){
         inicializer = new InicializerController(cp, mp);
         crossover = new CrossoverController();
+        fitness = new PonderatedFunction();
+        selection = new SelectionController();
     }
     
     public void run(){
         pop = inicializer.Inicialize();
+        this.applyFitness();
+        this.applySelection();
+        
     }
     
-    public Population getPopulation(){
+    public CityTilesetPopulation getPopulation(){
         return pop;
     }
     
-    public Population applyCrossover(){
-        return crossover.apply(pop);
+    public void applyCrossover(){
+        crossover.apply(pop);
+    }
+    
+    public void applyFitness(){
+        fitness.evaluate(pop);
+    }
+    
+    public void applySelection(){
+        selection.apply(pop, true, true);
     }
     
     public Population savePopulation(){

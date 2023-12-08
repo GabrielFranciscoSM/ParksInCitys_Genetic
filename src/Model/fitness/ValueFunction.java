@@ -15,16 +15,16 @@ import Model.Individuals.Tiles.ParkTile;
  */
 public class ValueFunction {
     public static Double Evaluate(CityTileset city){
-        int maxValuePark = 4 * ParkTile.getAreaOfEffect() 
-                         * (ParkTile.getAreaOfEffect() + 1) 
-                         * BuildingTile.MAXCITIZEN;	// Stores the maximum score that a park can achieve
-        
+        int maxPark = (ParkTile.getAreaOfEffect() * 2 + 1) * 
+                      (ParkTile.getAreaOfEffect() * 2 + 1) *
+                      BuildingTile.MAXCITIZEN;
         int counter = 0;
         for (Position park : city.getArrayPark()) {	// Get each park from the city
-            counter += city.getValueOfPark(park);
+            int val = city.getValueOfPark(park);
+            counter += val;
     	}
-        
     	double average = counter / city.getNparkTiles();	// Average score of the parks
-    	return (average / maxValuePark);	// Percentage of the average of the parks
+
+    	return average/maxPark;	// Percentage of the average of the parks
     }
 }

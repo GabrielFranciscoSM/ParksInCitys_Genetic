@@ -5,6 +5,7 @@
 package Model.operators.crossover;
 
 import Model.Individuals.CityTileset;
+import Model.Individuals.CityTilesetPopulation;
 import Model.Individuals.Population;
 
 /**
@@ -19,7 +20,7 @@ public class CrossoverController {
         nc = new NeighborhoodCrossover();
     }
     
-    public Population<CityTileset> apply(Population<CityTileset> pop){
+    public Population<CityTileset> apply(CityTilesetPopulation pop){
         return nc.apply(pop);
     }
 }

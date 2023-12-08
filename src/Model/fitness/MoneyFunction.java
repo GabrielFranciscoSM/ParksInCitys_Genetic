@@ -13,6 +13,6 @@ import Model.Individuals.CityTileset;
 public class MoneyFunction {
     public static double Evaluate(CityTileset city){
         // Percentage of the remaining available park tiles
-        return 1 - (city.getNparkTiles() / city.getSize()*city.getSize());	
+        return (city.getFreeTiles() / (city.getDisponibleTiles()));	
     }
 }
