@@ -33,7 +33,8 @@ public class RankSelection {
         
         if(useElitism){
             for(int i = 0; i < pop.size()/10; ++i){
-                aux.add(sortedPop.get(generator.nextInt(pop.size()/100)));
+                System.out.print(pop.size()/100);
+                aux.add(sortedPop.get(generator.nextInt(pop.size()/100 + 1)));
             }
         }
         

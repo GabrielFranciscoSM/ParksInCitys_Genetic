@@ -120,11 +120,14 @@ public class CityTileset extends Individual{
             
             for(int j = 0; j < cp.getSize(); ++j){
                 aux.add(cp.getTile(i,j).makeCopy());
+                
+                if(j % (CityParameters.NEIGHBORHOODSIZE) == 0)
+                    aux2.add(cp.getNeigborhoodWithTilePos(new Position(i,j)));
             }
             
             tileset.add(aux);
             if(i % (CityParameters.NEIGHBORHOODSIZE) == 0){
-                neighborhoods.add(aux2);
+                this.neighborhoods.add(aux2);
             }
         }
     }
