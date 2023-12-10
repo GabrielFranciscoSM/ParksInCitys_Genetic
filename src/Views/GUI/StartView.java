@@ -39,24 +39,25 @@ public class StartView extends javax.swing.JFrame implements View{
     public MainWindow generateMainWindow(){
         
         CityParameters cp = new CityParameters(
-                cityParametersView1.getCitySizeValue(), 
-                cityParametersView1.getRoadDensity(),
-                cityParametersView1.getBuildingDensity(),
-                cityParametersView1.getParkSpreadness(),
-                cityParametersView1.getParksPercentage());
+        cityParametersView1.getCitySizeValue(),
+        cityParametersView1.getRoadDensity(),
+        cityParametersView1.getBuildingDensity(),
+        cityParametersView1.getParkSpreadness(),
+        cityParametersView1.getParksPercentage());
         
         ModelParameters mp = new ModelParameters(
-                modelParametersVIew1.getPopSizeValue());
+        modelParametersVIew1.getPopSizeValue(),
+        modelParametersVIew1.getMoneyPonderationValue());
         
         ParksInCityGA model = new ParksInCityGA(cp,mp);
         model.run();
         
         MainWindow gui = new MainWindow();
-
+        
         gui.setPopulationCT(model.getPopulation());
         
         MainWindow gui2 = new MainWindow();
-                
+        
         gui2.showView();
         
         return gui;
@@ -74,8 +75,8 @@ public class StartView extends javax.swing.JFrame implements View{
         jLabel1 = new javax.swing.JLabel();
         startButton = new javax.swing.JButton();
         ParameterTab = new javax.swing.JTabbedPane();
-        modelParametersVIew1 = new Views.GUI.ModelParametersVIew();
         cityParametersView1 = new Views.GUI.CityParametersView();
+        modelParametersVIew1 = new Views.GUI.ModelParametersVIew();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -90,8 +91,8 @@ public class StartView extends javax.swing.JFrame implements View{
             }
         });
 
-        ParameterTab.addTab("tab1", modelParametersVIew1);
-        ParameterTab.addTab("tab2", cityParametersView1);
+        ParameterTab.addTab("tab1", cityParametersView1);
+        ParameterTab.addTab("tab2", modelParametersVIew1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -103,8 +104,9 @@ public class StartView extends javax.swing.JFrame implements View{
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(startButton, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(67, 67, 67)
-                .addComponent(ParameterTab, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(ParameterTab, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addGap(55, 55, 55))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

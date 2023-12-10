@@ -7,6 +7,7 @@ package Model.Inicializer;
 import Model.Individuals.Tiles.BuildingTile;
 import Model.Individuals.CityTileset;
 import Basics.*;
+import Model.CityParameters;
 
 import java.util.Random;
 import java.util.HashSet;
@@ -15,28 +16,14 @@ import java.util.HashSet;
  *
  * @author gabriel
  */
-public class RandomCityInicializer {
-    
-    final static private int MINSEPARATIONOFROADS = 4;
-    
-    final static private int MAXBUILDINGSIZE = MINSEPARATIONOFROADS*2;
-    final static private int MINBUILDINGSIZE = MINSEPARATIONOFROADS/2;
-    
-    final static public int MAXBUILDINGDENSITY = 100;
-    final static public int MINBUILDINGDENSITY = 10;
-    final static public int DEFBUILDINGDENSITY = 70;
-    
-    final static public int MAXROADDENSITY = 50;
-    final static public int MINROADDENSITY = 1;
-    final static public int DEFROADDENSITY = 20;
-            
-    final private double NEWROADPROB = 0.5; //<0.5
+public class RandomCityInicializer {            
+    //final private double NEWROADPROB = 0.5; //<0.5
     private double newBuildingProb = 0.8;
     final private double STOPBUILDINGPROB = 0.05;
     
-    Random generator;
-    HashSet<Position> nodes;
-    CityTileset ct;
+    private Random generator;
+    private HashSet<Position> nodes;
+    private CityTileset ct;
     
     //Inicializador con ciudad
     public RandomCityInicializer(){
@@ -47,17 +34,26 @@ public class RandomCityInicializer {
     public void setCt(CityTileset _ct){
         ct = _ct;
     }
+        
+    public void setNewBuildingProb(double nbp){
+        newBuildingProb = nbp;
+    }
     
+    //Main inicizlizer method
+    // 1) Gets the city
+    // 2) Generate the nodes randomly. This nodes will be used 
+    //    to generate roads and buildings proceduraly
+    // 3) Generate the roads
+    // 4) Generate the Buildings with two algorithms:
+    //      a) First a more organizated method using nodes
+    //      b) Then a random caotic method
+    // 5) Count the void tiles and set them to de cities
     public void inicialize(CityTileset _ct, int n_nodes){
         setCt(_ct);
         generateNodes(n_nodes);
         createRoads();
         createBuildings();
         _ct.setDisponibleTiles(_ct.getFreeTiles());
-    }
-    
-    public void setNewBuildingProb(double nbp){
-        newBuildingProb = nbp;
     }
     
     //Function to generate nodes.
@@ -67,15 +63,15 @@ public class RandomCityInicializer {
         
         for(int  i = 0; i < n_nodes; ++i){
             nodes.add(new Position(
-             generator.nextInt(ct.getSize()/MINSEPARATIONOFROADS)
-                     *MINSEPARATIONOFROADS,
-             generator.nextInt(ct.getSize()/MINSEPARATIONOFROADS)
-                     *MINSEPARATIONOFROADS));
+             generator.nextInt(ct.getSize()/CityParameters.MINSEPARATIONOFROADS)
+                     *CityParameters.MINSEPARATIONOFROADS,
+             generator.nextInt(ct.getSize()/CityParameters.MINSEPARATIONOFROADS)
+                     *CityParameters.MINSEPARATIONOFROADS));
             
         }        
     }
     
-    //Create building defaults
+    //Create building defaults, a mix of the to methods
     public void createBuildings(){
         createBuildings(ct.getSize()*(int)(newBuildingProb*8),false);
         createBuildings(ct.getSize(),true);
@@ -94,6 +90,8 @@ public class RandomCityInicializer {
         
     }
     
+    //Random method:
+    // Pick a random tile and expand it with a rectangular shape
     private void createBuildings(int n_buildings){
         for(int i = 0; i < n_buildings; ++i){
                 int citizens = generator.nextInt(BuildingTile.MAXCITIZEN-
@@ -108,11 +106,11 @@ public class RandomCityInicializer {
 
                 Position BotRight = new Position(
                     Math.min(TopLeft.getX()+ generator.nextInt
-                            (MAXBUILDINGSIZE-MINBUILDINGSIZE) 
-                       + MINBUILDINGSIZE, ct.getSize()-1),
+                            (CityParameters.MAXBUILDINGSIZE-CityParameters.MINBUILDINGSIZE) 
+                       + CityParameters.MINBUILDINGSIZE, ct.getSize()-1),
                     Math.min(TopLeft.getY()+ generator.nextInt      
-                            (MAXBUILDINGSIZE-MINBUILDINGSIZE)
-                       + MINBUILDINGSIZE, ct.getSize()-1));
+                            (CityParameters.MAXBUILDINGSIZE-CityParameters.MINBUILDINGSIZE)
+                       + CityParameters.MINBUILDINGSIZE, ct.getSize()-1));
 
                 for(int j = TopLeft.getX(); j <= BotRight.getX(); ++j){
                     for(int k = TopLeft.getY(); k <= BotRight.getY(); ++k){
@@ -126,7 +124,6 @@ public class RandomCityInicializer {
     
     //Method to create buildings in the corner of road croses (nodes)
     private void createBuildings(HashSet<Position> pos){
-        
         for(Position n: pos){
             int i = 1;
             
@@ -204,8 +201,6 @@ public class RandomCityInicializer {
             createRoad(i);
         }
     }
-    
-    
     
     //Method to create roads at four directions from positions.
     //Roads stop generating when they encounter another road

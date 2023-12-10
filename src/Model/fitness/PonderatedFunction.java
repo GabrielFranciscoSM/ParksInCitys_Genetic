@@ -15,6 +15,11 @@ public class PonderatedFunction {
     private double moneyPonderation = 1;
     private double valuePonderation = 1;
     
+    public PonderatedFunction(int moneyPoneration){
+        moneyPonderation = (double)moneyPoneration/100;
+        valuePonderation = 1 - moneyPonderation;
+    }
+    
     public void evaluate(CityTilesetPopulation pop){
         
         for (CityTileset city : pop) {	// Get each city from the population

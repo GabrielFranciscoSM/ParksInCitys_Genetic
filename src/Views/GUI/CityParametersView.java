@@ -25,17 +25,17 @@ public class CityParametersView extends javax.swing.JPanel {
         CitySlide.setLimits(CityParameters.MAXSIZE, CityParameters.MINSIZE);
         CitySlide.setDefault(CityParameters.DEFAULTSIZE);
         
-        roadDensitySlide.setLimits(RandomCityInicializer.MAXROADDENSITY, RandomCityInicializer.MINROADDENSITY);
-        roadDensitySlide.setDefault(RandomCityInicializer.DEFROADDENSITY);
+        roadDensitySlide.setLimits(CityParameters.MAXROADDENSITY, CityParameters.MINROADDENSITY);
+        roadDensitySlide.setDefault(CityParameters.DEFROADDENSITY);
         
-        buildingDensitySlider.setLimits(RandomCityInicializer.MAXBUILDINGDENSITY,RandomCityInicializer.MINBUILDINGDENSITY);
-        buildingDensitySlider.setDefault(RandomCityInicializer.DEFBUILDINGDENSITY);
+        buildingDensitySlider.setLimits(CityParameters.MAXBUILDINGDENSITY,CityParameters.MINBUILDINGDENSITY);
+        buildingDensitySlider.setDefault(CityParameters.DEFBUILDINGDENSITY);
         
-        parksSpreadnessSlider.setLimits(RandomParkInicializer.MAXPARKSPREADNESS, RandomParkInicializer.MINPARKSPREADNESS);
-        parksSpreadnessSlider.setDefault(RandomParkInicializer.DEFPARKSPREADNESS);
+        parksSpreadnessSlider.setLimits(CityParameters.MAXPARKSPREADNESS, CityParameters.MINPARKSPREADNESS);
+        parksSpreadnessSlider.setDefault(CityParameters.DEFPARKSPREADNESS);
         
         maxParksSlider.setLimits(100, 1);
-        maxParksSlider.setDefault(InicializerController.DEFPARKSPARCENTAGE);
+        maxParksSlider.setDefault(CityParameters.DEFPARKSPARCENTAGE);
     }
     
     public int getCitySizeValue(){

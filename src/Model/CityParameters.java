@@ -18,6 +18,35 @@ public class CityParameters {
     //Size of the neighborhoods. It works better if it divides SETSIZE
     public static final int NEIGHBORHOODSIZE = 50;
     
+    //Inicializer constants
+    public static int MINPERCENTAGEOFPARKS;
+    public static int MAXPERCENTAGEOFPARKS;
+    
+    public static final int PERCENTAGERANGE = 1;
+    public static final int DEFPARKSPARCENTAGE = 7;
+    
+    //City building Constants
+    public static final int MINSEPARATIONOFROADS = 4;
+    
+    public static final int MINROADDENSITY = 1;
+    public static final int DEFROADDENSITY = 20;
+    public static final int MAXROADDENSITY = 50;
+    
+    public static final int MINBUILDINGDENSITY = 10;
+    public static final int DEFBUILDINGDENSITY = 70;
+    public static final int MAXBUILDINGDENSITY = 100;
+    
+    public static final int MAXBUILDINGSIZE = MINSEPARATIONOFROADS * 2;
+    public static final int MINBUILDINGSIZE = MINSEPARATIONOFROADS / 2;
+    
+    //Parks Inicizlizer constants
+    public static int DEFPARKSPREADNESS = 1;
+    public static int MAXPARKSPREADNESS = 1000;
+    public static int MINPARKSPREADNESS = 1;
+    
+    public static int STOPTRYSPAND = 100;
+
+    //InputParameters
     private final int size;
     private final int roadDensity;
     private final int buildingDensity;

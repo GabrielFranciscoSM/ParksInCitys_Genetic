@@ -14,24 +14,20 @@ import Model.Individuals.CityTilesetPopulation;
  * @author gabriel
  */
 public class InicializerController {
-    public static int MAXPERCENTAGEOFPARKS;
-    public static int MINPERCENTAGEOFPARKS;
-    
-    ;public static int DEFPARKSPARCENTAGE = 7;
-    public static int PERCENTAGERANGE = 1;
-    
     RandomParkInicializer rdmPrk;
     CloseToBuildingsParkInicializer ctbPrk;
     
-    CityParameters cp;
-    ModelParameters mp;
+    CityParameters cityParams;
+    ModelParameters modelParams;
     
     public InicializerController(CityParameters _cp, ModelParameters _mp){
-        cp = _cp;
-        mp = _mp;
+        cityParams = _cp;
+        modelParams = _mp;
         
-        MAXPERCENTAGEOFPARKS = _cp.getParksPercentage() + PERCENTAGERANGE;
-        MINPERCENTAGEOFPARKS = _cp.getParksPercentage() - PERCENTAGERANGE;
+        CityParameters.MAXPERCENTAGEOFPARKS = _cp.getParksPercentage() + 
+                                               CityParameters.PERCENTAGERANGE;
+        CityParameters.MINPERCENTAGEOFPARKS = _cp.getParksPercentage() - 
+                                               CityParameters.PERCENTAGERANGE;
         
         rdmPrk = new RandomParkInicializer(_cp.getParkSpreadness());
     }
@@ -42,21 +38,25 @@ public class InicializerController {
         for(CityTileset ct: pop){
             rdmPrk.Inicialize(ct);
         }
+        
         return pop;
     }
     
     public CityTilesetPopulation InicializeCities(){
-        CityTileset ct = new CityTileset(cp.getSize());
-        CityTilesetPopulation ctPop = new CityTilesetPopulation(1,mp.getPopulationSize());
+        CityTileset ct = new CityTileset(cityParams.getSize());
+        CityTilesetPopulation ctPop = 
+                new CityTilesetPopulation(1,modelParams.getPopulationSize());
                         
-        RandomCityInicializer generator = 
-                new RandomCityInicializer();
-        generator.setNewBuildingProb((double)cp.getBuildingDensity()/100); 
-        generator.inicialize(ct,ct.getSize()/10*cp.getRoadDensity());
+        RandomCityInicializer generator = new RandomCityInicializer();
+        
+        generator.setNewBuildingProb((double)cityParams.getBuildingDensity()/100); 
+        
+        int numberOfNodes = ct.getSize()/10*cityParams.getRoadDensity();
+        
+        generator.inicialize(ct, numberOfNodes);
 
-        for(int i = 0; i < mp.getPopulationSize(); ++i){
+        for(int i = 0; i < modelParams.getPopulationSize(); ++i){
             ctPop.add(new CityTileset(ct));
-            
         }
         
         return ctPop;
