@@ -14,7 +14,6 @@ import java.util.Random;
  * @author gabriel
  */
 public class RandomParkMutation {
-    private static final double MUTATION_PROBABILITY = 0.01; // Mutation probability (1%)
     
     private Random generator;
     

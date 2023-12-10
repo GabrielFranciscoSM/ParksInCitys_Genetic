@@ -10,6 +10,7 @@ import Model.Individuals.CityTileset;
 import Model.Individuals.CityTilesetPopulation;
 import Model.Individuals.Population;
 import Model.Individuals.Tiles.Tile;
+//import Views.GUI.MainWindow;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -18,24 +19,24 @@ import java.util.Random;
  * @author gabriel
  */
 public class NeighborhoodCrossover extends CrossoverOperator<CityTileset>{
-    Random generator;
     
-    NeighborhoodCrossover(){
-        generator = new Random(System.currentTimeMillis());
-    }
-    
-    public Population<CityTileset> apply(CityTilesetPopulation pop){
+    public Population<CityTileset> apply(CityTilesetPopulation pop, Random generator){
+        
+        //First the pairs are done
         Population<CityTileset> offsprings = pop.clone();
         
-        offsprings.setId(pop.getId() + 1);
         offsprings.clear();
         ArrayList<Pairing> pairings = makeRandomPairings(pop);
+        
+        
         for (Pairing pairing : pairings) {
             
+            //gets the parents from a pair
             CityTileset offspring1 = pairing.firstParent;
             CityTileset offspring2 = pairing.secondParent;
             
-            for(int i = 0; i < 2; i++){
+            
+            for(int i = 0; i < CrossoverController.REPETITIONS; i++){
                 Position randNeigh = new Position(
                     generator.nextInt(offspring1.getNNeighborhood()),
                     generator.nextInt(offspring1.getNNeighborhood()));
@@ -43,6 +44,19 @@ public class NeighborhoodCrossover extends CrossoverOperator<CityTileset>{
                 ArrayList<ArrayList<Tile>> tilesAux = offspring1.getNeighborhoodTiles(randNeigh);
 
                 ArrayList<ArrayList<Tile>> tilesAux2 = offspring2.getNeighborhoodTiles(randNeigh); 
+                
+                /*
+                CityTileset ctaux = new CityTileset(tilesAux);
+                CityTileset ctaux2 = new CityTileset(tilesAux2);
+                
+                
+                Population<CityTileset> popaux = new CityTilesetPopulation(0,2);
+                popaux.add(ctaux);
+                popaux.add(ctaux2);
+                MainWindow gui2 = new MainWindow();
+                gui2.setPopulationCT(popaux);
+                gui2.showView();*/
+                
                 
                 offspring1.setTiles(Position.mul(randNeigh, CityParameters.NEIGHBORHOODSIZE), 
                         tilesAux2);

@@ -17,17 +17,17 @@ import java.util.stream.Collectors;
  * @author gabriel
  */
 public class RankSelection {
-    Random generator;
     
-    RankSelection(){
-        generator = new Random(System.currentTimeMillis());
-    }
-    
-    public Population<CityTileset> apply(CityTilesetPopulation pop, boolean useElitism, boolean truncate){
-        List<CityTileset> sortedPop = pop.stream()
-        .sorted(Comparator.comparingDouble(CityTileset::getFitness))
-        .collect(Collectors.toList());
+    public Population<CityTileset> apply(
+            CityTilesetPopulation pop, 
+            boolean useElitism, 
+            boolean truncate,
+            Random generator,
+            double truncateSize){
         
+        //Get the population sorted by fitness
+        List<CityTileset> sortedPop = pop.sortPopulationByFitness();
+                
         Population<CityTileset> aux = pop.clone();
         aux.clear();
         
@@ -39,7 +39,8 @@ public class RankSelection {
         }
         
         if(truncate){
-            sortedPop.subList(0, 2*sortedPop.size()/3);
+            //Esto funciona bien o del reves?
+            sortedPop.subList(0, (int)(sortedPop.size()*truncateSize));
         }
         
         while(aux.add(sortedPop.get(generator.nextInt(pop.size())))){}

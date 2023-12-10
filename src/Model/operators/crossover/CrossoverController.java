@@ -4,23 +4,31 @@
  */
 package Model.operators.crossover;
 
+import Model.CityParameters;
 import Model.Individuals.CityTileset;
 import Model.Individuals.CityTilesetPopulation;
 import Model.Individuals.Population;
+import Model.ModelParameters;
+import java.util.Random;
 
 /**
  *
  * @author gabriel
  */
 public class CrossoverController {
+
+    public static int REPETITIONS = 2;
     
     NeighborhoodCrossover nc;
+    Random generator;
     
-    public CrossoverController(){
+    public CrossoverController(ModelParameters mp){
         nc = new NeighborhoodCrossover();
+        generator = new Random(System.currentTimeMillis());
+        REPETITIONS = mp.getCROSSOVERINTENSITY();
     }
     
     public Population<CityTileset> apply(CityTilesetPopulation pop){
-        return nc.apply(pop);
+        return nc.apply(pop,generator);
     }
 }

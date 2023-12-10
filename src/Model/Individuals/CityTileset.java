@@ -153,7 +153,7 @@ public class CityTileset extends Individual{
                 neighborhoods.add(aux2);
             }
             
-            for(int j = 0; j < tiles.size(); ++j){
+            for(int j = 0; j < tiles.get(0).size(); ++j){
                 aux.add(tiles.get(i).get(j).makeCopy());
                 
                 if(j % (CityParameters.NEIGHBORHOODSIZE) == 0){
@@ -168,13 +168,47 @@ public class CityTileset extends Individual{
                 }
                 if(tiles.get(i).get(j).isPark()){
                     ++disponibleTiles;
-                    neighborhoods.get(i%(CityParameters.NEIGHBORHOODSIZE)).
-                                  get(j%(CityParameters.NEIGHBORHOODSIZE)).
+                    neighborhoods.get(i/(CityParameters.NEIGHBORHOODSIZE)).
+                                  get(j/(CityParameters.NEIGHBORHOODSIZE)).
                                   addPark((ParkTile)tiles.get(i).get(j));
                 }
                
             }
             
+            for(int j = tiles.get(0).size(); j < tiles.size(); ++j){
+                aux.add(new VoidTile());
+                ++freeTiles;
+                ++disponibleTiles;
+                
+                if(j % (CityParameters.NEIGHBORHOODSIZE) == 0){
+                    aux2.add(new Neighborhood(
+                         Neighborhood.DEFAULTMAXPARKS, 
+                            CityParameters.NEIGHBORHOODSIZE));
+                }
+            }
+            
+            
+        }
+        
+        for(int i = tiles.size(); i < tiles.get(0).size(); ++i){
+            ArrayList<Tile> aux = new ArrayList<>();
+            ArrayList<Neighborhood> aux2 = new ArrayList<>();
+
+            tileset.add(aux);
+            if(i % (CityParameters.NEIGHBORHOODSIZE) == 0){
+                neighborhoods.add(aux2);
+            }
+            for(int j = 0; j < tiles.get(0).size(); ++j){
+                aux.add(new VoidTile());
+                ++freeTiles;
+                ++disponibleTiles;
+                
+                if(j % (CityParameters.NEIGHBORHOODSIZE) == 0){
+                    aux2.add(new Neighborhood(
+                         Neighborhood.DEFAULTMAXPARKS, 
+                            CityParameters.NEIGHBORHOODSIZE));
+                }
+            }
             
         }
     }
@@ -253,11 +287,11 @@ public class CityTileset extends Individual{
         ArrayList<ArrayList<Tile>> part = new ArrayList<>();
         
         if(inRange(topLeft) && inRange(botRight)){
-            for(int y = topLeft.getY(); y <= botRight.getY(); ++y){
+            for(int x = topLeft.getX(); x <= botRight.getX(); ++x){
                 
                 ArrayList<Tile> aux = new ArrayList<>();
                 
-                for(int x = topLeft.getX(); x <= botRight.getX(); ++x){
+                for(int y = topLeft.getY();y <= botRight.getY(); ++y){
                     aux.add(getTile(new Position(x,y)).makeCopy());
                 }
                 
@@ -283,43 +317,46 @@ public class CityTileset extends Individual{
         return null;
     }
     
-    public void setTiles(Position topLeft, ArrayList<ArrayList<Tile>> tiles){        
+    public void setTiles(Position topLeft, ArrayList<ArrayList<Tile>> tiles){  
+        
+        int hLength = Math.min(tiles.size(), this.getSize() - topLeft.getX());
+        int yLength = Math.min(tiles.get(0).size(), this.getSize() - topLeft.getY());
+
         if(inRange(Position.sum(topLeft, new Position(tiles.size(),0))) &&
            inRange(Position.sum(topLeft, new Position(0,tiles.get(0).size())))){
             
-            for(int y = 0; y < tiles.size(); ++y){
+            for(int x = 0; x < hLength; ++x){
                 
-                for(int x = 0; x < tiles.get(0).size(); ++x){
+                for(int y = 0; y < yLength; ++y){
                     
                     boolean addVoid = false;
                     Position aux = new Position(topLeft.getX()+x,topLeft.getY()+y);
                     
-                    if(tiles.get(y).get(x).isPark()){
+                    if(tiles.get(x).get(y).isPark()){
                         if(this.getTile(aux).isVoid()){
-                            addVoid = !this.getNeigborhoodWithTilePos(new Position(y,x)).
-                                    addPark((ParkTile)tiles.get(y).get(x));
+                            addVoid = !this.getNeigborhoodWithTilePos(new Position(x,y)).
+                                    addPark((ParkTile)tiles.get(x).get(y));
                             if(!addVoid)
                                 --freeTiles;
                         }
                         else if(this.getTile(aux).isPark()){
-                            this.getNeigborhoodWithTilePos(new Position(y,x)).
-                                    deletePark((ParkTile)tiles.get(y).get(x));
-                            this.getNeigborhoodWithTilePos(new Position(y,x)).
-                                    addPark((ParkTile)tiles.get(y).get(x));
+                            this.getNeigborhoodWithTilePos(new Position(x,y)).
+                                    deletePark((ParkTile)tiles.get(x).get(y));
+                            this.getNeigborhoodWithTilePos(new Position(x,y)).
+                                    addPark((ParkTile)tiles.get(x).get(y));
                         }
                     }
                     
-                    if(tiles.get(y).get(x).isVoid() && 
+                    if(tiles.get(x).get(y).isVoid() && 
                             this.getTile(aux).isPark()){
-                        
-                        this.getNeigborhoodWithTilePos(new Position(y,x)).
-                                deletePark((ParkTile)tiles.get(y).get(x));
+                        this.getNeigborhoodWithTilePos(aux).
+                                deletePark((ParkTile)this.getTile(aux));
                         ++freeTiles;
                     }
                     
                     if(!addVoid){
                         ChangeTile(new Position(topLeft.getX()+x,topLeft.getY()+y), 
-                        tiles.get(y).get(x).makeCopy());
+                        tiles.get(x).get(y).makeCopy());
                     }
                     else
                         ChangeTile(new Position(topLeft.getX()+x,topLeft.getY()+y), 

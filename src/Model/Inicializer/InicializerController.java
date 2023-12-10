@@ -45,7 +45,7 @@ public class InicializerController {
     public CityTilesetPopulation InicializeCities(){
         CityTileset ct = new CityTileset(cityParams.getSize());
         CityTilesetPopulation ctPop = 
-                new CityTilesetPopulation(1,modelParams.getPopulationSize());
+                new CityTilesetPopulation(1,modelParams.getPOPULATIONSIZE());
                         
         RandomCityInicializer generator = new RandomCityInicializer();
         
@@ -55,7 +55,7 @@ public class InicializerController {
         
         generator.inicialize(ct, numberOfNodes);
 
-        for(int i = 0; i < modelParams.getPopulationSize(); ++i){
+        for(int i = 0; i < modelParams.getPOPULATIONSIZE(); ++i){
             ctPop.add(new CityTileset(ct));
         }
         

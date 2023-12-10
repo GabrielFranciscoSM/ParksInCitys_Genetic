@@ -12,6 +12,8 @@ import Model.Individuals.Population;
  * @author gabriel
  */
 public class MutationController {
+
+    private static final double MUTATION_PROBABILITY = 0.01; // Mutation probability (1%)
     RandomParkMutation rpm;
 	
     public MutationController() {

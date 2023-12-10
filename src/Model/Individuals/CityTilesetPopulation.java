@@ -5,6 +5,9 @@
 package Model.Individuals;
 
 import Model.Individuals.Tiles.TileType;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  *
@@ -26,6 +29,13 @@ public class CityTilesetPopulation extends FixedSizePopulation<CityTileset>{
         }
         
         return max;
+    }
+    
+        
+    public List<CityTileset> sortPopulationByFitness(){
+        return this.stream()
+        .sorted(Comparator.comparingDouble(CityTileset::getFitness))
+        .collect(Collectors.toList());
     }
     
 }

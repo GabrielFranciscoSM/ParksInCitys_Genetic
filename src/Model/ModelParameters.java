@@ -9,19 +9,52 @@ package Model;
  * @author gabriel
  */
 public class ModelParameters {
-    private final int populationSize;
-    private final int moneyPonderation;
+    private final int POPULATIONSIZE;
+    private final int MONEYPONDERATION;
+    
+    //Crossover
+    private final double DEFCROSSOVERPROB = 0.1;
+    private final double CROSSOVERPROB = 0.1;
+    
+    private final int DEFCROSSOVERINTENSITY = 1;
+    private final int CROSSOVERINTENSITY = 1;
+    
+    //Selection
+    private final boolean USEELITISM = true;
+    private final boolean USETRUNCATE = true;
+    private final double TRUNCATESIZE = 0.3;
+
     
     public ModelParameters(int popSize, int moneyPond){
-        populationSize = popSize;
-        this.moneyPonderation = moneyPond;
+        POPULATIONSIZE = popSize;
+        this.MONEYPONDERATION = moneyPond;
     }
     
-    public int getPopulationSize(){
-        return populationSize;
+    public int getPOPULATIONSIZE(){
+        return POPULATIONSIZE;
     }
     
-    public int getMoneyPonderation(){
-        return moneyPonderation;
+    public int getMONEYPONDERATION(){
+        return MONEYPONDERATION;
+    }
+    
+    public double getCROSSOVERPROB(){
+        return CROSSOVERPROB;
+    }
+    
+    public int getCROSSOVERINTENSITY(){
+        return CROSSOVERINTENSITY;
+    }
+    
+    public boolean getUSEELITISM(){
+        return USEELITISM;
+    }
+    
+    public boolean getUSETRUNCATE(){
+        return USETRUNCATE;
+    }
+    
+    public double getTRUNCATESIZE(){
+        return TRUNCATESIZE;
     }
 }

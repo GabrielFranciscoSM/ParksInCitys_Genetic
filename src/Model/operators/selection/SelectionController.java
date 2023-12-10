@@ -7,6 +7,11 @@ package Model.operators.selection;
 import Model.Individuals.CityTileset;
 import Model.Individuals.CityTilesetPopulation;
 import Model.Individuals.Population;
+import Model.ModelParameters;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Random;
+import java.util.stream.Collectors;
 
 /**
  *
@@ -15,14 +20,23 @@ import Model.Individuals.Population;
 public class SelectionController{
     
     RankSelection rs;
+    Random generator;
     
-    public SelectionController(){
+    private boolean useElitism;
+    private boolean useTruncate;
+    private double truncateSize;
+
+    public SelectionController(ModelParameters mp){
         rs = new RankSelection();
+        generator = new Random(System.currentTimeMillis());
+        useElitism = mp.getUSEELITISM();
+        useTruncate = mp.getUSETRUNCATE();
+        truncateSize = mp.getTRUNCATESIZE();
     }
     
     //include elitism and truncation.
-    public Population<CityTileset> apply(CityTilesetPopulation pop,boolean useElitism, boolean truncate){
-        return rs.apply(pop,useElitism,truncate);
+    public Population<CityTileset> apply(
+            CityTilesetPopulation pop){
+        return rs.apply(pop,useElitism,useTruncate,generator,truncateSize);
     }
-    
 }

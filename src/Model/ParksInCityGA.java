@@ -28,16 +28,16 @@ public class ParksInCityGA {
     
     public ParksInCityGA(CityParameters cp, ModelParameters mp){
         inicializer = new InicializerController(cp, mp);
-        crossover = new CrossoverController();
-        fitness = new PonderatedFunction(mp.getMoneyPonderation());
-        selection = new SelectionController();
+        crossover = new CrossoverController(mp);
+        fitness = new PonderatedFunction(mp.getMONEYPONDERATION());
+        selection = new SelectionController(mp);
     }
     
     public void run(){
         pop = inicializer.Inicialize();
         this.applyFitness();
         this.applySelection();
-        
+        //this.applyCrossover();
     }
     
     public CityTilesetPopulation getPopulation(){
@@ -53,12 +53,12 @@ public class ParksInCityGA {
     }
     
     public void applySelection(){
-        selection.apply(pop, true, true);
+        selection.apply(pop);
     }
     
     public Population savePopulation(){
         Population auxpop = pop.clone();
-        pop.clear();
+        auxpop.clear();
         
         for(CityTileset ct: pop){
             auxpop.add(new CityTileset(ct));
