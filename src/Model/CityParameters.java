@@ -8,6 +8,8 @@ package Model;
  *
  * @author gabriel
  */
+
+///Class containing parameters for inizalitation of cities
 public class CityParameters {
 
     //Size of a side of the tileset

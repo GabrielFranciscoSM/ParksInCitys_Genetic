@@ -1,0 +1,152 @@
+.TH "Model.Individuals.CityTileset" 3 "My Project" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Model.Individuals.CityTileset
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBModel\&.Individuals\&.Individual\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBCityTileset\fP (int size)"
+.br
+.ti -1c
+.RI "\fBCityTileset\fP (\fBCityTileset\fP cp)"
+.br
+.ti -1c
+.RI "\fBCityTileset\fP (ArrayList< ArrayList< Tile > > tiles)"
+.br
+.ti -1c
+.RI "Position \fBgetMaxPark\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetDisponibleTiles\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetDisponibleTiles\fP (int i)"
+.br
+.ti -1c
+.RI "double \fBgetPercentageOfParks\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetFreeTiles\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetFreeTiles\fP (int ft)"
+.br
+.ti -1c
+.RI "int \fBgetId\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetNparkTiles\fP ()"
+.br
+.ti -1c
+.RI "Position \fBgetParkTile\fP (int i)"
+.br
+.ti -1c
+.RI "List< Position > \fBgetArrayOfParkPositions\fP ()"
+.br
+.ti -1c
+.RI "Tile \fBgetTile\fP (Position pos)"
+.br
+.ti -1c
+.RI "Tile \fBgetTile\fP (int x, int y)"
+.br
+.ti -1c
+.RI "ArrayList< ArrayList< Tile > > \fBgetTiles\fP (Position topLeft, Position botRight)"
+.br
+.ti -1c
+.RI "ArrayList< ArrayList< Tile > > \fBgetNeighborhoodTiles\fP (Position pos)"
+.br
+.ti -1c
+.RI "void \fBsetTiles\fP (Position topLeft, ArrayList< ArrayList< Tile > > tiles)"
+.br
+.ti -1c
+.RI "int \fBgetSize\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetNNeighborhood\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetNeighborhoodNParks\fP (Position pos)"
+.br
+.ti -1c
+.RI "boolean \fBNewParkTile\fP (Position pos)"
+.br
+.ti -1c
+.RI "boolean \fBNewParkTile\fP (Position pos, Position neighbour)"
+.br
+.ti -1c
+.RI "int \fBgetValueOfPark\fP (Position pos)"
+.br
+.ti -1c
+.RI "void \fBremoveParkTile\fP (Position pos)"
+.br
+.ti -1c
+.RI "boolean \fBextendPark\fP (Position pos)"
+.br
+.ti -1c
+.RI "void \fBNewBuildingTile\fP (Position pos)"
+.br
+.ti -1c
+.RI "void \fBNewBuildingTile\fP (Position pos, Tile bt)"
+.br
+.ti -1c
+.RI "boolean \fBcanBuild\fP (Position pos)"
+.br
+.ti -1c
+.RI "void \fBNewRoadTile\fP (Position pos)"
+.br
+.ti -1c
+.RI "String \fBtoString\fP ()"
+.br
+.in -1c
+
+Public Member Functions inherited from \fBModel\&.Individuals\&.Individual\fP
+.in +1c
+.ti -1c
+.RI "double \fBgetFitness\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetFitness\fP (double fitness)"
+.br
+.ti -1c
+.RI "int \fBcompareTo\fP (\fBIndividual\fP other)"
+.br
+.ti -1c
+.RI "\fBIndividual\fP \fBclone\fP ()  throws CloneNotSupportedException "
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+Protected Attributes inherited from \fBModel\&.Individuals\&.Individual\fP
+.in +1c
+.ti -1c
+.RI "double \fBfitness\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.PP
+\fBAuthor\fP
+.RS 4
+Gabriel Sanchez 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "String Model\&.Individuals\&.CityTileset\&.toString ()\fC [inline]\fP"
+
+.PP
+Reimplemented from \fBModel\&.Individuals\&.Individual\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for My Project from the source code\&.

@@ -1,0 +1,254 @@
+\doxysection{Basics.\+Position Class Reference}
+\hypertarget{classBasics_1_1Position}{}\label{classBasics_1_1Position}\index{Basics.Position@{Basics.Position}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classBasics_1_1Position_aaed6804480f912da1c965c0e5d5267de}{Position}} ()
+\item 
+\mbox{\hyperlink{classBasics_1_1Position_ac2d5cc287b8bba15874e46dca00e83e2}{Position}} (int n)
+\item 
+\mbox{\hyperlink{classBasics_1_1Position_a4d5cf3dbbd9863717bd77b3de40886d9}{Position}} (int \+\_\+x, int \+\_\+y)
+\item 
+\mbox{\hyperlink{classBasics_1_1Position_aeac2628047a522f7c4454f51969b4b82}{Position}} (\mbox{\hyperlink{classBasics_1_1Position}{Position}} p)
+\item 
+int \mbox{\hyperlink{classBasics_1_1Position_ac887884c0972b2a552451a5aee706a6f}{getX}} ()
+\item 
+int \mbox{\hyperlink{classBasics_1_1Position_a6218fcbe273725aff32acb87852b9232}{getY}} ()
+\item 
+void \mbox{\hyperlink{classBasics_1_1Position_a0d089e6691969fd5bf224b019bf90fd7}{setX}} (int \+\_\+x)
+\item 
+void \mbox{\hyperlink{classBasics_1_1Position_ab7e8fa421c7a5d3d57249de801437ed1}{setY}} (int \+\_\+y)
+\item 
+void \mbox{\hyperlink{classBasics_1_1Position_a17ff69553d1be41632df98e73618f4db}{set\+Pos}} (int \+\_\+x, int \+\_\+y)
+\item 
+\mbox{\hyperlink{classBasics_1_1Position}{Position}} \mbox{\hyperlink{classBasics_1_1Position_ac875ae757e188b772f1766b1c7d3be4d}{mult}} (int m)
+\item 
+\mbox{\hyperlink{classBasics_1_1Position}{Position}} \mbox{\hyperlink{classBasics_1_1Position_a2372c2963e59175bfe69bd556d2aa07a}{div}} (int d)
+\item 
+boolean \mbox{\hyperlink{classBasics_1_1Position_a4754eb239f7180b51245eb9d16679ed4}{in\+Range}} (\mbox{\hyperlink{classBasics_1_1Position}{Position}} top\+Right, \mbox{\hyperlink{classBasics_1_1Position}{Position}} bot\+Left)
+\item 
+boolean \mbox{\hyperlink{classBasics_1_1Position_aff67cb5d9827d866e2a325fcdd60e835}{is\+Equal}} (\mbox{\hyperlink{classBasics_1_1Position}{Position}} pos)
+\item 
+String \mbox{\hyperlink{classBasics_1_1Position_ac009bd5a5a54c0dfe674b353c0db132d}{to\+String}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classBasics_1_1Position}{Position}} \mbox{\hyperlink{classBasics_1_1Position_a1e9cad45f2a2c403357ab5b63db1bd07}{subtract}} (\mbox{\hyperlink{classBasics_1_1Position}{Position}} pos1, \mbox{\hyperlink{classBasics_1_1Position}{Position}} pos2)
+\item 
+static \mbox{\hyperlink{classBasics_1_1Position}{Position}} \mbox{\hyperlink{classBasics_1_1Position_a1791369106878bd1c9ad4b071c7611ec}{sum}} (\mbox{\hyperlink{classBasics_1_1Position}{Position}} pos1, \mbox{\hyperlink{classBasics_1_1Position}{Position}} pos2)
+\item 
+static \mbox{\hyperlink{classBasics_1_1Position}{Position}} \mbox{\hyperlink{classBasics_1_1Position_a517849f953fbceb86ccf8f3a051c50b9}{mul}} (\mbox{\hyperlink{classBasics_1_1Position}{Position}} pos1, int num)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classBasics_1_1Position_a94883d2d800ea00172c0f2e441b54071}\label{classBasics_1_1Position_a94883d2d800ea00172c0f2e441b54071} 
+static final \mbox{\hyperlink{classBasics_1_1Position}{Position}} {\bfseries ZERO} = new \mbox{\hyperlink{classBasics_1_1Position}{Position}}(0)
+\begin{DoxyCompactList}\small\item\em Default position. Origin. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+gabriel Position Represents a 2D point, and has methods to operate with them 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classBasics_1_1Position_aaed6804480f912da1c965c0e5d5267de}\label{classBasics_1_1Position_aaed6804480f912da1c965c0e5d5267de} 
+\index{Basics.Position@{Basics.Position}!Position@{Position}}
+\index{Position@{Position}!Basics.Position@{Basics.Position}}
+\doxysubsubsection{\texorpdfstring{Position()}{Position()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily Basics.\+Position.\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Default constructor \Hypertarget{classBasics_1_1Position_ac2d5cc287b8bba15874e46dca00e83e2}\label{classBasics_1_1Position_ac2d5cc287b8bba15874e46dca00e83e2} 
+\index{Basics.Position@{Basics.Position}!Position@{Position}}
+\index{Position@{Position}!Basics.Position@{Basics.Position}}
+\doxysubsubsection{\texorpdfstring{Position()}{Position()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily Basics.\+Position.\+Position (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Constructor with one parameter \Hypertarget{classBasics_1_1Position_a4d5cf3dbbd9863717bd77b3de40886d9}\label{classBasics_1_1Position_a4d5cf3dbbd9863717bd77b3de40886d9} 
+\index{Basics.Position@{Basics.Position}!Position@{Position}}
+\index{Position@{Position}!Basics.Position@{Basics.Position}}
+\doxysubsubsection{\texorpdfstring{Position()}{Position()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily Basics.\+Position.\+Position (\begin{DoxyParamCaption}\item[{int}]{\+\_\+x,  }\item[{int}]{\+\_\+y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Constructor with two parameters \Hypertarget{classBasics_1_1Position_aeac2628047a522f7c4454f51969b4b82}\label{classBasics_1_1Position_aeac2628047a522f7c4454f51969b4b82} 
+\index{Basics.Position@{Basics.Position}!Position@{Position}}
+\index{Position@{Position}!Basics.Position@{Basics.Position}}
+\doxysubsubsection{\texorpdfstring{Position()}{Position()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily Basics.\+Position.\+Position (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBasics_1_1Position}{Position}}}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Copy constructor 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classBasics_1_1Position_a2372c2963e59175bfe69bd556d2aa07a}\label{classBasics_1_1Position_a2372c2963e59175bfe69bd556d2aa07a} 
+\index{Basics.Position@{Basics.Position}!div@{div}}
+\index{div@{div}!Basics.Position@{Basics.Position}}
+\doxysubsubsection{\texorpdfstring{div()}{div()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classBasics_1_1Position}{Position}} Basics.\+Position.\+div (\begin{DoxyParamCaption}\item[{int}]{d }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Division of the position with an integer 
+\begin{DoxyParams}{Parameters}
+{\em d} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{classBasics_1_1Position_ac887884c0972b2a552451a5aee706a6f}\label{classBasics_1_1Position_ac887884c0972b2a552451a5aee706a6f} 
+\index{Basics.Position@{Basics.Position}!getX@{getX}}
+\index{getX@{getX}!Basics.Position@{Basics.Position}}
+\doxysubsubsection{\texorpdfstring{getX()}{getX()}}
+{\footnotesize\ttfamily int Basics.\+Position.\+getX (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Getter of x \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{classBasics_1_1Position_a6218fcbe273725aff32acb87852b9232}\label{classBasics_1_1Position_a6218fcbe273725aff32acb87852b9232} 
+\index{Basics.Position@{Basics.Position}!getY@{getY}}
+\index{getY@{getY}!Basics.Position@{Basics.Position}}
+\doxysubsubsection{\texorpdfstring{getY()}{getY()}}
+{\footnotesize\ttfamily int Basics.\+Position.\+getY (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Getter of y \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{classBasics_1_1Position_a4754eb239f7180b51245eb9d16679ed4}\label{classBasics_1_1Position_a4754eb239f7180b51245eb9d16679ed4} 
+\index{Basics.Position@{Basics.Position}!inRange@{inRange}}
+\index{inRange@{inRange}!Basics.Position@{Basics.Position}}
+\doxysubsubsection{\texorpdfstring{inRange()}{inRange()}}
+{\footnotesize\ttfamily boolean Basics.\+Position.\+in\+Range (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBasics_1_1Position}{Position}}}]{top\+Right,  }\item[{\mbox{\hyperlink{classBasics_1_1Position}{Position}}}]{bot\+Left }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Checks if the point is "{}inside"{} the square made by the two corners given 
+\begin{DoxyParams}{Parameters}
+{\em top\+Right} & \\
+\hline
+{\em bot\+Left} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{classBasics_1_1Position_aff67cb5d9827d866e2a325fcdd60e835}\label{classBasics_1_1Position_aff67cb5d9827d866e2a325fcdd60e835} 
+\index{Basics.Position@{Basics.Position}!isEqual@{isEqual}}
+\index{isEqual@{isEqual}!Basics.Position@{Basics.Position}}
+\doxysubsubsection{\texorpdfstring{isEqual()}{isEqual()}}
+{\footnotesize\ttfamily boolean Basics.\+Position.\+is\+Equal (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBasics_1_1Position}{Position}}}]{pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Checks if two points have the same coordinates 
+\begin{DoxyParams}{Parameters}
+{\em pos} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{classBasics_1_1Position_a517849f953fbceb86ccf8f3a051c50b9}\label{classBasics_1_1Position_a517849f953fbceb86ccf8f3a051c50b9} 
+\index{Basics.Position@{Basics.Position}!mul@{mul}}
+\index{mul@{mul}!Basics.Position@{Basics.Position}}
+\doxysubsubsection{\texorpdfstring{mul()}{mul()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classBasics_1_1Position}{Position}} Basics.\+Position.\+mul (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBasics_1_1Position}{Position}}}]{pos1,  }\item[{int}]{num }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Static function to multiply a position with a number (integer) 
+\begin{DoxyParams}{Parameters}
+{\em pos1} & \\
+\hline
+{\em num} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{classBasics_1_1Position_ac875ae757e188b772f1766b1c7d3be4d}\label{classBasics_1_1Position_ac875ae757e188b772f1766b1c7d3be4d} 
+\index{Basics.Position@{Basics.Position}!mult@{mult}}
+\index{mult@{mult}!Basics.Position@{Basics.Position}}
+\doxysubsubsection{\texorpdfstring{mult()}{mult()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classBasics_1_1Position}{Position}} Basics.\+Position.\+mult (\begin{DoxyParamCaption}\item[{int}]{m }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Multiplication of the position with a integer 
+\begin{DoxyParams}{Parameters}
+{\em m} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{classBasics_1_1Position_a17ff69553d1be41632df98e73618f4db}\label{classBasics_1_1Position_a17ff69553d1be41632df98e73618f4db} 
+\index{Basics.Position@{Basics.Position}!setPos@{setPos}}
+\index{setPos@{setPos}!Basics.Position@{Basics.Position}}
+\doxysubsubsection{\texorpdfstring{setPos()}{setPos()}}
+{\footnotesize\ttfamily void Basics.\+Position.\+set\+Pos (\begin{DoxyParamCaption}\item[{int}]{\+\_\+x,  }\item[{int}]{\+\_\+y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Setter for a position 
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+x} & \\
+\hline
+{\em \+\_\+y} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classBasics_1_1Position_a0d089e6691969fd5bf224b019bf90fd7}\label{classBasics_1_1Position_a0d089e6691969fd5bf224b019bf90fd7} 
+\index{Basics.Position@{Basics.Position}!setX@{setX}}
+\index{setX@{setX}!Basics.Position@{Basics.Position}}
+\doxysubsubsection{\texorpdfstring{setX()}{setX()}}
+{\footnotesize\ttfamily void Basics.\+Position.\+setX (\begin{DoxyParamCaption}\item[{int}]{\+\_\+x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Setter of x 
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+x} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classBasics_1_1Position_ab7e8fa421c7a5d3d57249de801437ed1}\label{classBasics_1_1Position_ab7e8fa421c7a5d3d57249de801437ed1} 
+\index{Basics.Position@{Basics.Position}!setY@{setY}}
+\index{setY@{setY}!Basics.Position@{Basics.Position}}
+\doxysubsubsection{\texorpdfstring{setY()}{setY()}}
+{\footnotesize\ttfamily void Basics.\+Position.\+setY (\begin{DoxyParamCaption}\item[{int}]{\+\_\+y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Setter of y 
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+y} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classBasics_1_1Position_a1e9cad45f2a2c403357ab5b63db1bd07}\label{classBasics_1_1Position_a1e9cad45f2a2c403357ab5b63db1bd07} 
+\index{Basics.Position@{Basics.Position}!subtract@{subtract}}
+\index{subtract@{subtract}!Basics.Position@{Basics.Position}}
+\doxysubsubsection{\texorpdfstring{subtract()}{subtract()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classBasics_1_1Position}{Position}} Basics.\+Position.\+subtract (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBasics_1_1Position}{Position}}}]{pos1,  }\item[{\mbox{\hyperlink{classBasics_1_1Position}{Position}}}]{pos2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Static method to subtract position 
+\begin{DoxyParams}{Parameters}
+{\em pos1} & \\
+\hline
+{\em pos2} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classBasics_1_1Position_a1791369106878bd1c9ad4b071c7611ec}\label{classBasics_1_1Position_a1791369106878bd1c9ad4b071c7611ec} 
+\index{Basics.Position@{Basics.Position}!sum@{sum}}
+\index{sum@{sum}!Basics.Position@{Basics.Position}}
+\doxysubsubsection{\texorpdfstring{sum()}{sum()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classBasics_1_1Position}{Position}} Basics.\+Position.\+sum (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBasics_1_1Position}{Position}}}]{pos1,  }\item[{\mbox{\hyperlink{classBasics_1_1Position}{Position}}}]{pos2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Static method to sum positions 
+\begin{DoxyParams}{Parameters}
+{\em pos1} & \\
+\hline
+{\em pos2} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{classBasics_1_1Position_ac009bd5a5a54c0dfe674b353c0db132d}\label{classBasics_1_1Position_ac009bd5a5a54c0dfe674b353c0db132d} 
+\index{Basics.Position@{Basics.Position}!toString@{toString}}
+\index{toString@{toString}!Basics.Position@{Basics.Position}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily String Basics.\+Position.\+to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+to\+String method for Position format\+: (x,y) \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Basics/\mbox{\hyperlink{Position_8java}{Position.\+java}}\end{DoxyCompactItemize}

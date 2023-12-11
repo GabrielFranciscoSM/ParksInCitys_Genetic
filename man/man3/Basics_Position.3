@@ -1,0 +1,252 @@
+.TH "Basics.Position" 3 "My Project" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Basics.Position
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBPosition\fP ()"
+.br
+.ti -1c
+.RI "\fBPosition\fP (int n)"
+.br
+.ti -1c
+.RI "\fBPosition\fP (int _x, int _y)"
+.br
+.ti -1c
+.RI "\fBPosition\fP (\fBPosition\fP p)"
+.br
+.ti -1c
+.RI "int \fBgetX\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetY\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetX\fP (int _x)"
+.br
+.ti -1c
+.RI "void \fBsetY\fP (int _y)"
+.br
+.ti -1c
+.RI "void \fBsetPos\fP (int _x, int _y)"
+.br
+.ti -1c
+.RI "\fBPosition\fP \fBmult\fP (int m)"
+.br
+.ti -1c
+.RI "\fBPosition\fP \fBdiv\fP (int d)"
+.br
+.ti -1c
+.RI "boolean \fBinRange\fP (\fBPosition\fP topRight, \fBPosition\fP botLeft)"
+.br
+.ti -1c
+.RI "boolean \fBisEqual\fP (\fBPosition\fP pos)"
+.br
+.ti -1c
+.RI "String \fBtoString\fP ()"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBPosition\fP \fBsubtract\fP (\fBPosition\fP pos1, \fBPosition\fP pos2)"
+.br
+.ti -1c
+.RI "static \fBPosition\fP \fBsum\fP (\fBPosition\fP pos1, \fBPosition\fP pos2)"
+.br
+.ti -1c
+.RI "static \fBPosition\fP \fBmul\fP (\fBPosition\fP pos1, int num)"
+.br
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "static final \fBPosition\fP \fBZERO\fP = new \fBPosition\fP(0)"
+.br
+.RI "Default position\&. Origin\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.PP
+\fBAuthor\fP
+.RS 4
+gabriel Position Represents a 2D point, and has methods to operate with them 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Basics\&.Position\&.Position ()\fC [inline]\fP"
+Default constructor 
+.SS "Basics\&.Position\&.Position (int n)\fC [inline]\fP"
+Constructor with one parameter 
+.SS "Basics\&.Position\&.Position (int _x, int _y)\fC [inline]\fP"
+Constructor with two parameters 
+.SS "Basics\&.Position\&.Position (\fBPosition\fP p)\fC [inline]\fP"
+Copy constructor 
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBPosition\fP Basics\&.Position\&.div (int d)\fC [inline]\fP"
+Division of the position with an integer 
+.PP
+\fBParameters\fP
+.RS 4
+\fId\fP 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+.RE
+.PP
+
+.SS "int Basics\&.Position\&.getX ()\fC [inline]\fP"
+Getter of x 
+.PP
+\fBReturns\fP
+.RS 4
+
+.RE
+.PP
+
+.SS "int Basics\&.Position\&.getY ()\fC [inline]\fP"
+Getter of y 
+.PP
+\fBReturns\fP
+.RS 4
+
+.RE
+.PP
+
+.SS "boolean Basics\&.Position\&.inRange (\fBPosition\fP topRight, \fBPosition\fP botLeft)\fC [inline]\fP"
+Checks if the point is 'inside' the square made by the two corners given 
+.PP
+\fBParameters\fP
+.RS 4
+\fItopRight\fP 
+.br
+\fIbotLeft\fP 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+.RE
+.PP
+
+.SS "boolean Basics\&.Position\&.isEqual (\fBPosition\fP pos)\fC [inline]\fP"
+Checks if two points have the same coordinates 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpos\fP 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+.RE
+.PP
+
+.SS "static \fBPosition\fP Basics\&.Position\&.mul (\fBPosition\fP pos1, int num)\fC [inline]\fP, \fC [static]\fP"
+Static function to multiply a position with a number (integer) 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpos1\fP 
+.br
+\fInum\fP 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+.RE
+.PP
+
+.SS "\fBPosition\fP Basics\&.Position\&.mult (int m)\fC [inline]\fP"
+Multiplication of the position with a integer 
+.PP
+\fBParameters\fP
+.RS 4
+\fIm\fP 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+.RE
+.PP
+
+.SS "void Basics\&.Position\&.setPos (int _x, int _y)\fC [inline]\fP"
+Setter for a position 
+.PP
+\fBParameters\fP
+.RS 4
+\fI_x\fP 
+.br
+\fI_y\fP 
+.RE
+.PP
+
+.SS "void Basics\&.Position\&.setX (int _x)\fC [inline]\fP"
+Setter of x 
+.PP
+\fBParameters\fP
+.RS 4
+\fI_x\fP 
+.RE
+.PP
+
+.SS "void Basics\&.Position\&.setY (int _y)\fC [inline]\fP"
+Setter of y 
+.PP
+\fBParameters\fP
+.RS 4
+\fI_y\fP 
+.RE
+.PP
+
+.SS "static \fBPosition\fP Basics\&.Position\&.subtract (\fBPosition\fP pos1, \fBPosition\fP pos2)\fC [inline]\fP, \fC [static]\fP"
+Static method to subtract position 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpos1\fP 
+.br
+\fIpos2\fP 
+.RE
+.PP
+
+.SS "static \fBPosition\fP Basics\&.Position\&.sum (\fBPosition\fP pos1, \fBPosition\fP pos2)\fC [inline]\fP, \fC [static]\fP"
+Static method to sum positions 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpos1\fP 
+.br
+\fIpos2\fP 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+.RE
+.PP
+
+.SS "String Basics\&.Position\&.toString ()\fC [inline]\fP"
+toString method for Position format: (x,y) 
+.PP
+\fBReturns\fP
+.RS 4
+
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for My Project from the source code\&.

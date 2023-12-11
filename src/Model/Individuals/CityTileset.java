@@ -455,12 +455,12 @@ public class CityTileset extends Individual{
         int v = getTile(neighbour).getValue(TileType.PARK);
         int offset = ParkTile.getAreaOfEffect();
 
-        Position rePos = Position.substract(pos, neighbour);
+        Position rePos = Position.subtract(pos, neighbour);
         
         switch (Math.abs(rePos.getX())+ Math.abs(rePos.getY())) {
             case 2:
                 
-                Position corner = Position.substract
+                Position corner = Position.subtract
                     (pos, rePos.mult(ParkTile.getAreaOfEffect()));
                 Position opositeCorner = Position.sum
                     (pos, rePos.mult(ParkTile.getAreaOfEffect()));
@@ -546,7 +546,7 @@ public class CityTileset extends Individual{
     public boolean extendPark(Position pos){
         
         if(this.getTile(pos).isPark()){
-            Position aux = Position.substract(pos, new Position(1,1));
+            Position aux = Position.subtract(pos, new Position(1,1));
         
             for(int i = 0; i < 3; ++i){
                 for(int j = 0; j < 3; ++j){

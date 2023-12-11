@@ -162,7 +162,7 @@ public class RandomCityInicializer {
             i=1;
 
             if(generator.nextDouble() < newBuildingProb){
-                while(ct.canBuild(Position.substract(n, new Position(i)))
+                while(ct.canBuild(Position.subtract(n, new Position(i)))
                         && generator.nextDouble() >= STOPBUILDINGPROB){
                     ++i;
                 }
