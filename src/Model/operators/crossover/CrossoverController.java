@@ -4,7 +4,6 @@
  */
 package Model.operators.crossover;
 
-import Model.CityParameters;
 import Model.Individuals.CityTileset;
 import Model.Individuals.CityTilesetPopulation;
 import Model.Individuals.Population;

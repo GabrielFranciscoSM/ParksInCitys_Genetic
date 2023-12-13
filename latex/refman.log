@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.12.10)  11 DEC 2023 12:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.12.10)  11 DEC 2023 13:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -864,9 +864,6 @@ File: uwasy.fd 2020/01/19 v2.4 Wasy-2 symbol font definitions
 )
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 6.29996pt on input line 204.
-LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 6.29996pt on input line 204.
- [1] [2]
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 7.19995pt on input line 204.
 LaTeX Font Info:    Trying to load font information for T1+pcr on input line 20
@@ -874,7 +871,10 @@ LaTeX Font Info:    Trying to load font information for T1+pcr on input line 20
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-) [3] [4]
+)
+LaTeX Font Info:    Font shape `T1/phv/b/n' will be
+(Font)              scaled to size 6.29996pt on input line 204.
+ [1] [2] [3] [4]
 Package hyperref Info: Option `pageanchor' set `true' on input line 207.
 
 Chapter 1.
@@ -884,89 +884,140 @@ LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 18.66588pt on input line 209.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 22.39185pt on input line 209.
-(./hierarchy.tex
+(./classBasics_1_1Position.tex
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 12.9599pt on input line 1.
- [1
-
-
-]) [2]
-Chapter 2.
-(./annotated.tex [3
-
-]) [4]
-Chapter 3.
-(./files.tex) [5
-
-] [6
-
-]
-Chapter 4.
-(./classModel_1_1Individuals_1_1Tiles_1_1BuildingTile.tex <./classModel_1_1Indi
-viduals_1_1Tiles_1_1BuildingTile.pdf>
-<classModel_1_1Individuals_1_1Tiles_1_1BuildingTile.pdf, id=1024, 501.875pt x 1
-84.1781pt>
-File: classModel_1_1Individuals_1_1Tiles_1_1BuildingTile.pdf Graphic file (type
- pdf)
-<use classModel_1_1Individuals_1_1Tiles_1_1BuildingTile.pdf>
-Package pdftex.def Info: classModel_1_1Individuals_1_1Tiles_1_1BuildingTile.pdf
-  used on input line 6.
-(pdftex.def)             Requested size: 155.05888pt x 56.9055pt.
 LaTeX Font Info:    Trying to load font information for TS1+phv on input line 1
-2.
+1.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1phv.fd
 File: ts1phv.fd 2020/03/25 scalable font definitions for TS1/phv.
 )
 LaTeX Font Info:    Font shape `TS1/phv/m/n' will be
-(Font)              scaled to size 8.99994pt on input line 12.
+(Font)              scaled to size 8.99994pt on input line 11.
+LaTeX Font Info:    Font shape `T1/phv/m/n' will be
+(Font)              scaled to size 8.09995pt on input line 53.
+LaTeX Font Info:    Font shape `T1/phv/m/it' in size <9> not available
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 53.
+LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
+(Font)              scaled to size 8.09995pt on input line 53.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 10.79993pt on input line 24.
- [7]
+(Font)              scaled to size 10.79993pt on input line 56.
 LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
-(Font)              scaled to size 8.99994pt on input line 56.
+(Font)              scaled to size 8.99994pt on input line 59.
 
-Underfull \hbox (badness 10000) detected at line 56
+Underfull \hbox (badness 10000) detected at line 59
 [][][]
  []
 
+LaTeX Font Info:    Font shape `T1/phv/b/n' will be
+(Font)              scaled to size 7.19995pt on input line 68.
+[1
+
+
+]
 LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <8> not available
-(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 66.
-) (./classModel_1_1CityParameters.tex [8]
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 75.
+ [2]
+Underfull \hbox (badness 10000) detected at line 122
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 138
+[][][]
+ []
+
+[3]
+Underfull \hbox (badness 10000) detected at line 154
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 163
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 172
+[][][]
+ []
+
+[4]
+Underfull \hbox (badness 10000) detected at line 221
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 235
+[][][]
+ []
+
+LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <7> not available
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 242.
+[5]
+Underfull \hbox (badness 10000) detected at line 251
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 265
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 276
+[][][]
+ []
+
+) (./classBasics_1_1SortByX.tex <./classBasics_1_1SortByX.pdf>
+<classBasics_1_1SortByX.pdf, id=884, 501.875pt x 260.71402pt>
+File: classBasics_1_1SortByX.pdf Graphic file (type pdf)
+<use classBasics_1_1SortByX.pdf>
+Package pdftex.def Info: classBasics_1_1SortByX.pdf  used on input line 6.
+(pdftex.def)             Requested size: 109.53983pt x 56.9055pt.
+ [6]
+Underfull \hbox (badness 10000) detected at line 18
+[][][]
+ []
+
+) (./classModel_1_1CityParameters.tex [7]
 Underfull \hbox (badness 10000) detected at line 100
 [][][]
  []
 
-) (./classViews_1_1GUI_1_1CityParametersView.tex <./classViews_1_1GUI_1_1CityPa
-rametersView.pdf>
-<classViews_1_1GUI_1_1CityParametersView.pdf, id=1071, 501.875pt x 204.8453pt>
-File: classViews_1_1GUI_1_1CityParametersView.pdf Graphic file (type pdf)
-<use classViews_1_1GUI_1_1CityParametersView.pdf>
-Package pdftex.def Info: classViews_1_1GUI_1_1CityParametersView.pdf  used on i
-nput line 6.
-(pdftex.def)             Requested size: 139.41362pt x 56.9055pt.
- [9]
-Underfull \hbox (badness 10000) detected at line 32
+) (./classModel_1_1fitness_1_1MoneyFunction.tex
+Underfull \hbox (badness 10000) detected at line 12
+[][][]
+ []
+
+) (./classModel_1_1fitness_1_1PonderatedFunction.tex [8]
+Underfull \hbox (badness 10000) detected at line 15
+[][][]
+ []
+
+) (./classModel_1_1fitness_1_1ValueFunction.tex
+Underfull \hbox (badness 10000) detected at line 12
 [][][]
  []
 
 ) (./classModel_1_1Individuals_1_1CityTileset.tex <./classModel_1_1Individuals_
 1_1CityTileset.pdf>
-<classModel_1_1Individuals_1_1CityTileset.pdf, id=1106, 501.875pt x 166.37157pt
->
+<classModel_1_1Individuals_1_1CityTileset.pdf, id=946, 501.875pt x 166.37157pt>
+
 File: classModel_1_1Individuals_1_1CityTileset.pdf Graphic file (type pdf)
 <use classModel_1_1Individuals_1_1CityTileset.pdf>
 Package pdftex.def Info: classModel_1_1Individuals_1_1CityTileset.pdf  used on 
 input line 6.
 (pdftex.def)             Requested size: 257.49211pt x 85.35826pt.
- [10]
+ [9]
 Underfull \hbox (badness 10000) detected at line 124
 [][][]
  []
 
-[11]) (./classModel_1_1Individuals_1_1CityTilesetPopulation.tex <./classModel_1
+[10]) (./classModel_1_1Individuals_1_1CityTilesetPopulation.tex <./classModel_1
 _1Individuals_1_1CityTilesetPopulation.pdf>
-<classModel_1_1Individuals_1_1CityTilesetPopulation.pdf, id=1169, 501.875pt x 1
+<classModel_1_1Individuals_1_1CityTilesetPopulation.pdf, id=1012, 501.875pt x 1
 25.86021pt>
 File: classModel_1_1Individuals_1_1CityTilesetPopulation.pdf Graphic file (type
  pdf)
@@ -979,33 +1030,9 @@ Underfull \hbox (badness 10000) detected at line 41
 [][][]
  []
 
-) (./classViews_1_1GUI_1_1CityView.tex <./classViews_1_1GUI_1_1CityView.pdf>
-<classViews_1_1GUI_1_1CityView.pdf, id=1177, 501.875pt x 304.16637pt>
-File: classViews_1_1GUI_1_1CityView.pdf Graphic file (type pdf)
-<use classViews_1_1GUI_1_1CityView.pdf>
-Package pdftex.def Info: classViews_1_1GUI_1_1CityView.pdf  used on input line 
-6.
-(pdftex.def)             Requested size: 93.89456pt x 56.9055pt.
-
-[12]
-Underfull \hbox (badness 10000) detected at line 27
-[][][]
- []
-
-) (./classModel_1_1Inicializer_1_1CloseToBuildingsParkInicializer.tex
-Underfull \hbox (badness 10000) detected at line 12
-[][][]
- []
-
-) (./classModel_1_1operators_1_1crossover_1_1CrossoverController.tex [13]
-Underfull \hbox (badness 10000) detected at line 21
-[][][]
- []
-
-) (./classModel_1_1operators_1_1crossover_1_1CrossoverOperator.tex)
-(./classModel_1_1Individuals_1_1FixedSizePopulation.tex <./classModel_1_1Indivi
-duals_1_1FixedSizePopulation.pdf>
-<classModel_1_1Individuals_1_1FixedSizePopulation.pdf, id=1210, 501.875pt x 107
+) (./classModel_1_1Individuals_1_1FixedSizePopulation.tex <./classModel_1_1Indi
+viduals_1_1FixedSizePopulation.pdf>
+<classModel_1_1Individuals_1_1FixedSizePopulation.pdf, id=1020, 501.875pt x 107
 .07pt>
 File: classModel_1_1Individuals_1_1FixedSizePopulation.pdf Graphic file (type p
 df)
@@ -1013,83 +1040,176 @@ df)
 Package pdftex.def Info: classModel_1_1Individuals_1_1FixedSizePopulation.pdf  
 used on input line 6.
 (pdftex.def)             Requested size: 266.74295pt x 56.9055pt.
- [14])
-(./classModel_1_1operators_1_1crossover_1_1GeometricalCrossover.tex
-Underfull \hbox (badness 10000) detected at line 12
-[][][]
- []
-
-) (./classModel_1_1Individuals_1_1Individual.tex <./classModel_1_1Individuals_1
-_1Individual.pdf>
-<classModel_1_1Individuals_1_1Individual.pdf, id=1231, 501.875pt x 166.37157pt>
+ [11])
+(./classModel_1_1Individuals_1_1Individual.tex <./classModel_1_1Individuals_1_1
+Individual.pdf>
+<classModel_1_1Individuals_1_1Individual.pdf, id=1044, 501.875pt x 166.37157pt>
 
 File: classModel_1_1Individuals_1_1Individual.pdf Graphic file (type pdf)
 <use classModel_1_1Individuals_1_1Individual.pdf>
 Package pdftex.def Info: classModel_1_1Individuals_1_1Individual.pdf  used on i
 nput line 6.
 (pdftex.def)             Requested size: 257.49211pt x 85.35826pt.
- [15])
-(./classModel_1_1Inicializer_1_1InicializerController.tex
-Underfull \hbox (badness 10000) detected at line 18
-[][][]
- []
-
-) (./classModel_1_1operators_1_1selection_1_1KWayTournamentSelection.tex
-[16]
-Underfull \hbox (badness 10000) detected at line 12
-[][][]
- []
-
-) (./classViews_1_1GUI_1_1MainWindow.tex <./classViews_1_1GUI_1_1MainWindow.pdf
->
-<classViews_1_1GUI_1_1MainWindow.pdf, id=1273, 501.875pt x 130.35701pt>
-File: classViews_1_1GUI_1_1MainWindow.pdf Graphic file (type pdf)
-<use classViews_1_1GUI_1_1MainWindow.pdf>
-Package pdftex.def Info: classViews_1_1GUI_1_1MainWindow.pdf  used on input lin
-e 6.
-(pdftex.def)             Requested size: 219.08731pt x 56.9055pt.
-
-Underfull \hbox (badness 10000) detected at line 24
-[][][]
- []
-
-[17]) (./classModel_1_1ModelParameters.tex
-Underfull \hbox (badness 10000) detected at line 33
-[][][]
- []
-
-) (./classViews_1_1GUI_1_1ModelParametersVIew.tex <./classViews_1_1GUI_1_1Model
-ParametersVIew.pdf>
-<classViews_1_1GUI_1_1ModelParametersVIew.pdf, id=1296, 501.875pt x 192.10771pt
->
-File: classViews_1_1GUI_1_1ModelParametersVIew.pdf Graphic file (type pdf)
-<use classViews_1_1GUI_1_1ModelParametersVIew.pdf>
-Package pdftex.def Info: classViews_1_1GUI_1_1ModelParametersVIew.pdf  used on 
-input line 6.
-(pdftex.def)             Requested size: 148.66447pt x 56.9055pt.
- [18]
-Underfull \hbox (badness 10000) detected at line 23
-[][][]
- []
-
-) (./classModel_1_1fitness_1_1MoneyFunction.tex
-Underfull \hbox (badness 10000) detected at line 12
-[][][]
- []
-
-[19]) (./classModel_1_1operators_1_1mutation_1_1MutationController.tex
-Underfull \hbox (badness 10000) detected at line 12
-[][][]
- []
-
-) (./classModel_1_1Individuals_1_1Neighborhood.tex
+ [12]) (./classModel_1_1Individuals_1_1Neighborhood.tex
 Underfull \hbox (badness 10000) detected at line 45
 [][][]
  []
 
-[20]) (./classModel_1_1operators_1_1crossover_1_1NeighborhoodCrossover.tex <./c
-lassModel_1_1operators_1_1crossover_1_1NeighborhoodCrossover.pdf>
-<classModel_1_1operators_1_1crossover_1_1NeighborhoodCrossover.pdf, id=1347, 50
+) (./classModel_1_1Individuals_1_1Population.tex <./classModel_1_1Individuals_1
+_1Population.pdf>
+<classModel_1_1Individuals_1_1Population.pdf, id=1066, 501.875pt x 62.73438pt>
+File: classModel_1_1Individuals_1_1Population.pdf Graphic file (type pdf)
+<use classModel_1_1Individuals_1_1Population.pdf>
+Package pdftex.def Info: classModel_1_1Individuals_1_1Population.pdf  used on i
+nput line 6.
+(pdftex.def)             Requested size: 398.36076pt x 49.79231pt.
+ [13]) (./classModel_1_1Individuals_1_1SortByfitness.tex <./classModel_1_1Indiv
+iduals_1_1SortByfitness.pdf>
+<classModel_1_1Individuals_1_1SortByfitness.pdf, id=1102, 501.875pt x 203.81145
+pt>
+File: classModel_1_1Individuals_1_1SortByfitness.pdf Graphic file (type pdf)
+<use classModel_1_1Individuals_1_1SortByfitness.pdf>
+Package pdftex.def Info: classModel_1_1Individuals_1_1SortByfitness.pdf  used o
+n input line 6.
+(pdftex.def)             Requested size: 140.12582pt x 56.9055pt.
+ [14]
+Underfull \hbox (badness 10000) detected at line 18
+[][][]
+ []
+
+) (./classModel_1_1Individuals_1_1Tiles_1_1BuildingTile.tex <./classModel_1_1In
+dividuals_1_1Tiles_1_1BuildingTile.pdf>
+<classModel_1_1Individuals_1_1Tiles_1_1BuildingTile.pdf, id=1130, 501.875pt x 1
+84.1781pt>
+File: classModel_1_1Individuals_1_1Tiles_1_1BuildingTile.pdf Graphic file (type
+ pdf)
+<use classModel_1_1Individuals_1_1Tiles_1_1BuildingTile.pdf>
+Package pdftex.def Info: classModel_1_1Individuals_1_1Tiles_1_1BuildingTile.pdf
+  used on input line 6.
+(pdftex.def)             Requested size: 155.05888pt x 56.9055pt.
+
+Underfull \hbox (badness 10000) detected at line 56
+[][][]
+ []
+
+[15]) (./classModel_1_1Individuals_1_1Tiles_1_1NullTile.tex <./classModel_1_1In
+dividuals_1_1Tiles_1_1NullTile.pdf>
+<classModel_1_1Individuals_1_1Tiles_1_1NullTile.pdf, id=1167, 501.875pt x 205.8
+9925pt>
+File: classModel_1_1Individuals_1_1Tiles_1_1NullTile.pdf Graphic file (type pdf
+)
+<use classModel_1_1Individuals_1_1Tiles_1_1NullTile.pdf>
+Package pdftex.def Info: classModel_1_1Individuals_1_1Tiles_1_1NullTile.pdf  us
+ed on input line 6.
+(pdftex.def)             Requested size: 138.70143pt x 56.9055pt.
+ [16]
+Underfull \hbox (badness 10000) detected at line 42
+[][][]
+ []
+
+) (./classModel_1_1Individuals_1_1Tiles_1_1ParkTile.tex <./classModel_1_1Indivi
+duals_1_1Tiles_1_1ParkTile.pdf>
+<classModel_1_1Individuals_1_1Tiles_1_1ParkTile.pdf, id=1191, 501.875pt x 201.7
+6378pt>
+File: classModel_1_1Individuals_1_1Tiles_1_1ParkTile.pdf Graphic file (type pdf
+)
+<use classModel_1_1Individuals_1_1Tiles_1_1ParkTile.pdf>
+Package pdftex.def Info: classModel_1_1Individuals_1_1Tiles_1_1ParkTile.pdf  us
+ed on input line 6.
+(pdftex.def)             Requested size: 141.54254pt x 56.9055pt.
+ [17]
+Underfull \hbox (badness 10000) detected at line 54
+[][][]
+ []
+
+[18]) (./classModel_1_1Individuals_1_1Tiles_1_1RoadTile.tex <./classModel_1_1In
+dividuals_1_1Tiles_1_1RoadTile.pdf>
+<classModel_1_1Individuals_1_1Tiles_1_1RoadTile.pdf, id=1237, 501.875pt x 198.7
+6257pt>
+File: classModel_1_1Individuals_1_1Tiles_1_1RoadTile.pdf Graphic file (type pdf
+)
+<use classModel_1_1Individuals_1_1Tiles_1_1RoadTile.pdf>
+Package pdftex.def Info: classModel_1_1Individuals_1_1Tiles_1_1RoadTile.pdf  us
+ed on input line 6.
+(pdftex.def)             Requested size: 143.67912pt x 56.9055pt.
+
+Underfull \hbox (badness 10000) detected at line 42
+[][][]
+ []
+
+[19]) (./classModel_1_1Individuals_1_1Tiles_1_1Tile.tex <./classModel_1_1Indivi
+duals_1_1Tiles_1_1Tile.pdf>
+<classModel_1_1Individuals_1_1Tiles_1_1Tile.pdf, id=1268, 501.875pt x 36.83763p
+t>
+File: classModel_1_1Individuals_1_1Tiles_1_1Tile.pdf Graphic file (type pdf)
+<use classModel_1_1Individuals_1_1Tiles_1_1Tile.pdf>
+Package pdftex.def Info: classModel_1_1Individuals_1_1Tiles_1_1Tile.pdf  used o
+n input line 6.
+(pdftex.def)             Requested size: 398.32246pt x 29.23596pt.
+ [20]
+Underfull \hbox (badness 10000) detected at line 48
+[][][]
+ []
+
+) (./enumModel_1_1Individuals_1_1Tiles_1_1TileType.tex
+Underfull \hbox (badness 10000) detected at line 21
+[][][]
+ []
+
+) (./classModel_1_1Individuals_1_1Tiles_1_1VoidTile.tex <./classModel_1_1Indivi
+duals_1_1Tiles_1_1VoidTile.pdf>
+<classModel_1_1Individuals_1_1Tiles_1_1VoidTile.pdf, id=1290, 501.875pt x 201.7
+6378pt>
+File: classModel_1_1Individuals_1_1Tiles_1_1VoidTile.pdf Graphic file (type pdf
+)
+<use classModel_1_1Individuals_1_1Tiles_1_1VoidTile.pdf>
+Package pdftex.def Info: classModel_1_1Individuals_1_1Tiles_1_1VoidTile.pdf  us
+ed on input line 6.
+(pdftex.def)             Requested size: 141.54254pt x 56.9055pt.
+ [21]
+Underfull \hbox (badness 10000) detected at line 42
+[][][]
+ []
+
+) (./classModel_1_1Inicializer_1_1CloseToBuildingsParkInicializer.tex [22]
+Underfull \hbox (badness 10000) detected at line 12
+[][][]
+ []
+
+) (./classModel_1_1Inicializer_1_1InicializerController.tex
+Underfull \hbox (badness 10000) detected at line 18
+[][][]
+ []
+
+) (./classModel_1_1Inicializer_1_1RandomCityInicializer.tex
+Underfull \hbox (badness 10000) detected at line 30
+[][][]
+ []
+
+) (./classModel_1_1Inicializer_1_1RandomParkInicializer.tex [23]
+Underfull \hbox (badness 10000) detected at line 27
+[][][]
+ []
+
+) (./classModel_1_1ModelParameters.tex
+Underfull \hbox (badness 10000) detected at line 33
+[][][]
+ []
+
+) (./classModel_1_1operators_1_1crossover_1_1CrossoverController.tex [24]
+Underfull \hbox (badness 10000) detected at line 21
+[][][]
+ []
+
+) (./classModel_1_1operators_1_1crossover_1_1CrossoverOperator.tex)
+(./classModel_1_1operators_1_1crossover_1_1GeometricalCrossover.tex [25]
+Underfull \hbox (badness 10000) detected at line 12
+[][][]
+ []
+
+) (./classModel_1_1operators_1_1crossover_1_1NeighborhoodCrossover.tex <./class
+Model_1_1operators_1_1crossover_1_1NeighborhoodCrossover.pdf>
+<classModel_1_1operators_1_1crossover_1_1NeighborhoodCrossover.pdf, id=1394, 50
 1.875pt x 108.51541pt>
 File: classModel_1_1operators_1_1crossover_1_1NeighborhoodCrossover.pdf Graphic
  file (type pdf)
@@ -1102,157 +1222,18 @@ Underfull \hbox (badness 10000) detected at line 24
 [][][]
  []
 
+) (./classModel_1_1operators_1_1mutation_1_1MutationController.tex [26]
+Underfull \hbox (badness 10000) detected at line 12
+[][][]
+ []
+
 ) (./classModel_1_1operators_1_1mutation_1_1NeighborhoodMutation.tex
 Underfull \hbox (badness 10000) detected at line 6
 [][][]
  []
 
-) (./classModel_1_1Individuals_1_1Tiles_1_1NullTile.tex <./classModel_1_1Indivi
-duals_1_1Tiles_1_1NullTile.pdf>
-<classModel_1_1Individuals_1_1Tiles_1_1NullTile.pdf, id=1354, 501.875pt x 205.8
-9925pt>
-File: classModel_1_1Individuals_1_1Tiles_1_1NullTile.pdf Graphic file (type pdf
-)
-<use classModel_1_1Individuals_1_1Tiles_1_1NullTile.pdf>
-Package pdftex.def Info: classModel_1_1Individuals_1_1Tiles_1_1NullTile.pdf  us
-ed on input line 6.
-(pdftex.def)             Requested size: 138.70143pt x 56.9055pt.
- [21]
-Underfull \hbox (badness 10000) detected at line 42
-[][][]
- []
-
-[22]) (./classModel_1_1operators_1_1mutation_1_1ParkExpansionMutation.tex
+) (./classModel_1_1operators_1_1mutation_1_1ParkExpansionMutation.tex
 Underfull \hbox (badness 10000) detected at line 6
-[][][]
- []
-
-) (./classparksincity__geneticalgorithms_1_1ParksInCity__GeneticAlgorithms.tex
-Underfull \hbox (badness 10000) detected at line 11
-[][][]
- []
-
-[23]) (./classModel_1_1ParksInCityGA.tex
-Underfull \hbox (badness 10000) detected at line 30
-[][][]
- []
-
-) (./classModel_1_1Individuals_1_1Tiles_1_1ParkTile.tex <./classModel_1_1Indivi
-duals_1_1Tiles_1_1ParkTile.pdf>
-<classModel_1_1Individuals_1_1Tiles_1_1ParkTile.pdf, id=1401, 501.875pt x 201.7
-6378pt>
-File: classModel_1_1Individuals_1_1Tiles_1_1ParkTile.pdf Graphic file (type pdf
-)
-<use classModel_1_1Individuals_1_1Tiles_1_1ParkTile.pdf>
-Package pdftex.def Info: classModel_1_1Individuals_1_1Tiles_1_1ParkTile.pdf  us
-ed on input line 6.
-(pdftex.def)             Requested size: 141.54254pt x 56.9055pt.
- [24]
-Underfull \hbox (badness 10000) detected at line 54
-[][][]
- []
-
-) (./classModel_1_1fitness_1_1PonderatedFunction.tex [25]
-Underfull \hbox (badness 10000) detected at line 15
-[][][]
- []
-
-) (./classModel_1_1Individuals_1_1Population.tex <./classModel_1_1Individuals_1
-_1Population.pdf>
-<classModel_1_1Individuals_1_1Population.pdf, id=1450, 501.875pt x 62.73438pt>
-File: classModel_1_1Individuals_1_1Population.pdf Graphic file (type pdf)
-<use classModel_1_1Individuals_1_1Population.pdf>
-Package pdftex.def Info: classModel_1_1Individuals_1_1Population.pdf  used on i
-nput line 6.
-(pdftex.def)             Requested size: 398.36076pt x 49.79231pt.
-) (./classBasics_1_1Position.tex [26]
-LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 8.09995pt on input line 48.
-LaTeX Font Info:    Font shape `T1/phv/m/it' in size <9> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 48.
-LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
-(Font)              scaled to size 8.09995pt on input line 48.
-
-Underfull \hbox (badness 10000) detected at line 52
-[][][]
- []
-
-LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 7.19995pt on input line 61.
-LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <7> not available
-(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 74.
-[27]
-Underfull \hbox (badness 10000) detected at line 96
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 105
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 114
-[][][]
- []
-
-[28]
-Underfull \hbox (badness 10000) detected at line 130
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 144
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 160
-[][][]
- []
-
-[29]
-Underfull \hbox (badness 10000) detected at line 174
-[][][]
- []
-
-
-Overfull \hbox (4.48154pt too wide) in paragraph at lines 1--1
-\T1/phv/m/sl/10 _[] 
- []
-
-
-Overfull \hbox (4.48154pt too wide) in paragraph at lines 3--3
-\T1/phv/m/sl/10 _[] 
- []
-
-
-Overfull \hbox (4.48154pt too wide) in paragraph at lines 1--1
-\T1/phv/m/sl/10 _[] 
- []
-
-
-Overfull \hbox (4.48154pt too wide) in paragraph at lines 1--1
-\T1/phv/m/sl/10 _[] 
- []
-
-[30]
-Underfull \hbox (badness 10000) detected at line 238
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 247
-[][][]
- []
-
-) (./classModel_1_1Inicializer_1_1RandomCityInicializer.tex [31]
-Underfull \hbox (badness 10000) detected at line 30
-[][][]
- []
-
-) (./classModel_1_1Inicializer_1_1RandomParkInicializer.tex
-Underfull \hbox (badness 10000) detected at line 27
 [][][]
  []
 
@@ -1261,33 +1242,87 @@ Underfull \hbox (badness 10000) detected at line 12
 [][][]
  []
 
-[32]) (./classModel_1_1operators_1_1selection_1_1RankSelection.tex
+) (./classModel_1_1operators_1_1selection_1_1KWayTournamentSelection.tex
+[27]
 Underfull \hbox (badness 10000) detected at line 12
 [][][]
  []
 
-) (./classModel_1_1Individuals_1_1Tiles_1_1RoadTile.tex <./classModel_1_1Indivi
-duals_1_1Tiles_1_1RoadTile.pdf>
-<classModel_1_1Individuals_1_1Tiles_1_1RoadTile.pdf, id=1602, 501.875pt x 198.7
-6257pt>
-File: classModel_1_1Individuals_1_1Tiles_1_1RoadTile.pdf Graphic file (type pdf
-)
-<use classModel_1_1Individuals_1_1Tiles_1_1RoadTile.pdf>
-Package pdftex.def Info: classModel_1_1Individuals_1_1Tiles_1_1RoadTile.pdf  us
-ed on input line 6.
-(pdftex.def)             Requested size: 143.67912pt x 56.9055pt.
- [33]
-Underfull \hbox (badness 10000) detected at line 42
+) (./classModel_1_1operators_1_1selection_1_1RankSelection.tex
+Underfull \hbox (badness 10000) detected at line 12
 [][][]
  []
 
-) (./classModel_1_1operators_1_1selection_1_1SelectionController.tex [34]
+) (./classModel_1_1operators_1_1selection_1_1SelectionController.tex
 Underfull \hbox (badness 10000) detected at line 15
 [][][]
  []
 
+[28]) (./classModel_1_1ParksInCityGA.tex
+Underfull \hbox (badness 10000) detected at line 30
+[][][]
+ []
+
+) (./classparksincity__geneticalgorithms_1_1ParksInCity__GeneticAlgorithms.tex
+Underfull \hbox (badness 10000) detected at line 11
+[][][]
+ []
+
+[29]) (./classViews_1_1GUI_1_1CityParametersView.tex <./classViews_1_1GUI_1_1Ci
+tyParametersView.pdf>
+<classViews_1_1GUI_1_1CityParametersView.pdf, id=1459, 501.875pt x 204.8453pt>
+File: classViews_1_1GUI_1_1CityParametersView.pdf Graphic file (type pdf)
+<use classViews_1_1GUI_1_1CityParametersView.pdf>
+Package pdftex.def Info: classViews_1_1GUI_1_1CityParametersView.pdf  used on i
+nput line 6.
+(pdftex.def)             Requested size: 139.41362pt x 56.9055pt.
+
+Underfull \hbox (badness 10000) detected at line 32
+[][][]
+ []
+
+[30]) (./classViews_1_1GUI_1_1CityView.tex <./classViews_1_1GUI_1_1CityView.pdf
+>
+<classViews_1_1GUI_1_1CityView.pdf, id=1480, 501.875pt x 304.16637pt>
+File: classViews_1_1GUI_1_1CityView.pdf Graphic file (type pdf)
+<use classViews_1_1GUI_1_1CityView.pdf>
+Package pdftex.def Info: classViews_1_1GUI_1_1CityView.pdf  used on input line 
+6.
+(pdftex.def)             Requested size: 93.89456pt x 56.9055pt.
+
+Underfull \hbox (badness 10000) detected at line 27
+[][][]
+ []
+
+) (./classViews_1_1GUI_1_1MainWindow.tex <./classViews_1_1GUI_1_1MainWindow.pdf
+>
+<classViews_1_1GUI_1_1MainWindow.pdf, id=1485, 501.875pt x 130.35701pt>
+File: classViews_1_1GUI_1_1MainWindow.pdf Graphic file (type pdf)
+<use classViews_1_1GUI_1_1MainWindow.pdf>
+Package pdftex.def Info: classViews_1_1GUI_1_1MainWindow.pdf  used on input lin
+e 6.
+(pdftex.def)             Requested size: 219.08731pt x 56.9055pt.
+ [31]
+Underfull \hbox (badness 10000) detected at line 24
+[][][]
+ []
+
+) (./classViews_1_1GUI_1_1ModelParametersVIew.tex <./classViews_1_1GUI_1_1Model
+ParametersVIew.pdf>
+<classViews_1_1GUI_1_1ModelParametersVIew.pdf, id=1510, 501.875pt x 192.10771pt
+>
+File: classViews_1_1GUI_1_1ModelParametersVIew.pdf Graphic file (type pdf)
+<use classViews_1_1GUI_1_1ModelParametersVIew.pdf>
+Package pdftex.def Info: classViews_1_1GUI_1_1ModelParametersVIew.pdf  used on 
+input line 6.
+(pdftex.def)             Requested size: 148.66447pt x 56.9055pt.
+ [32]
+Underfull \hbox (badness 10000) detected at line 23
+[][][]
+ []
+
 ) (./classViews_1_1GUI_1_1SlideBar.tex <./classViews_1_1GUI_1_1SlideBar.pdf>
-<classViews_1_1GUI_1_1SlideBar.pdf, id=1641, 501.875pt x 308.84384pt>
+<classViews_1_1GUI_1_1SlideBar.pdf, id=1528, 501.875pt x 308.84384pt>
 File: classViews_1_1GUI_1_1SlideBar.pdf Graphic file (type pdf)
 <use classViews_1_1GUI_1_1SlideBar.pdf>
 Package pdftex.def Info: classViews_1_1GUI_1_1SlideBar.pdf  used on input line 
@@ -1298,99 +1333,35 @@ Underfull \hbox (badness 10000) detected at line 26
 [][][]
  []
 
-) (./classModel_1_1Individuals_1_1SortByfitness.tex <./classModel_1_1Individual
-s_1_1SortByfitness.pdf>
-<classModel_1_1Individuals_1_1SortByfitness.pdf, id=1647, 501.875pt x 203.81145
-pt>
-File: classModel_1_1Individuals_1_1SortByfitness.pdf Graphic file (type pdf)
-<use classModel_1_1Individuals_1_1SortByfitness.pdf>
-Package pdftex.def Info: classModel_1_1Individuals_1_1SortByfitness.pdf  used o
-n input line 6.
-(pdftex.def)             Requested size: 140.12582pt x 56.9055pt.
- [35]
-Underfull \hbox (badness 10000) detected at line 18
-[][][]
- []
-
-) (./classBasics_1_1SortByX.tex <./classBasics_1_1SortByX.pdf>
-<classBasics_1_1SortByX.pdf, id=1667, 501.875pt x 260.71402pt>
-File: classBasics_1_1SortByX.pdf Graphic file (type pdf)
-<use classBasics_1_1SortByX.pdf>
-Package pdftex.def Info: classBasics_1_1SortByX.pdf  used on input line 6.
-(pdftex.def)             Requested size: 109.53983pt x 56.9055pt.
-
-Underfull \hbox (badness 10000) detected at line 18
-[][][]
- []
-
 ) (./classViews_1_1GUI_1_1StartView.tex <./classViews_1_1GUI_1_1StartView.pdf>
-<classViews_1_1GUI_1_1StartView.pdf, id=1674, 501.875pt x 147.61147pt>
+<classViews_1_1GUI_1_1StartView.pdf, id=1534, 501.875pt x 147.61147pt>
 File: classViews_1_1GUI_1_1StartView.pdf Graphic file (type pdf)
 <use classViews_1_1GUI_1_1StartView.pdf>
 Package pdftex.def Info: classViews_1_1GUI_1_1StartView.pdf  used on input line
  6.
 (pdftex.def)             Requested size: 193.479pt x 56.9055pt.
 
-[36]
+[33]
 Underfull \hbox (badness 10000) detected at line 26
 [][][]
  []
 
-) (./classModel_1_1Individuals_1_1Tiles_1_1Tile.tex <./classModel_1_1Individual
-s_1_1Tiles_1_1Tile.pdf>
-<classModel_1_1Individuals_1_1Tiles_1_1Tile.pdf, id=1697, 501.875pt x 36.83763p
-t>
-File: classModel_1_1Individuals_1_1Tiles_1_1Tile.pdf Graphic file (type pdf)
-<use classModel_1_1Individuals_1_1Tiles_1_1Tile.pdf>
-Package pdftex.def Info: classModel_1_1Individuals_1_1Tiles_1_1Tile.pdf  used o
-n input line 6.
-(pdftex.def)             Requested size: 398.32246pt x 29.23596pt.
- [37]
-Underfull \hbox (badness 10000) detected at line 48
-[][][]
- []
-
-) (./enumModel_1_1Individuals_1_1Tiles_1_1TileType.tex [38]
-Underfull \hbox (badness 10000) detected at line 21
-[][][]
- []
-
-) (./classModel_1_1fitness_1_1ValueFunction.tex
-Underfull \hbox (badness 10000) detected at line 12
-[][][]
- []
-
-) (./interfaceViews_1_1View.tex <./interfaceViews_1_1View.pdf>
-<interfaceViews_1_1View.pdf, id=1734, 501.875pt x 130.35701pt>
+[34]) (./interfaceViews_1_1View.tex <./interfaceViews_1_1View.pdf>
+<interfaceViews_1_1View.pdf, id=1574, 501.875pt x 130.35701pt>
 File: interfaceViews_1_1View.pdf Graphic file (type pdf)
 <use interfaceViews_1_1View.pdf>
 Package pdftex.def Info: interfaceViews_1_1View.pdf  used on input line 6.
 (pdftex.def)             Requested size: 219.08731pt x 56.9055pt.
- [39]
+
 Underfull \hbox (badness 10000) detected at line 24
 [][][]
  []
 
-) (./classModel_1_1Individuals_1_1Tiles_1_1VoidTile.tex <./classModel_1_1Indivi
-duals_1_1Tiles_1_1VoidTile.pdf>
-<classModel_1_1Individuals_1_1Tiles_1_1VoidTile.pdf, id=1751, 501.875pt x 201.7
-6378pt>
-File: classModel_1_1Individuals_1_1Tiles_1_1VoidTile.pdf Graphic file (type pdf
-)
-<use classModel_1_1Individuals_1_1Tiles_1_1VoidTile.pdf>
-Package pdftex.def Info: classModel_1_1Individuals_1_1Tiles_1_1VoidTile.pdf  us
-ed on input line 6.
-(pdftex.def)             Requested size: 141.54254pt x 56.9055pt.
-
-Underfull \hbox (badness 10000) detected at line 42
-[][][]
- []
-
-[40]) [41] [42
+) [35] [36
 
 ]
-Chapter 5.
-(./Position_8java.tex) [43] [44
+Chapter 2.
+(./Position_8java.tex) [37] [38
 
 ] (./refman.ind
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
@@ -1407,7 +1378,7 @@ Underfull \hbox (badness 1953) in paragraph at lines 107--109
 $ \T1/phv/m/n/10 T ex-
  []
 
-[45
+[39
 
 
 ]
@@ -1420,34 +1391,32 @@ Overfull \hbox (24.99013pt too wide) in paragraph at lines 132--134
 []\T1/phv/m/n/10 parksincity_geneticalgorithms.ParksInCity_GeneticAlgorithms,
  []
 
-[46]) (./refman.aux)
+[40]) (./refman.aux)
 Package rerunfilecheck Info: File `refman.out' has not changed.
-(rerunfilecheck)             Checksum: A0BC0B28A57E0FED79A6DF792A75976D;37309.
+(rerunfilecheck)             Checksum: AAAE0521F3473D30202E940F08DFC539;36424.
  ) 
 Here is how much of TeX's memory you used:
- 19235 strings out of 478287
- 350435 string characters out of 5849288
- 664422 words of memory out of 5000000
- 36419 multiletter control sequences out of 15000+600000
+ 19244 strings out of 478287
+ 351816 string characters out of 5849288
+ 655537 words of memory out of 5000000
+ 36407 multiletter control sequences out of 15000+600000
  528465 words of font info for 109 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,16n,117p,760b,633s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/cou
-rier/ucrb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.p
-fb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrro8a.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/urw/helvetic/uhvb8ac.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/u
-rw/helvetic/uhvro8a.pfb>
-Output written on refman.pdf (52 pages, 290842 bytes).
+/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/urw/courier/ucrb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/co
+urier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrro8a
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8ac.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/urw/helvetic/uhvro8a.pfb>
+Output written on refman.pdf (46 pages, 261331 bytes).
 PDF statistics:
- 2121 PDF objects out of 2487 (max. 8388607)
- 1981 compressed objects within 20 object streams
- 588 named destinations out of 1000 (max. 500000)
- 1346 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1910 PDF objects out of 2073 (max. 8388607)
+ 1782 compressed objects within 18 object streams
+ 579 named destinations out of 1000 (max. 500000)
+ 1298 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -55,6 +55,14 @@ public class CityParameters {
     private final int parkSpreadness;
     private final int parksPercentage; //1 to 1000
     
+    /**
+     * Constructor
+     * @param s     Size of the city
+     * @param rd    Road density
+     * @param bd    Building density
+     * @param ps    Parks spreadness. The less spreadness, the bigger the parks
+     * @param pp    Parks percentage
+     */
     public CityParameters(int s, int rd, int bd, int ps, int pp){
         size            =   s;
         roadDensity     =   rd;
@@ -63,22 +71,42 @@ public class CityParameters {
         parksPercentage =   pp;
     }
     
+    /**
+     * Getter of size
+     * @return Size of cities
+     */
     public int getSize(){
         return size;
     }
     
+    /**
+     * Getter of road density
+     * @return Road density
+     */
     public int getRoadDensity(){
         return roadDensity;
     }
     
+    /**
+     * Getter of building density
+     * @return Building density
+     */
     public int getBuildingDensity(){
         return buildingDensity;
     }
     
+    /**
+     * Getter of park spreadness
+     * @return Park spreadness
+     */
     public int getParkSpreadness(){
         return parkSpreadness;
     }
     
+    /**
+     * Getter of parks percentage
+     * @return Parks percentage
+     */
     public int getParksPercentage(){
         return parksPercentage;
     }

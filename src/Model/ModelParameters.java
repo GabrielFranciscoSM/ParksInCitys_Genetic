@@ -23,11 +23,18 @@ public class ModelParameters {
     private final boolean USEELITISM = true;
     private final boolean USETRUNCATE = true;
     private final double TRUNCATESIZE = 0.3;
-
     
-    public ModelParameters(int popSize, int moneyPond){
+    //Stop condition
+    private final int MAXREPETITIONLIMIT = 100;
+    private final int MINREPETITIONLIMIT = 50;
+    private final int DEFREPETITIONLIMIT = 2;
+
+    private int repetitionLimits;
+    
+    public ModelParameters(int popSize, int moneyPond, int repetitionLimits){
         POPULATIONSIZE = popSize;
         this.MONEYPONDERATION = moneyPond;
+        this.repetitionLimits = repetitionLimits;
     }
     
     public int getPOPULATIONSIZE(){
@@ -56,5 +63,9 @@ public class ModelParameters {
     
     public double getTRUNCATESIZE(){
         return TRUNCATESIZE;
+    }
+    
+    public int getRepetitionsLimit(){
+        return this.repetitionLimits;
     }
 }

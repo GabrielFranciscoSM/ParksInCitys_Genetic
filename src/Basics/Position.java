@@ -38,11 +38,11 @@ public class Position {
     
     /**
      * Parameter given the two coordinates
-     * @param _x x coordinate
-     * @param _y y coordinate
+     * @param x x coordinate
+     * @param y y coordinate
      */
-    public Position(int _x, int _y){
-        this.setPos(_x, _y);
+    public Position(int x, int y){
+        this.setPos(x, y);
     }
     
     /**
@@ -86,7 +86,7 @@ public class Position {
     
     /**
      * Getter of x
-     * @return 
+     * @return x coordinate
      */
     public int getX(){
         return x;
@@ -94,7 +94,7 @@ public class Position {
     
     /**
      * Getter of y
-     * @return 
+     * @return y coordinate
      */
     public int getY(){
         return y;
@@ -102,34 +102,36 @@ public class Position {
     
     /**
      * Setter of x
-     * @param _x 
+     * @param x New x coordinate
      */
-    public void setX(int _x){
-        x = _x;
+    public void setX(int x){
+        this.x = x;
     }
     
     /**
      * Setter of y
-     * @param _y 
+     * @param y New y coordinate
      */
-    public void setY(int _y){
-        y = _y;
+    public void setY(int y){
+        this.y = y;
     }
     
     /**
      * Setter for a position
-     * @param _x
-     * @param _y 
+     * @param x New x coordinate
+     * @param y New y coordinate
      */
-    public void setPos(int _x, int _y){
-        setX(_x);
-        setY(_y);
+    public void setPos(int x, int y){
+        setX(x);
+        setY(y);
     }
     
     /**
-     * Multiplication of the position with a integer
-     * @param m
-     * @return 
+     * Multiplication of the position with a integer.
+     * Be careful, this method MODIFY the point.
+     * @param m Number that multiply the position
+     * @return This position multiplied
+     * 
      */
     public Position mult(int m){
         x *= m;
@@ -140,8 +142,9 @@ public class Position {
     
     /**
      * Division of the position with an integer
-     * @param d
-     * @return 
+     * Be careful, this method MODIFY the point.
+     * @param d Number that divides the position
+     * @return This position multiplied
      */
     public Position div(int d){
         x /= d;
@@ -152,9 +155,10 @@ public class Position {
     
     /**
      * Checks if the point is "inside" the square made by the two corners given
-     * @param topRight
-     * @param botLeft
-     * @return 
+     * @param topRight Top right corner of the "square", included
+     * @param botLeft  Bottom left corner of the "square"
+     * @return Returns true if the position is in the "square" and false in
+     * other case.
      */
     public boolean inRange(Position topRight, Position botLeft){
         
@@ -164,8 +168,8 @@ public class Position {
     
     /**
      * Checks if two points have the same coordinates
-     * @param pos
-     * @return 
+     * @param pos Position to be compared
+     * @return True if coordinates are the same, false if not
      */
     public boolean isEqual(Position pos){
         return (getX() == pos.getX()) && (getY() == pos.getY());
@@ -173,8 +177,8 @@ public class Position {
     
     /**
      * toString method for Position
-     * format: (x,y)
-     * @return 
+     * 
+     * @return A string with format (x,y)
      */
     @Override
     public String toString(){

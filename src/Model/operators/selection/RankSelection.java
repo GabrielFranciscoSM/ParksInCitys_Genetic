@@ -7,10 +7,8 @@ package Model.operators.selection;
 import Model.Individuals.CityTileset;
 import Model.Individuals.CityTilesetPopulation;
 import Model.Individuals.Population;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
-import java.util.stream.Collectors;
 
 /**
  *

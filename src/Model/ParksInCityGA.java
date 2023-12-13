@@ -26,18 +26,24 @@ public class ParksInCityGA {
     
     private CityTilesetPopulation pop;
     
+    private int repetitionLimits;
+    
     public ParksInCityGA(CityParameters cp, ModelParameters mp){
-        inicializer = new InicializerController(cp, mp);
-        crossover = new CrossoverController(mp);
-        fitness = new PonderatedFunction(mp.getMONEYPONDERATION());
-        selection = new SelectionController(mp);
+        inicializer =   new InicializerController(cp, mp);
+        crossover =     new CrossoverController(mp);
+        fitness =       new PonderatedFunction(mp.getMONEYPONDERATION());
+        selection =     new SelectionController(mp);
+        repetitionLimits = mp.getRepetitionsLimit();
     }
     
     public void run(){
         pop = inicializer.Inicialize();
-        this.applyFitness();
-        this.applySelection();
-        //this.applyCrossover();
+        
+        for(int i = 0; i < repetitionLimits; ++i){
+            this.applyFitness();
+            this.applySelection();
+            this.applyCrossover();
+        }        
     }
     
     public CityTilesetPopulation getPopulation(){

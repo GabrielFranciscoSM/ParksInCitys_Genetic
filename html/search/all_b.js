@@ -1,9 +1,9 @@
 var searchData=
 [
   ['selectioncontroller_0',['SelectionController',['../classModel_1_1operators_1_1selection_1_1SelectionController.html',1,'Model::operators::selection']]],
-  ['setpos_1',['setPos',['../classBasics_1_1Position.html#a17ff69553d1be41632df98e73618f4db',1,'Basics::Position']]],
-  ['setx_2',['setX',['../classBasics_1_1Position.html#a0d089e6691969fd5bf224b019bf90fd7',1,'Basics::Position']]],
-  ['sety_3',['setY',['../classBasics_1_1Position.html#ab7e8fa421c7a5d3d57249de801437ed1',1,'Basics::Position']]],
+  ['setpos_1',['setPos',['../classBasics_1_1Position.html#a5e845b636bfeaafc9c43276d2ef99954',1,'Basics::Position']]],
+  ['setx_2',['setX',['../classBasics_1_1Position.html#a996933fb64f62de86a44ebc0333bc169',1,'Basics::Position']]],
+  ['sety_3',['setY',['../classBasics_1_1Position.html#aa01dd56c764deed54b282a5cb5eecd98',1,'Basics::Position']]],
   ['slidebar_4',['slidebar',['../classViews_1_1GUI_1_1SlideBar.html',1,'Views.GUI.SlideBar'],['../classViews_1_1GUI_1_1SlideBar.html#aac4b6fffb4125322fb9b983d9d5b2552',1,'Views.GUI.SlideBar.SlideBar()']]],
   ['sortbyfitness_5',['SortByfitness',['../classModel_1_1Individuals_1_1SortByfitness.html',1,'Model::Individuals']]],
   ['sortbyx_6',['SortByX',['../classBasics_1_1SortByX.html',1,'Basics']]],

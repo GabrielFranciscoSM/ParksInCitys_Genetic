@@ -47,20 +47,15 @@ public class StartView extends javax.swing.JFrame implements View{
         
         ModelParameters mp = new ModelParameters(
         modelParametersVIew1.getPopSizeValue(),
-        modelParametersVIew1.getMoneyPonderationValue());
+        modelParametersVIew1.getMoneyPonderationValue(),
+        100);
         
         ParksInCityGA model = new ParksInCityGA(cp,mp);
         model.run();
         
         MainWindow gui = new MainWindow();
                 
-        MainWindow gui2 = new MainWindow();
-        gui2.setPopulationCT(model.savePopulation());
-        for(int i = 0; i < 2; i++)
-            model.applyCrossover();
         gui.setPopulationCT(model.getPopulation());
-
-        gui2.showView();
         
         return gui;
     }

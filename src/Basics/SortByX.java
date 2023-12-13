@@ -10,6 +10,8 @@ import java.util.Comparator;
  *
  * @author gabriel
  */
+
+///Sort algorithm for position by the x coordinate
 public class SortByX implements Comparator<Position>{
     
     public int compare(Position a, Position b)
