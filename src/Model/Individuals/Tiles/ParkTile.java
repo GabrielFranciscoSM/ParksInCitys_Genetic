@@ -38,7 +38,7 @@ public class ParkTile extends Tile{
         return AREAOFEFFECT;
     }
     
-    void setValue(int v){
+    public void setValue(int v){
         value = v;
     }
     

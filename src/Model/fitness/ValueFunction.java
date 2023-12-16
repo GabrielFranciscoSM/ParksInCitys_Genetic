@@ -8,6 +8,7 @@ import Basics.Position;
 import Model.Individuals.CityTileset;
 import Model.Individuals.Tiles.BuildingTile;
 import Model.Individuals.Tiles.ParkTile;
+import Model.Individuals.Tiles.TileType;
 
 /**
  *
@@ -20,7 +21,7 @@ public class ValueFunction {
                       BuildingTile.MAXCITIZEN;
         int counter = 0;
         for (Position park : city.getArrayOfParkPositions()) {	// Get each park from the city
-            int val = city.getValueOfPark(park);
+            int val = city.getTile(park).getValue(TileType.PARK);
             counter += val;
     	}
     	double average = counter / city.getNparkTiles();	// Average score of the parks

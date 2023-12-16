@@ -25,7 +25,7 @@ public class PonderatedFunction {
         for (CityTileset city : pop) {	// Get each city from the population
             // Fitness is the result of the multiplication of both percentages
             city.setFitness(((ValueFunction.Evaluate(city))*moneyPonderation + 
-                    MoneyFunction.Evaluate(city)*valuePonderation)/2);
+                    MoneyFunction.Evaluate(city)*valuePonderation));
         }
     }
 }

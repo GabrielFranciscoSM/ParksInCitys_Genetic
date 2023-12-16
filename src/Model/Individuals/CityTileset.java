@@ -260,10 +260,7 @@ public class CityTileset extends Individual{
      }
      
      public Position getParkTile(int i){
-         
-        Position pos = parkTiles.get(i);
-        
-        return pos;
+        return parkTiles.get(i);
      }
      
      public List<Position> getArrayOfParkPositions(){
@@ -271,12 +268,10 @@ public class CityTileset extends Individual{
      }
      
     public Tile getTile(Position pos){
-        
         if(inRange(pos)){
             return tileset.get(pos.getX()).get(pos.getY());
         }
         else return new NullTile();
-        
     }
     
     public Tile getTile(int x, int y){
@@ -353,8 +348,9 @@ public class CityTileset extends Individual{
                         this.getNeigborhoodWithTilePos(aux).
                                 deletePark((ParkTile)this.getTile(aux));
                         ++freeTiles;
-                        ChangeTile(aux, 
-                            new VoidTile());
+                        ChangeTile(aux, new VoidTile());
+                        
+                        this.parkTiles.remove(aux);
                     }   
                 }                
             }

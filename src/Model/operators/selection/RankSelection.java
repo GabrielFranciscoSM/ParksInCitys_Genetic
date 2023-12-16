@@ -6,7 +6,6 @@ package Model.operators.selection;
 
 import Model.Individuals.CityTileset;
 import Model.Individuals.CityTilesetPopulation;
-import Model.Individuals.Population;
 import java.util.List;
 import java.util.Random;
 
@@ -39,7 +38,7 @@ public class RankSelection {
             sortedPop.subList(0, (int)(sortedPop.size()*truncateSize));
         }
         
-        while(aux.add(sortedPop.get(generator.nextInt(pop.size())))){}
+        while(aux.add(sortedPop.get(generator.nextInt(sortedPop.size())))){}
             
         return aux;
     }

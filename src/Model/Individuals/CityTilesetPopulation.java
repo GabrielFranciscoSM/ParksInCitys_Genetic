@@ -34,7 +34,7 @@ public class CityTilesetPopulation extends FixedSizePopulation<CityTileset>{
         
     public List<CityTileset> sortPopulationByFitness(){
         return this.stream()
-        .sorted(Comparator.comparingDouble(CityTileset::getFitness))
+        .sorted(Comparator.comparingDouble(CityTileset::getFitness).reversed())
         .collect(Collectors.toList());
     }
 }

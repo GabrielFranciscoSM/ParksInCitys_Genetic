@@ -11,6 +11,7 @@ import Model.fitness.PonderatedFunction;
 import Model.operators.crossover.CrossoverController;
 import Model.operators.mutation.MutationController;
 import Model.operators.selection.SelectionController;
+import Views.GUI.MainWindow;
 
 /**
  *
@@ -38,7 +39,11 @@ public class ParksInCityGA {
     
     public void run(){
         pop = inicializer.Inicialize();
-        
+                
+                MainWindow gui2 = new MainWindow();
+                gui2.setPopulationCT(pop);
+                gui2.showView();
+                        
         for(int i = 0; i < repetitionLimits; ++i){
             this.applyFitness();
             if(i % (repetitionLimits/10) == 0){
@@ -46,26 +51,11 @@ public class ParksInCityGA {
                 for(CityTileset ct : pop){
                     System.out.print(ct.getFitness() + " ");
                 }
-                
+                System.out.print("\n");
             }
             this.applySelection();
-            this.applyFitness();
-            if(i % (repetitionLimits/10) == 0){
-                System.out.print("\n\n Generation " + i + ": " + "\n");
-                for(CityTileset ct : pop){
-                    System.out.print(ct.getFitness() + " ");
-                }
-                
-            }
             this.applyCrossover();
-            this.applyFitness();
-            if(i % (repetitionLimits/10) == 0){
-                System.out.print("\n\n Generation " + i + ": " + "\n");
-                for(CityTileset ct : pop){
-                    System.out.print(ct.getFitness() + " ");
-                }
-                
-            }
+
         }        
     }
     

@@ -8,7 +8,6 @@ import Basics.Position;
 import Model.CityParameters;
 import Model.Individuals.CityTileset;
 import Model.Individuals.CityTilesetPopulation;
-import Model.Individuals.Population;
 import Model.Individuals.Tiles.Tile;
 import java.util.ArrayList;
 import java.util.Random;

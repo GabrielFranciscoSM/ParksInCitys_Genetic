@@ -4,9 +4,7 @@
  */
 package Model.operators.selection;
 
-import Model.Individuals.CityTileset;
 import Model.Individuals.CityTilesetPopulation;
-import Model.Individuals.Population;
 import Model.ModelParameters;
 import java.util.Random;
 
