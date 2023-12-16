@@ -19,14 +19,12 @@ import java.util.Random;
  */
 public class NeighborhoodCrossover extends CrossoverOperator<CityTileset>{
     
-    public Population<CityTileset> apply(CityTilesetPopulation pop, Random generator){
+    public CityTilesetPopulation apply(CityTilesetPopulation pop, Random generator){
         
         //First the pairs are done
-        Population<CityTileset> offsprings = pop.clone();
+        CityTilesetPopulation offsprings = new CityTilesetPopulation(pop.getId(),pop.size());
         
-        offsprings.clear();
         ArrayList<Pairing> pairings = makeRandomPairings(pop);
-        
         
         for (Pairing pairing : pairings) {
             

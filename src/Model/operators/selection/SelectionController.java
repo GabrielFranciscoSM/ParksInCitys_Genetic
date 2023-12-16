@@ -32,8 +32,7 @@ public class SelectionController{
     }
     
     //include elitism and truncation.
-    public Population<CityTileset> apply(
-            CityTilesetPopulation pop){
+    public CityTilesetPopulation apply(CityTilesetPopulation pop){
         return rs.apply(pop,useElitism,useTruncate,generator,truncateSize);
     }
 }

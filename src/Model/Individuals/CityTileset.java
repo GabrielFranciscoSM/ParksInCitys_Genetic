@@ -336,31 +336,26 @@ public class CityTileset extends Individual{
                         if(this.getTile(aux).isVoid()){
                             addVoid = !this.getNeigborhoodWithTilePos(new Position(x,y)).
                                     addPark((ParkTile)tiles.get(x).get(y));
-                            if(!addVoid)
+                            if(!addVoid){
                                 --freeTiles;
-                        }
-                        else if(this.getTile(aux).isPark()){
-                            this.getNeigborhoodWithTilePos(new Position(x,y)).
-                                    deletePark((ParkTile)tiles.get(x).get(y));
-                            this.getNeigborhoodWithTilePos(new Position(x,y)).
-                                    addPark((ParkTile)tiles.get(x).get(y));
+                                ChangeTile(aux, 
+                                tiles.get(x).get(y).makeCopy());
+                                
+                                this.parkTiles.add(aux);
+                            }
+                                
                         }
                     }
                     
                     if(tiles.get(x).get(y).isVoid() && 
                             this.getTile(aux).isPark()){
+                        
                         this.getNeigborhoodWithTilePos(aux).
                                 deletePark((ParkTile)this.getTile(aux));
                         ++freeTiles;
-                    }
-                    
-                    if(!addVoid){
-                        ChangeTile(new Position(topLeft.getX()+x,topLeft.getY()+y), 
-                        tiles.get(x).get(y).makeCopy());
-                    }
-                    else
-                        ChangeTile(new Position(topLeft.getX()+x,topLeft.getY()+y), 
+                        ChangeTile(aux, 
                             new VoidTile());
+                    }   
                 }                
             }
         }

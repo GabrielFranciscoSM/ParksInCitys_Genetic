@@ -24,10 +24,10 @@ public class ModelParameters {
     private final boolean USETRUNCATE = true;
     private final double TRUNCATESIZE = 0.3;
     
-    //Stop condition
-    private final int MAXREPETITIONLIMIT = 100;
-    private final int MINREPETITIONLIMIT = 50;
-    private final int DEFREPETITIONLIMIT = 2;
+    //Stop condition 
+    public final static int MAXREPETITIONLIMIT = 10000;
+    public final static int DEFREPETITIONLIMIT = 100;
+    public final static int MINREPETITIONLIMIT = 2;
 
     private int repetitionLimits;
     

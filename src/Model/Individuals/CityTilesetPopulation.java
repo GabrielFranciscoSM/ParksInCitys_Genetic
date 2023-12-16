@@ -37,5 +37,4 @@ public class CityTilesetPopulation extends FixedSizePopulation<CityTileset>{
         .sorted(Comparator.comparingDouble(CityTileset::getFitness))
         .collect(Collectors.toList());
     }
-    
 }

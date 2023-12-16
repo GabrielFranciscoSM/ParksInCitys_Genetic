@@ -27,7 +27,7 @@ public class CrossoverController {
         REPETITIONS = mp.getCROSSOVERINTENSITY();
     }
     
-    public Population<CityTileset> apply(CityTilesetPopulation pop){
+    public CityTilesetPopulation apply(CityTilesetPopulation pop){
         return nc.apply(pop,generator);
     }
 }

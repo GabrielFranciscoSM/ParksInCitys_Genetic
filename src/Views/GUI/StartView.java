@@ -48,7 +48,7 @@ public class StartView extends javax.swing.JFrame implements View{
         ModelParameters mp = new ModelParameters(
         modelParametersVIew1.getPopSizeValue(),
         modelParametersVIew1.getMoneyPonderationValue(),
-        100);
+        modelParametersVIew1.getRepetitions());
         
         ParksInCityGA model = new ParksInCityGA(cp,mp);
         model.run();

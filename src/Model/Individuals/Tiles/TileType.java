@@ -9,5 +9,5 @@ package Model.Individuals.Tiles;
  * @author gabriel
  */
 public enum TileType {
-    BUILDING, PARK, ROAD, VOID
+    BUILDING, PARK, ROAD, VOID, SCHOOL
 }

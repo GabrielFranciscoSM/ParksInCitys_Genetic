@@ -20,6 +20,11 @@ public class CityParameters {
     //Size of the neighborhoods. It works better if it divides SETSIZE
     public static final int NEIGHBORHOODSIZE = 50;
     
+    //How many schools per 1000 tiles
+    public static final int MAXSCHOOLSPERTILES = 30;
+    public static final int DEFSCHOOLSPERTILES = 10;
+    public static final int MINSCHOOLSPERTILES = 1;
+    
     //Inicializer constants
     public static int MINPERCENTAGEOFPARKS;
     public static int MAXPERCENTAGEOFPARKS;

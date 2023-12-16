@@ -16,7 +16,7 @@ import java.util.Random;
  */
 public class RankSelection {
     
-    public Population<CityTileset> apply(
+    public CityTilesetPopulation apply(
             CityTilesetPopulation pop, 
             boolean useElitism, 
             boolean truncate,
@@ -26,12 +26,10 @@ public class RankSelection {
         //Get the population sorted by fitness
         List<CityTileset> sortedPop = pop.sortPopulationByFitness();
                 
-        Population<CityTileset> aux = pop.clone();
-        aux.clear();
+        CityTilesetPopulation aux = new CityTilesetPopulation(pop.getId()+1,pop.size());
         
         if(useElitism){
             for(int i = 0; i < pop.size()/10; ++i){
-                System.out.print(pop.size()/100);
                 aux.add(sortedPop.get(generator.nextInt(pop.size()/100 + 1)));
             }
         }

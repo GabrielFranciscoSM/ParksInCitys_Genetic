@@ -41,8 +41,31 @@ public class ParksInCityGA {
         
         for(int i = 0; i < repetitionLimits; ++i){
             this.applyFitness();
+            if(i % (repetitionLimits/10) == 0){
+                System.out.print("\n\n Generation " + i + ": " + "\n");
+                for(CityTileset ct : pop){
+                    System.out.print(ct.getFitness() + " ");
+                }
+                
+            }
             this.applySelection();
+            this.applyFitness();
+            if(i % (repetitionLimits/10) == 0){
+                System.out.print("\n\n Generation " + i + ": " + "\n");
+                for(CityTileset ct : pop){
+                    System.out.print(ct.getFitness() + " ");
+                }
+                
+            }
             this.applyCrossover();
+            this.applyFitness();
+            if(i % (repetitionLimits/10) == 0){
+                System.out.print("\n\n Generation " + i + ": " + "\n");
+                for(CityTileset ct : pop){
+                    System.out.print(ct.getFitness() + " ");
+                }
+                
+            }
         }        
     }
     
@@ -51,7 +74,7 @@ public class ParksInCityGA {
     }
     
     public void applyCrossover(){
-        crossover.apply(pop);
+        pop = crossover.apply(pop);
     }
     
     public void applyFitness(){
@@ -59,7 +82,7 @@ public class ParksInCityGA {
     }
     
     public void applySelection(){
-        selection.apply(pop);
+        pop = selection.apply(pop);
     }
     
     public Population savePopulation(){

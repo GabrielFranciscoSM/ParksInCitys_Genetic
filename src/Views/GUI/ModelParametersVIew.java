@@ -5,6 +5,7 @@ package Views.GUI;
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 import Model.Individuals.FixedSizePopulation;
+import Model.ModelParameters;
 
 /**
  *
@@ -17,9 +18,13 @@ public class ModelParametersVIew extends javax.swing.JPanel {
      */
     public ModelParametersVIew() {
         initComponents();
-        slideBar1.setLimits(FixedSizePopulation.MAXSIZE,FixedSizePopulation.MINSIZE);
+        slideBar1.setLimits(FixedSizePopulation.MAXSIZE,
+                FixedSizePopulation.MINSIZE);
         slideBar2.setLimits(100, 0);
         slideBar2.setDefault(50);
+        slideBar3.setLimits(ModelParameters.MAXREPETITIONLIMIT, 
+                ModelParameters.MINREPETITIONLIMIT);
+        slideBar3.setDefault(ModelParameters.DEFREPETITIONLIMIT);
     }
     
     public int getPopSizeValue(){
@@ -28,6 +33,10 @@ public class ModelParametersVIew extends javax.swing.JPanel {
     
     public int getMoneyPonderationValue(){
         return slideBar2.getValue();
+    }
+    
+    public int getRepetitions(){
+        return slideBar3.getValue();
     }
             
 
@@ -45,6 +54,8 @@ public class ModelParametersVIew extends javax.swing.JPanel {
         PopSizeLabel1 = new javax.swing.JLabel();
         slideBar2 = new Views.GUI.SlideBar();
         PopSizeLabel2 = new javax.swing.JLabel();
+        slideBar3 = new Views.GUI.SlideBar();
+        PopSizeLabel3 = new javax.swing.JLabel();
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
@@ -54,7 +65,11 @@ public class ModelParametersVIew extends javax.swing.JPanel {
 
         PopSizeLabel2.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
         PopSizeLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        PopSizeLabel2.setText("Money ponderation");
+        PopSizeLabel2.setText("Repetitions");
+
+        PopSizeLabel3.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
+        PopSizeLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        PopSizeLabel3.setText("Money ponderation");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -62,16 +77,20 @@ public class ModelParametersVIew extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(PopSizeLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(PopSizeLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(PopSizeLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(PopSizeLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(PopSizeLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)))
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(slideBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 323, Short.MAX_VALUE)
-                    .addComponent(slideBar2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 323, Short.MAX_VALUE))
+                    .addComponent(slideBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 317, Short.MAX_VALUE)
+                    .addComponent(slideBar2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 317, Short.MAX_VALUE)
+                    .addComponent(slideBar3, javax.swing.GroupLayout.DEFAULT_SIZE, 317, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -89,12 +108,16 @@ public class ModelParametersVIew extends javax.swing.JPanel {
                                 .addComponent(slideBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(39, 39, 39)
-                                .addComponent(slideBar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addComponent(slideBar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(slideBar3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(37, 37, 37)
+                                .addGap(16, 16, 16)
+                                .addComponent(PopSizeLabel3)
+                                .addGap(29, 29, 29)
                                 .addComponent(PopSizeLabel2)))
-                        .addGap(0, 313, Short.MAX_VALUE)))
+                        .addGap(0, 272, Short.MAX_VALUE)))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -103,8 +126,10 @@ public class ModelParametersVIew extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel PopSizeLabel1;
     private javax.swing.JLabel PopSizeLabel2;
+    private javax.swing.JLabel PopSizeLabel3;
     private javax.swing.JSeparator jSeparator1;
     private Views.GUI.SlideBar slideBar1;
     private Views.GUI.SlideBar slideBar2;
+    private Views.GUI.SlideBar slideBar3;
     // End of variables declaration//GEN-END:variables
 }
