@@ -13,5 +13,6 @@ var classBasics_1_1Position =
     [ "div", "classBasics_1_1Position.html#a2372c2963e59175bfe69bd556d2aa07a", null ],
     [ "inRange", "classBasics_1_1Position.html#a4754eb239f7180b51245eb9d16679ed4", null ],
     [ "isEqual", "classBasics_1_1Position.html#aff67cb5d9827d866e2a325fcdd60e835", null ],
-    [ "toString", "classBasics_1_1Position.html#ac009bd5a5a54c0dfe674b353c0db132d", null ]
+    [ "toString", "classBasics_1_1Position.html#ac009bd5a5a54c0dfe674b353c0db132d", null ],
+    [ "equals", "classBasics_1_1Position.html#a839444181e47a32ed457793e40c8cb9e", null ]
 ];

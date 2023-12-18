@@ -52,6 +52,9 @@ Basics.Position \- Position Represents a 2D point, and has methods to operate wi
 .ti -1c
 .RI "String \fBtoString\fP ()"
 .br
+.ti -1c
+.RI "boolean \fBequals\fP (Object o)"
+.br
 .in -1c
 .SS "Static Public Member Functions"
 
@@ -280,6 +283,20 @@ toString method for Position
 \fBReturns\fP
 .RS 4
 A string with format (x,y) 
+.RE
+.PP
+
+.SS "boolean Basics\&.Position\&.equals (Object o)"
+equals method for Position\&. Compare coordinates\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIo\fP Position to compare with\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+True if equals\&. 
 .RE
 .PP
 

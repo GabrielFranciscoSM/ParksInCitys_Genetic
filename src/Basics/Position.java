@@ -2,9 +2,7 @@
  * \file Position.java
  */
 
-
 package Basics;
-
 /**
  *
  * @author gabriel
@@ -13,13 +11,15 @@ package Basics;
 ///Position Represents a 2D point, and has methods to operate with them
 public class Position {
     
-    ///Default position. Origin.
     static final public Position ZERO = new Position(0);
+    ///<Default position. Origin.
     
-    ///x coordinate
+    
     private int x;
-    //y coordinate
+    ///<x coordinate
+
     private int y;
+    ///<y coordinate
     
     /**
      * Default constructor
@@ -185,6 +185,12 @@ public class Position {
         return "(" + Integer.toString(getX()) + ", " + Integer.toString(getY()) + ")";
     }
     
+    /**
+     * equals method for Position.
+     * Compare coordinates.
+     * @param o Position to compare with.
+     * @return True if equals.
+     */
     @Override
     public boolean equals(Object o){
         

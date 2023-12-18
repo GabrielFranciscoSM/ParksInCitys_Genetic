@@ -14,6 +14,12 @@ import java.util.Comparator;
 ///Sort algorithm for position by the x coordinate
 public class SortByX implements Comparator<Position>{
     
+    /**
+     * Compare two positions.
+     * @param a On position.
+     * @param b The other position.
+     * @return The difference between positions.
+     */
     public int compare(Position a, Position b)
     {
         return a.getX() - b.getX();

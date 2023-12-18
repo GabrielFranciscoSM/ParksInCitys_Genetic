@@ -2,7 +2,7 @@ var annotated_dup =
 [
     [ "Basics", null, [
       [ "Position", "classBasics_1_1Position.html", "classBasics_1_1Position" ],
-      [ "SortByX", "classBasics_1_1SortByX.html", null ]
+      [ "SortByX", "classBasics_1_1SortByX.html", "classBasics_1_1SortByX" ]
     ] ],
     [ "Model", null, [
       [ "fitness", null, [
@@ -16,6 +16,7 @@ var annotated_dup =
           [ "NullTile", "classModel_1_1Individuals_1_1Tiles_1_1NullTile.html", null ],
           [ "ParkTile", "classModel_1_1Individuals_1_1Tiles_1_1ParkTile.html", null ],
           [ "RoadTile", "classModel_1_1Individuals_1_1Tiles_1_1RoadTile.html", null ],
+          [ "SchoolTile", "classModel_1_1Individuals_1_1Tiles_1_1SchoolTile.html", null ],
           [ "Tile", "classModel_1_1Individuals_1_1Tiles_1_1Tile.html", null ],
           [ "TileType", "enumModel_1_1Individuals_1_1Tiles_1_1TileType.html", null ],
           [ "VoidTile", "classModel_1_1Individuals_1_1Tiles_1_1VoidTile.html", null ]
@@ -53,7 +54,7 @@ var annotated_dup =
           [ "SelectionController", "classModel_1_1operators_1_1selection_1_1SelectionController.html", null ]
         ] ]
       ] ],
-      [ "CityParameters", "classModel_1_1CityParameters.html", null ],
+      [ "CityParameters", "classModel_1_1CityParameters.html", "classModel_1_1CityParameters" ],
       [ "ModelParameters", "classModel_1_1ModelParameters.html", null ],
       [ "ParksInCityGA", "classModel_1_1ParksInCityGA.html", null ]
     ] ],

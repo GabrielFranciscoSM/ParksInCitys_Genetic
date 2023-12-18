@@ -10,7 +10,7 @@ Model.ModelParameters
 
 .in +1c
 .ti -1c
-.RI "\fBModelParameters\fP (int popSize, int moneyPond)"
+.RI "\fBModelParameters\fP (int popSize, int moneyPond, int repetitionLimits)"
 .br
 .ti -1c
 .RI "int \fBgetPOPULATIONSIZE\fP ()"
@@ -32,6 +32,22 @@ Model.ModelParameters
 .br
 .ti -1c
 .RI "double \fBgetTRUNCATESIZE\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetRepetitionsLimit\fP ()"
+.br
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "static final int \fBMAXREPETITIONLIMIT\fP = 10000"
+.br
+.ti -1c
+.RI "static final int \fBDEFREPETITIONLIMIT\fP = 100"
+.br
+.ti -1c
+.RI "static final int \fBMINREPETITIONLIMIT\fP = 2"
 .br
 .in -1c
 .SH "Detailed Description"

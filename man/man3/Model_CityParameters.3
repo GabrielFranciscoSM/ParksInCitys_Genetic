@@ -35,14 +35,26 @@ Model.CityParameters \- Class containing parameters for inizalitation of cities\
 .ti -1c
 .RI "static final int \fBDEFAULTSIZE\fP = 200"
 .br
+.RI "Default size for cities\&. "
 .ti -1c
 .RI "static final int \fBMINSIZE\fP = 10"
 .br
+.RI "Min size of a city\&. "
 .ti -1c
 .RI "static final int \fBMAXSIZE\fP = 400"
 .br
+.RI "Max Size of city\&. "
 .ti -1c
 .RI "static final int \fBNEIGHBORHOODSIZE\fP = 50"
+.br
+.ti -1c
+.RI "static final int \fBMAXSCHOOLSPERTILES\fP = 30"
+.br
+.ti -1c
+.RI "static final int \fBDEFSCHOOLSPERTILES\fP = 10"
+.br
+.ti -1c
+.RI "static final int \fBMINSCHOOLSPERTILES\fP = 1"
 .br
 .ti -1c
 .RI "static int \fBMINPERCENTAGEOFPARKS\fP"
@@ -108,6 +120,76 @@ gabriel
 .RE
 .PP
 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Model\&.CityParameters\&.CityParameters (int s, int rd, int bd, int ps, int pp)"
+Constructor 
+.PP
+\fBParameters\fP
+.RS 4
+\fIs\fP Size of the city 
+.br
+\fIrd\fP Road density 
+.br
+\fIbd\fP Building density 
+.br
+\fIps\fP Parks spreadness\&. The less spreadness, the bigger the parks 
+.br
+\fIpp\fP Parks percentage 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "int Model\&.CityParameters\&.getSize ()"
+Getter of size 
+.PP
+\fBReturns\fP
+.RS 4
+Size of cities 
+.RE
+.PP
+
+.SS "int Model\&.CityParameters\&.getRoadDensity ()"
+Getter of road density 
+.PP
+\fBReturns\fP
+.RS 4
+Road density 
+.RE
+.PP
+
+.SS "int Model\&.CityParameters\&.getBuildingDensity ()"
+Getter of building density 
+.PP
+\fBReturns\fP
+.RS 4
+Building density 
+.RE
+.PP
+
+.SS "int Model\&.CityParameters\&.getParkSpreadness ()"
+Getter of park spreadness 
+.PP
+\fBReturns\fP
+.RS 4
+Park spreadness 
+.RE
+.PP
+
+.SS "int Model\&.CityParameters\&.getParksPercentage ()"
+Getter of parks percentage 
+.PP
+\fBReturns\fP
+.RS 4
+Parks percentage 
+.RE
+.PP
+
+.SH "Member Data Documentation"
+.PP 
+.SS "final int Model\&.CityParameters\&.MAXSCHOOLSPERTILES = 30\fC [static]\fP"
+<Size of the neighborhoods\&. It works better if it divides SETSIZE 
 
 .SH "Author"
 .PP 

@@ -39,7 +39,9 @@ var hierarchy =
     [ "Model.fitness.ValueFunction", "classModel_1_1fitness_1_1ValueFunction.html", null ],
     [ "Model.Individuals.Neighborhood", "classModel_1_1Individuals_1_1Neighborhood.html", null ],
     [ "Model.Individuals.Tiles.Tile", "classModel_1_1Individuals_1_1Tiles_1_1Tile.html", [
-      [ "Model.Individuals.Tiles.BuildingTile", "classModel_1_1Individuals_1_1Tiles_1_1BuildingTile.html", null ],
+      [ "Model.Individuals.Tiles.BuildingTile", "classModel_1_1Individuals_1_1Tiles_1_1BuildingTile.html", [
+        [ "Model.Individuals.Tiles.SchoolTile", "classModel_1_1Individuals_1_1Tiles_1_1SchoolTile.html", null ]
+      ] ],
       [ "Model.Individuals.Tiles.NullTile", "classModel_1_1Individuals_1_1Tiles_1_1NullTile.html", null ],
       [ "Model.Individuals.Tiles.ParkTile", "classModel_1_1Individuals_1_1Tiles_1_1ParkTile.html", null ],
       [ "Model.Individuals.Tiles.RoadTile", "classModel_1_1Individuals_1_1Tiles_1_1RoadTile.html", null ],

@@ -8,38 +8,40 @@ Class containing parameters for inizalitation of cities.
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{classModel_1_1CityParameters_af571be6ec85af45cf8419203cd88e58f}\label{classModel_1_1CityParameters_af571be6ec85af45cf8419203cd88e58f} 
-{\bfseries City\+Parameters} (int s, int rd, int bd, int ps, int pp)
+\mbox{\hyperlink{classModel_1_1CityParameters_af571be6ec85af45cf8419203cd88e58f}{City\+Parameters}} (int s, int rd, int bd, int ps, int pp)
 \item 
-\Hypertarget{classModel_1_1CityParameters_a61f5d10e57a0c56585ebdfef8a8a1023}\label{classModel_1_1CityParameters_a61f5d10e57a0c56585ebdfef8a8a1023} 
-int {\bfseries get\+Size} ()
+int \mbox{\hyperlink{classModel_1_1CityParameters_a61f5d10e57a0c56585ebdfef8a8a1023}{get\+Size}} ()
 \item 
-\Hypertarget{classModel_1_1CityParameters_a085ebd74ff7be350831347373c379338}\label{classModel_1_1CityParameters_a085ebd74ff7be350831347373c379338} 
-int {\bfseries get\+Road\+Density} ()
+int \mbox{\hyperlink{classModel_1_1CityParameters_a085ebd74ff7be350831347373c379338}{get\+Road\+Density}} ()
 \item 
-\Hypertarget{classModel_1_1CityParameters_ac4b2e20815bf90e42d4fe4d111aa9418}\label{classModel_1_1CityParameters_ac4b2e20815bf90e42d4fe4d111aa9418} 
-int {\bfseries get\+Building\+Density} ()
+int \mbox{\hyperlink{classModel_1_1CityParameters_ac4b2e20815bf90e42d4fe4d111aa9418}{get\+Building\+Density}} ()
 \item 
-\Hypertarget{classModel_1_1CityParameters_af09664f81559ea6a1790b645cc1db74f}\label{classModel_1_1CityParameters_af09664f81559ea6a1790b645cc1db74f} 
-int {\bfseries get\+Park\+Spreadness} ()
+int \mbox{\hyperlink{classModel_1_1CityParameters_af09664f81559ea6a1790b645cc1db74f}{get\+Park\+Spreadness}} ()
 \item 
-\Hypertarget{classModel_1_1CityParameters_a8c18a884a00c826d4f8192ef1c74fd58}\label{classModel_1_1CityParameters_a8c18a884a00c826d4f8192ef1c74fd58} 
-int {\bfseries get\+Parks\+Percentage} ()
+int \mbox{\hyperlink{classModel_1_1CityParameters_a8c18a884a00c826d4f8192ef1c74fd58}{get\+Parks\+Percentage}} ()
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Static Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \Hypertarget{classModel_1_1CityParameters_a919e8780beb4ce944acd83d079a1f044}\label{classModel_1_1CityParameters_a919e8780beb4ce944acd83d079a1f044} 
 static final int {\bfseries DEFAULTSIZE} = 200
-\item 
+\begin{DoxyCompactList}\small\item\em Default size for cities. \end{DoxyCompactList}\item 
 \Hypertarget{classModel_1_1CityParameters_a8e55504436db9103c71584c29958f9ce}\label{classModel_1_1CityParameters_a8e55504436db9103c71584c29958f9ce} 
 static final int {\bfseries MINSIZE} = 10
-\item 
+\begin{DoxyCompactList}\small\item\em Min size of a city. \end{DoxyCompactList}\item 
 \Hypertarget{classModel_1_1CityParameters_ad1c38c2630cd0e36c02add2492c6eb40}\label{classModel_1_1CityParameters_ad1c38c2630cd0e36c02add2492c6eb40} 
 static final int {\bfseries MAXSIZE} = 400
-\item 
+\begin{DoxyCompactList}\small\item\em Max Size of city. \end{DoxyCompactList}\item 
 \Hypertarget{classModel_1_1CityParameters_a99994d4f81139fd45c75f4c562c592b0}\label{classModel_1_1CityParameters_a99994d4f81139fd45c75f4c562c592b0} 
 static final int {\bfseries NEIGHBORHOODSIZE} = 50
+\item 
+static final int \mbox{\hyperlink{classModel_1_1CityParameters_a669f1542f44655a04455670e28452c5f}{MAXSCHOOLSPERTILES}} = 30
+\item 
+\Hypertarget{classModel_1_1CityParameters_aa7868fd16c1242699d782d5a8ff1cd46}\label{classModel_1_1CityParameters_aa7868fd16c1242699d782d5a8ff1cd46} 
+static final int {\bfseries DEFSCHOOLSPERTILES} = 10
+\item 
+\Hypertarget{classModel_1_1CityParameters_af630fc70a806fd4cef03fec63468de4a}\label{classModel_1_1CityParameters_af630fc70a806fd4cef03fec63468de4a} 
+static final int {\bfseries MINSCHOOLSPERTILES} = 1
 \item 
 \Hypertarget{classModel_1_1CityParameters_a400fdd6105ef9cba644c1bfea238bad0}\label{classModel_1_1CityParameters_a400fdd6105ef9cba644c1bfea238bad0} 
 static int {\bfseries MINPERCENTAGEOFPARKS}
@@ -101,6 +103,85 @@ Class containing parameters for inizalitation of cities.
 gabriel 
 \end{DoxyAuthor}
 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classModel_1_1CityParameters_af571be6ec85af45cf8419203cd88e58f}\label{classModel_1_1CityParameters_af571be6ec85af45cf8419203cd88e58f} 
+\index{Model.CityParameters@{Model.CityParameters}!CityParameters@{CityParameters}}
+\index{CityParameters@{CityParameters}!Model.CityParameters@{Model.CityParameters}}
+\doxysubsubsection{\texorpdfstring{CityParameters()}{CityParameters()}}
+{\footnotesize\ttfamily Model.\+City\+Parameters.\+City\+Parameters (\begin{DoxyParamCaption}\item[{int}]{s,  }\item[{int}]{rd,  }\item[{int}]{bd,  }\item[{int}]{ps,  }\item[{int}]{pp }\end{DoxyParamCaption})}
+
+Constructor 
+\begin{DoxyParams}{Parameters}
+{\em s} & Size of the city \\
+\hline
+{\em rd} & Road density \\
+\hline
+{\em bd} & Building density \\
+\hline
+{\em ps} & Parks spreadness. The less spreadness, the bigger the parks \\
+\hline
+{\em pp} & Parks percentage \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classModel_1_1CityParameters_a61f5d10e57a0c56585ebdfef8a8a1023}\label{classModel_1_1CityParameters_a61f5d10e57a0c56585ebdfef8a8a1023} 
+\index{Model.CityParameters@{Model.CityParameters}!getSize@{getSize}}
+\index{getSize@{getSize}!Model.CityParameters@{Model.CityParameters}}
+\doxysubsubsection{\texorpdfstring{getSize()}{getSize()}}
+{\footnotesize\ttfamily int Model.\+City\+Parameters.\+get\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Getter of size \begin{DoxyReturn}{Returns}
+Size of cities 
+\end{DoxyReturn}
+\Hypertarget{classModel_1_1CityParameters_a085ebd74ff7be350831347373c379338}\label{classModel_1_1CityParameters_a085ebd74ff7be350831347373c379338} 
+\index{Model.CityParameters@{Model.CityParameters}!getRoadDensity@{getRoadDensity}}
+\index{getRoadDensity@{getRoadDensity}!Model.CityParameters@{Model.CityParameters}}
+\doxysubsubsection{\texorpdfstring{getRoadDensity()}{getRoadDensity()}}
+{\footnotesize\ttfamily int Model.\+City\+Parameters.\+get\+Road\+Density (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Getter of road density \begin{DoxyReturn}{Returns}
+Road density 
+\end{DoxyReturn}
+\Hypertarget{classModel_1_1CityParameters_ac4b2e20815bf90e42d4fe4d111aa9418}\label{classModel_1_1CityParameters_ac4b2e20815bf90e42d4fe4d111aa9418} 
+\index{Model.CityParameters@{Model.CityParameters}!getBuildingDensity@{getBuildingDensity}}
+\index{getBuildingDensity@{getBuildingDensity}!Model.CityParameters@{Model.CityParameters}}
+\doxysubsubsection{\texorpdfstring{getBuildingDensity()}{getBuildingDensity()}}
+{\footnotesize\ttfamily int Model.\+City\+Parameters.\+get\+Building\+Density (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Getter of building density \begin{DoxyReturn}{Returns}
+Building density 
+\end{DoxyReturn}
+\Hypertarget{classModel_1_1CityParameters_af09664f81559ea6a1790b645cc1db74f}\label{classModel_1_1CityParameters_af09664f81559ea6a1790b645cc1db74f} 
+\index{Model.CityParameters@{Model.CityParameters}!getParkSpreadness@{getParkSpreadness}}
+\index{getParkSpreadness@{getParkSpreadness}!Model.CityParameters@{Model.CityParameters}}
+\doxysubsubsection{\texorpdfstring{getParkSpreadness()}{getParkSpreadness()}}
+{\footnotesize\ttfamily int Model.\+City\+Parameters.\+get\+Park\+Spreadness (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Getter of park spreadness \begin{DoxyReturn}{Returns}
+Park spreadness 
+\end{DoxyReturn}
+\Hypertarget{classModel_1_1CityParameters_a8c18a884a00c826d4f8192ef1c74fd58}\label{classModel_1_1CityParameters_a8c18a884a00c826d4f8192ef1c74fd58} 
+\index{Model.CityParameters@{Model.CityParameters}!getParksPercentage@{getParksPercentage}}
+\index{getParksPercentage@{getParksPercentage}!Model.CityParameters@{Model.CityParameters}}
+\doxysubsubsection{\texorpdfstring{getParksPercentage()}{getParksPercentage()}}
+{\footnotesize\ttfamily int Model.\+City\+Parameters.\+get\+Parks\+Percentage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Getter of parks percentage \begin{DoxyReturn}{Returns}
+Parks percentage 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classModel_1_1CityParameters_a669f1542f44655a04455670e28452c5f}\label{classModel_1_1CityParameters_a669f1542f44655a04455670e28452c5f} 
+\index{Model.CityParameters@{Model.CityParameters}!MAXSCHOOLSPERTILES@{MAXSCHOOLSPERTILES}}
+\index{MAXSCHOOLSPERTILES@{MAXSCHOOLSPERTILES}!Model.CityParameters@{Model.CityParameters}}
+\doxysubsubsection{\texorpdfstring{MAXSCHOOLSPERTILES}{MAXSCHOOLSPERTILES}}
+{\footnotesize\ttfamily final int Model.\+City\+Parameters.\+MAXSCHOOLSPERTILES = 30\hspace{0.3cm}{\ttfamily [static]}}
+
+\texorpdfstring{$<$}{<}Size of the neighborhoods. It works better if it divides SETSIZE 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
