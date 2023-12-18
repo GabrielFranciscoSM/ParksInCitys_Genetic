@@ -49,21 +49,20 @@ public class RandomParkInicializer {
         
         int totalParks = (int)(generator.nextDouble()*(
                 maxParks-minParks)) + minParks;
-        
         //Random ganeration
         while(ct.getNparkTiles() < totalParks*parkSpreadness){
 
             Position pos = new Position(
              generator.nextInt(ct.getSize()),
              generator.nextInt(ct.getSize()));
-            
+
              while(!ct.NewParkTile(pos)){
+
                 pos = new Position(
                 generator.nextInt(ct.getSize()),
                 generator.nextInt(ct.getSize()));
              }
         }
-                
         
         //Expansion generation
         int counter = 0;

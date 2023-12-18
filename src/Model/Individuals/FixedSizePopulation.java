@@ -4,6 +4,7 @@ package Model.Individuals;
 public class FixedSizePopulation<T extends Individual> extends Population<T> {
 
     final static public int MAXSIZE = 500;
+    final static public int DEFSIZE = 20;
     final static public int MINSIZE = 2;
     
     private final int maxSize;

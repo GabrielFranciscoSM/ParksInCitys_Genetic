@@ -34,7 +34,7 @@ public class InicializerController {
     
     public CityTilesetPopulation Inicialize(){
         CityTilesetPopulation pop = InicializeCities();
-        
+        System.out.print(pop.size());
         for(CityTileset ct: pop){
             rdmPrk.Inicialize(ct);
         }
@@ -53,7 +53,7 @@ public class InicializerController {
         
         int numberOfNodes = ct.getSize()/10*cityParams.getRoadDensity();
         
-        generator.inicialize(ct, numberOfNodes);
+        generator.initialize(ct, numberOfNodes);
 
         for(int i = 0; i < modelParams.getPOPULATIONSIZE(); ++i){
             ctPop.add(new CityTileset(ct));

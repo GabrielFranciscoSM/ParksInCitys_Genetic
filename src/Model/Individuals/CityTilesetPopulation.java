@@ -20,15 +20,7 @@ public class CityTilesetPopulation extends FixedSizePopulation<CityTileset>{
     }
     
     public int getMaxParkValue(){
-        int max = 0;
-        for(CityTileset ct: this){
-            int aux = ct.getTile(ct.getMaxPark()).getValue(TileType.PARK);
-            if(aux > max){
-                max = aux;
-            }
-        }
-        
-        return max;
+        return CityTileset.getMaxValue();
     }
     
         

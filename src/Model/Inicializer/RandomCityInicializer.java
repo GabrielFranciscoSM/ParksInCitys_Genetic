@@ -8,6 +8,9 @@ import Model.Individuals.Tiles.BuildingTile;
 import Model.Individuals.CityTileset;
 import Basics.*;
 import Model.CityParameters;
+import Model.Individuals.Tiles.Tile;
+import Model.Individuals.Tiles.TileType;
+import Model.Individuals.Tiles.VoidTile;
 
 import java.util.Random;
 import java.util.HashSet;
@@ -48,11 +51,12 @@ public class RandomCityInicializer {
     //      a) First a more organizated method using nodes
     //      b) Then a random caotic method
     // 5) Count the void tiles and set them to de cities
-    public void inicialize(CityTileset _ct, int n_nodes){
+    public void initialize(CityTileset _ct, int n_nodes){
         setCt(_ct);
         generateNodes(n_nodes);
         createRoads();
         createBuildings();
+        this.setValuesUp();
         _ct.setDisponibleTiles(_ct.getFreeTiles());
     }
     
@@ -230,5 +234,24 @@ public class RandomCityInicializer {
             ct.NewRoadTile(new Position(pos.getX(),i));
             ++i;
         }
+    }
+    
+    private void setValuesUp(){
+        for(int i = 0; i < ct.getSize(); ++i){
+
+            for(int j = 0; j < ct.getSize(); ++j){
+                Tile t = ct.getTile(i,j);
+                if(t.isVoid()){
+                    VoidTile vt = (VoidTile) t;
+                    int parkValue = ct.getValueOfPark(new Position(i,j));
+                    vt.setPossibleValue(parkValue);
+                    
+                    if(parkValue > CityTileset.getMaxValue()){
+                        CityTileset.setMaxValue(parkValue);
+                    }
+                }
+            }
+        }
+        
     }
 }

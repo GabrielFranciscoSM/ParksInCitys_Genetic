@@ -23,9 +23,9 @@ public class ModelParameters {
     private final double CROSSOVERPROB = 0.1;
     ///< Actual crossover probability.
     
-    private final int DEFCROSSOVERINTENSITY = 1;
+    private final int DEFCROSSOVERINTENSITY = 2;
     ///< Crossover intensity. Times a crossover between the same two individuals.
-    private final int CROSSOVERINTENSITY = 1;
+    private final int CROSSOVERINTENSITY = 2;
     ///< Actual crossover intensity.
     
     //Selection
@@ -39,7 +39,7 @@ public class ModelParameters {
     //Stop condition 
     public final static int MAXREPETITIONLIMIT = 10000;
     ///< Max iterations of the algorithm.
-    public final static int DEFREPETITIONLIMIT = 100;
+    public final static int DEFREPETITIONLIMIT = 5000;
     ///< Default iterations of the algorithm.
     public final static int MINREPETITIONLIMIT = 2;
     ///< Min iterations of the algorithm.

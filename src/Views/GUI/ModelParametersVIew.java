@@ -20,6 +20,7 @@ public class ModelParametersVIew extends javax.swing.JPanel {
         initComponents();
         slideBar1.setLimits(FixedSizePopulation.MAXSIZE,
                 FixedSizePopulation.MINSIZE);
+        slideBar1.setDefault(FixedSizePopulation.DEFSIZE);
         slideBar2.setLimits(100, 0);
         slideBar2.setDefault(50);
         slideBar3.setLimits(ModelParameters.MAXREPETITIONLIMIT, 

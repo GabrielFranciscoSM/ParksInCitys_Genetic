@@ -22,10 +22,21 @@ public class PonderatedFunction {
     
     public void evaluate(CityTilesetPopulation pop){
         
+        Double maxFitness = 0d;
+        
         for (CityTileset city : pop) {	// Get each city from the population
             // Fitness is the result of the multiplication of both percentages
-            city.setFitness(((ValueFunction.Evaluate(city))*moneyPonderation + 
-                    MoneyFunction.Evaluate(city)*valuePonderation));
+            
+            Double fitnessValue = ((ValueFunction.Evaluate(city))*moneyPonderation + 
+                    MoneyFunction.Evaluate(city)*valuePonderation);
+            
+            if(fitnessValue > maxFitness){
+                maxFitness = fitnessValue;
+                pop.setBestIndividual(city);
+            }
+                
+            
+            city.setFitness(fitnessValue);
         }
     }
 }

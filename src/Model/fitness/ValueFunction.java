@@ -6,8 +6,6 @@ package Model.fitness;
 
 import Basics.Position;
 import Model.Individuals.CityTileset;
-import Model.Individuals.Tiles.BuildingTile;
-import Model.Individuals.Tiles.ParkTile;
 import Model.Individuals.Tiles.TileType;
 
 /**
@@ -16,9 +14,7 @@ import Model.Individuals.Tiles.TileType;
  */
 public class ValueFunction {
     public static Double Evaluate(CityTileset city){
-        int maxPark = (ParkTile.getAreaOfEffect() * 2 + 1) * 
-                      (ParkTile.getAreaOfEffect() * 2 + 1) *
-                      BuildingTile.MAXCITIZEN;
+        int maxPark = CityTileset.getMaxValue();
         int counter = 0;
         for (Position park : city.getArrayOfParkPositions()) {	// Get each park from the city
             int val = city.getTile(park).getValue(TileType.PARK);

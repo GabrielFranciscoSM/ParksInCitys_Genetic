@@ -32,6 +32,8 @@ public class CityTileset extends Individual{
     //number of park tiles and free tiles
     private int disponibleTiles;
     
+    private static int maxValue;
+    
     //id of a city.
     final private int id;
     
@@ -50,6 +52,8 @@ public class CityTileset extends Individual{
         id = ++nCities;
         freeTiles = CityParameters.DEFAULTSIZE*CityParameters.DEFAULTSIZE;
         disponibleTiles = freeTiles;
+        maxValue = 0;
+        
         for(int i = 0; i < CityParameters.DEFAULTSIZE; ++i){
             
             ArrayList<Tile> aux = new ArrayList<>(); 
@@ -81,6 +85,7 @@ public class CityTileset extends Individual{
         id = ++nCities;
         freeTiles = size*size;
         disponibleTiles = freeTiles;
+        maxValue = 0;
         
         for(int i = 0; i < size; ++i){
             
@@ -112,6 +117,7 @@ public class CityTileset extends Individual{
         id = ++nCities;
         freeTiles = cp.getFreeTiles();
         disponibleTiles = freeTiles;
+        maxValue = cp.maxValue;
         
         for(int i = 0; i < cp.getSize(); ++i){
             
@@ -142,6 +148,7 @@ public class CityTileset extends Individual{
         id = nCities;
         freeTiles = 0;
         disponibleTiles = 0;
+        maxValue = 0;
         
         for(int i = 0; i < tiles.size(); ++i){
             
@@ -217,18 +224,12 @@ public class CityTileset extends Individual{
     /*Getters and setters*/
     ////////////////////////////////////////////////////////////////////////////
     
-    public Position getMaxPark(){
-        int max = 0;
-        Position position = new Position();
-        for(Position pos: parkTiles){
-            if(getTile(pos).getValue(TileType.PARK)>max){
-                max = getTile(pos).getValue();
-                position = pos;
-            }
-                
-        }
-        
-        return position;
+    public static int getMaxValue(){
+        return maxValue;
+    }
+    
+    public static void setMaxValue(int m){
+        maxValue = m;
     }
     
     public int getDisponibleTiles(){
@@ -348,7 +349,7 @@ public class CityTileset extends Individual{
                         this.getNeigborhoodWithTilePos(aux).
                                 deletePark((ParkTile)this.getTile(aux));
                         ++freeTiles;
-                        ChangeTile(aux, new VoidTile());
+                        ChangeTile(aux, new VoidTile(this.getTile(aux).getValue(TileType.PARK)));
                         
                         this.parkTiles.remove(aux);
                     }   
@@ -396,7 +397,7 @@ public class CityTileset extends Individual{
     public boolean NewParkTile(Position pos){
         boolean canChange = false;
         if(getTile(pos).isVoid()){
-            ParkTile aux = new ParkTile(getValueOfPark(pos));
+            ParkTile aux = new ParkTile(this.getTile(pos).getValue(TileType.VOID));
             if(getNeigborhoodWithTilePos(pos).addPark(aux)){
                 --freeTiles;
                 ChangeTile(pos, aux);
@@ -408,33 +409,33 @@ public class CityTileset extends Individual{
         return canChange;
     }
     
-    //
-    public boolean NewParkTile(Position pos, Position neighbour){
-        
-        boolean canChange = false;
-        
-        if(getTile(pos).isVoid()){
-            
-            if(getNeigborhoodWithTilePos(pos).canAddPark()){
-                int v  = getValueOfPark(pos, neighbour);
-
-                if(v < 0){
-                    v = getValueOfPark(pos);
-                }
-
-                ParkTile aux = new ParkTile(v);
-                
-                --freeTiles;
-                ChangeTile(pos, aux);
-                getNeigborhoodWithTilePos(pos).addPark(aux);
-                parkTiles.add(pos);
-                canChange = true;
-            }
-            
-        }
-        
-        return canChange;
+    
+    /*    public boolean NewParkTile(Position pos, Position neighbour){
+    
+    boolean canChange = false;
+    
+    if(getTile(pos).isVoid()){
+    
+    if(getNeigborhoodWithTilePos(pos).canAddPark()){
+    int v  = getValueOfPark(pos, neighbour);
+    
+    if(v < 0){
+    v = getValueOfPark(pos);
     }
+    
+    ParkTile aux = new ParkTile(v);
+    
+    --freeTiles;
+    ChangeTile(pos, aux);
+    getNeigborhoodWithTilePos(pos).addPark(aux);
+    parkTiles.add(pos);
+    canChange = true;
+    }
+    
+    }
+    
+    return canChange;
+    }*/
     
     //Get the value of a new park, but generated with another park next to it.
     //This is done to increase effciency by decreasing the number of tiles
@@ -529,7 +530,7 @@ public class CityTileset extends Individual{
                 ++freeTiles;
                 parkTiles.remove(pos);
                 getNeigborhoodWithTilePos(pos).deletePark((ParkTile)aux);
-                ChangeTile(pos,new VoidTile());
+                ChangeTile(pos,new VoidTile(aux.getValue(TileType.PARK)));
             }
         }
     }
@@ -545,7 +546,7 @@ public class CityTileset extends Individual{
                     Position auxPos = Position.sum(aux, new Position(i,j));
                     if(this.inRange(auxPos)){
                         if(getTile(auxPos).isVoid()){
-                            NewParkTile(auxPos,pos);
+                            NewParkTile(auxPos);
     //SI OCURRE ALGÚN FALLO RARO POSIBLEMENTE TIRE POR AQUÍ                        
                             return true;
                         }

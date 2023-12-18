@@ -57,7 +57,6 @@ public class ParksInCityGA {
      */
     public void run(){
         pop = initializer.Inicialize();
-                        
         for(int i = 0; i < repetitionLimits; ++i){
             this.applyFitness();
             if(i % (repetitionLimits/10) == 0){
@@ -65,6 +64,8 @@ public class ParksInCityGA {
                 for(CityTileset ct : pop){
                     System.out.print(ct.getFitness() + " ");
                 }
+                System.out.print("\nBest individual: " + 
+                        pop.getBestIndividual().getFitness());
                 System.out.print("\n");
             }
             this.applySelection();
