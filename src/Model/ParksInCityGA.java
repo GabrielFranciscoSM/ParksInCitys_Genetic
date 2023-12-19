@@ -31,12 +31,14 @@ public class ParksInCityGA {
         crossover = new CrossoverController(mp);
         fitness = new PonderatedFunction(mp.getMONEYPONDERATION());
         selection = new SelectionController(mp);
+        mutation = new MutationController(mp.getMUTATIONPROB());
     }
     
     public void run(){
         pop = inicializer.Inicialize();
         this.applyFitness();
         this.applySelection();
+        this.applyMutation();
         //this.applyCrossover();
     }
     
@@ -54,6 +56,10 @@ public class ParksInCityGA {
     
     public void applySelection(){
         selection.apply(pop);
+    }
+    
+    public void applyMutation(){
+        mutation.apply(pop);
     }
     
     public Population savePopulation(){

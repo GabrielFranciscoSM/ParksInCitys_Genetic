@@ -18,16 +18,16 @@ import java.util.List;
 //Individual
 public class CityTileset extends Individual{
         
-    //Saves the numer of cities created. Used to asign id
+    //Saves the number of cities created. Used to asign id
     static private int nCities = 0;
     
     //Arrays of Tiles and Neighborhoods
     private ArrayList<ArrayList<Tile>> tileset;
     private ArrayList<ArrayList<Neighborhood>> neighborhoods;
     
-    //Saves the positions of the parkTiles in th city
+    //Saves the positions of the parkTiles in the city
     private List<Position> parkTiles;
-    //Numeber of disponible tiles (void tiles)
+    //Number of available tiles (void tiles)
     private int freeTiles;
     //number of park tiles and free tiles
     private int disponibleTiles;
@@ -555,7 +555,7 @@ public class CityTileset extends Individual{
                     if(this.inRange(auxPos)){
                         if(getTile(auxPos).isVoid()){
                             NewParkTile(auxPos,pos);
-    //SI OCURRE ALGÚN FALLO RARO POSIBLEMENTE TIRE POR AQUÍ                        
+    //SI OCURRE ALGÃšN FALLO RARO POSIBLEMENTE TIRE POR AQUÃ�                        
                             return true;
                         }
                     }
@@ -623,6 +623,11 @@ public class CityTileset extends Individual{
         
         return city;
     }
+    
+    public boolean hasAvailableTiles() {
+    	return freeTiles != 0;
+    }
+    
 
     /*   public void getRandomNeighborhood(int neighborhoodSelector, int operation, int tileSelector) {
     // Get the dimensions of the neighborhoods

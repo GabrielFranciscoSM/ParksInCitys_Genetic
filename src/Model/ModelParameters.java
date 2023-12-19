@@ -23,6 +23,9 @@ public class ModelParameters {
     private final boolean USEELITISM = true;
     private final boolean USETRUNCATE = true;
     private final double TRUNCATESIZE = 0.3;
+    
+    //Mutation
+    private final double MUTATIONPROB = 0.1;
 
     
     public ModelParameters(int popSize, int moneyPond){
@@ -56,5 +59,9 @@ public class ModelParameters {
     
     public double getTRUNCATESIZE(){
         return TRUNCATESIZE;
+    }
+    
+    public double getMUTATIONPROB(){
+        return MUTATIONPROB;
     }
 }
