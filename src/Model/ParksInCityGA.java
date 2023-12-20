@@ -47,6 +47,7 @@ public class ParksInCityGA {
         fitness =       new PonderatedFunction(mp.getMONEYPONDERATION());
         selection =     new SelectionController(mp);
         repetitionLimits = mp.getRepetitionsLimit();
+        mutation = new MutationController(mp.getMUTATIONPROB());
         this.cp = cp;
     }
     
@@ -73,6 +74,7 @@ public class ParksInCityGA {
             }
             this.applySelection();
             this.applyCrossover();
+            this.applyMutation();
 
         }        
     }
@@ -104,6 +106,10 @@ public class ParksInCityGA {
      */
     public void applySelection(){
         pop = selection.apply(pop);
+    }
+    
+    public void applyMutation(){
+        mutation.apply(pop);
     }
     
     /**

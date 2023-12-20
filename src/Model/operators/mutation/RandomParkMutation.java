@@ -4,6 +4,7 @@
  */
 package Model.operators.mutation;
 
+import Basics.Position;
 import Model.Individuals.CityTileset;
 import Model.Individuals.Population;
 
@@ -16,20 +17,23 @@ import java.util.Random;
 public class RandomParkMutation {
     
     private Random generator;
-    
-    RandomParkMutation(){
+    private double MUTATIONPROB; // Mutation probability
+
+    RandomParkMutation(double mutationProb){
     	this.generator = new Random();
+    	this.MUTATIONPROB = mutationProb;
     }
 
     public void apply(Population<CityTileset> pop) {
-        /*double probability;
-        
         for (CityTileset city : pop) {
-        // Decides whether the individual is mutated with the given probability
-        probability = generator.nextDouble();
-        if (probability < MUTATION_PROBABILITY) {
-        city.getRandomNeighborhood(generator.nextInt(101), generator.nextInt(2), generator.nextInt());
+        	Position[] parkPositions = city.getArrayOfParkPositions().toArray(new Position[0]);
+        	for (Position park : parkPositions) {
+	        	if (generator.nextDouble() < MUTATIONPROB) {
+		        	if (!(city.hasAvailableTiles()) || (generator.nextInt(2) == 0) || !city.extendPark(park)) {
+		        		city.removeParkTile(park);
+		        	}
+		        }
+	        }
         }
-        }*/
     }
 }

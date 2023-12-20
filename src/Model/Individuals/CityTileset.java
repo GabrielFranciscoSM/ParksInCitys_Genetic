@@ -624,4 +624,8 @@ public class CityTileset extends Individual{
         
         return city;
     }
+    
+    public boolean hasAvailableTiles() {
+    	return freeTiles != 0;
+    }
 }

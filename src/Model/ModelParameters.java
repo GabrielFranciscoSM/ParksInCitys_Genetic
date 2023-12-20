@@ -44,6 +44,9 @@ public class ModelParameters {
     public final static int MINREPETITIONLIMIT = 2;
     ///< Min iterations of the algorithm.
 
+    //Mutation
+    private final double MUTATIONPROB = 0.1;
+    
     private int repetitionLimits;
     
     /**
@@ -112,6 +115,10 @@ public class ModelParameters {
      */
     public double getTRUNCATESIZE(){
         return TRUNCATESIZE;
+    }
+    
+    public double getMUTATIONPROB(){
+        return MUTATIONPROB;
     }
     
     /**
