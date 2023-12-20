@@ -37,9 +37,9 @@ public class CityParameters {
     public static int MAXPERCENTAGEOFPARKS;
     ///<Max percentage of parks in free tiles
     
-    public static final int PERCENTAGERANGE = 1;
+    public static final int PERCENTAGERANGE = 5;
     ///< Range of error of initial percentage of parks
-    public static final int DEFPARKSPARCENTAGE = 7;
+    public static final int DEFPARKSPARCENTAGE = 50;
     ///< Default percentage of parks
     
     //City building Constants
@@ -66,7 +66,7 @@ public class CityParameters {
     ///<Min size of a sigle building. Half of min separation of roads.
     
     //Parks Inicizlizer constants
-    public static int DEFPARKSPREADNESS = 1;
+    public static int DEFPARKSPREADNESS = 50;
     ///<Default parks spreadness.
     public static int MAXPARKSPREADNESS = 1000;
     ///<Max park spreadness.

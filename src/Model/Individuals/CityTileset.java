@@ -11,28 +11,37 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
  * @author Gabriel Sanchez
+ * 
+ * CityTileset Represents an individual. It is formed by a two 
+ * dimensional array of Tiles that can be: 
+ *  - Parks
+ *  - Building
+ *  - Roads
+ *  - Void tiles
  */
-
-//Individual
 public class CityTileset extends Individual{
         
-    //Saves the numer of cities created. Used to asign id
     static private int nCities = 0;
+    ///Saves the numer of cities created. Used to asign id
     
-    //Arrays of Tiles and Neighborhoods
     private ArrayList<ArrayList<Tile>> tileset;
+    ///Array of tiles
     private ArrayList<ArrayList<Neighborhood>> neighborhoods;
+    ///Array of neighborhoods (set of tiles)
     
-    //Saves the positions of the parkTiles in th city
     private List<Position> parkTiles;
-    //Numeber of disponible tiles (void tiles)
+    ///Saves the positions of the parkTiles in th city
+
+    
     private int freeTiles;
-    //number of park tiles and free tiles
+    ///Numeber of disponible tiles (void tiles)
+    
     private int disponibleTiles;
+    ///Number of park tiles and free tiles
     
     private static int maxValue;
+    ///Saves the max value that a park can take. Used in fitness function.
     
     //id of a city.
     final private int id;
@@ -615,80 +624,4 @@ public class CityTileset extends Individual{
         
         return city;
     }
-
-    /*   public void getRandomNeighborhood(int neighborhoodSelector, int operation, int tileSelector) {
-    // Get the dimensions of the neighborhoods
-    int lengthRow = this.neighborhoods.size();
-    int lengthColumn = this.neighborhoods.get(0).size();
-    
-    neighborhoodSelector %= (lengthRow * lengthColumn);	 // Ensure neighborhoodSelector is within bounds
-    
-    // Calculate the row and column within the neighborhoods
-    int row = neighborhoodSelector / lengthRow;
-    int column = neighborhoodSelector % lengthColumn;
-    
-    
-    // Consider what operation to do in the neighborhood
-    if (operation == 0) {	// Priority for add operation
-    operation = handleAddOperation(row, column);
-    } else {				// Priority for delete operation
-    operation = handleDeleteOperation(row, column);
-    }
-    
-    // Set the area size for the tileset (within bounds)
-    int area = CityParameters.NEIGHBORHOODSIZE * CityParameters.NEIGHBORHOODSIZE;
-    tileSelector %= area;
-    
-    // Calculate the indices for the tileset
-    int i = tileSelector / this.tileset.size();
-    int j = tileSelector % this.tileset.get(0).size();
-    
-    // Performs the operation on a neighborhood tile according to the specified operation
-    if (operation == 0) {
-    handleAddPark(i, j, area);
-    } else {
-    handleDeletePark(i, j);
-    }
-    }
-    
-    // Handle operation selection to mutate the neighborhood (priority to add a park tile)
-    private int handleAddOperation(int row, int column) {
-    if (!this.neighborhoods.get(row).get(column).addPark()) {
-    this.neighborhoods.get(row).get(column).deletePark();
-    return 1;
-    }
-    return 0;
-    }
-    
-    // Handle operation selection to mutate the neighborhood (priority to delete a park tile)
-    private int handleDeleteOperation(int row, int column) {
-    if (!this.neighborhoods.get(row).get(column).deletePark()) {
-    this.neighborhoods.get(row).get(column).addPark();
-    return 0;
-    }
-    return 1;
-    }
-    
-    // Handle adding a park from the neighborhood
-    private void handleAddPark(int i, int j, int area) {
-    int counter = 0;
-    do {
-    while (!this.tileset.get(i).get(j).isPark()) {
-    j++;
-    i = (i + (j % CityParameters.NEIGHBORHOODSIZE)) % CityParameters.NEIGHBORHOODSIZE;
-    j %= CityParameters.NEIGHBORHOODSIZE;
-    counter++;
-    }
-    } while (!this.extendPark(new Position(i, j)) || counter < area);
-    }
-    
-    // Handle deleting a park from the neighborhood
-    private void handleDeletePark(int i, int j) {
-    while (!this.tileset.get(i).get(j).isPark()) {
-    j++;
-    i = (i + (j % CityParameters.NEIGHBORHOODSIZE)) % CityParameters.NEIGHBORHOODSIZE;
-    j %= CityParameters.NEIGHBORHOODSIZE;
-    }
-    this.removeParkTile(new Position(i, j));
-    }*/
 }

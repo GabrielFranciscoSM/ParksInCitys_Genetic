@@ -4,6 +4,7 @@
  */
 package Model.fitness;
 
+import Model.CityParameters;
 import Model.Individuals.CityTileset;
 import Model.Individuals.CityTilesetPopulation;
 
@@ -20,15 +21,20 @@ public class PonderatedFunction {
         valuePonderation = 1 - moneyPonderation;
     }
     
-    public void evaluate(CityTilesetPopulation pop){
+    public void evaluate(CityTilesetPopulation pop, CityParameters ctp){
         
         Double maxFitness = 0d;
         
         for (CityTileset city : pop) {	// Get each city from the population
             // Fitness is the result of the multiplication of both percentages
             
-            Double fitnessValue = ((ValueFunction.Evaluate(city))*moneyPonderation + 
-                    MoneyFunction.Evaluate(city)*valuePonderation);
+            Double fitnessValue = ((ValueFunction.Evaluate(city)*moneyPonderation + 
+                    MoneyFunction.Evaluate(city, ctp)*valuePonderation)/2);
+            
+            if(fitnessValue < 0){
+                System.out.print("money: " + MoneyFunction.Evaluate(city, ctp)*valuePonderation + "\n");
+                System.out.print("value: " + ValueFunction.Evaluate(city)*moneyPonderation + "\n");
+            }
             
             if(fitnessValue > maxFitness){
                 maxFitness = fitnessValue;

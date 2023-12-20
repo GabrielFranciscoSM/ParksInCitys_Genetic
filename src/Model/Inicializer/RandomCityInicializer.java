@@ -248,6 +248,7 @@ public class RandomCityInicializer {
                     
                     if(parkValue > CityTileset.getMaxValue()){
                         CityTileset.setMaxValue(parkValue);
+                        System.out.print(parkValue + " ");
                     }
                 }
             }

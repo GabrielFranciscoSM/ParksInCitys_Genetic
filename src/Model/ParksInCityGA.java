@@ -34,6 +34,8 @@ public class ParksInCityGA {
     
     private int repetitionLimits;
     
+    CityParameters cp;
+    
     /**
      * Constructor.
      * @param cp City parameters.
@@ -45,6 +47,7 @@ public class ParksInCityGA {
         fitness =       new PonderatedFunction(mp.getMONEYPONDERATION());
         selection =     new SelectionController(mp);
         repetitionLimits = mp.getRepetitionsLimit();
+        this.cp = cp;
     }
     
     /**
@@ -93,7 +96,7 @@ public class ParksInCityGA {
      * Apply the fitness function(s) to the population.
      */
     public void applyFitness(){
-        fitness.evaluate(pop);
+        fitness.evaluate(pop, cp);
     }
     
     /**

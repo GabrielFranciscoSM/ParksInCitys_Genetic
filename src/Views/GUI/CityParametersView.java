@@ -34,7 +34,7 @@ public class CityParametersView extends javax.swing.JPanel {
         parksSpreadnessSlider.setLimits(CityParameters.MAXPARKSPREADNESS, CityParameters.MINPARKSPREADNESS);
         parksSpreadnessSlider.setDefault(CityParameters.DEFPARKSPREADNESS);
         
-        maxParksSlider.setLimits(100, 1);
+        maxParksSlider.setLimits(1000, CityParameters.PERCENTAGERANGE);
         maxParksSlider.setDefault(CityParameters.DEFPARKSPARCENTAGE);
     }
     
