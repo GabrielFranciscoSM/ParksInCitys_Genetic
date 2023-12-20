@@ -237,6 +237,13 @@ public class RandomCityInicializer {
     }
     
     private void setValuesUp(){
+        
+        CityTileset.setMinValue(Integer.MAX_VALUE);
+        CityTileset.setMaxValue(0);
+        CityTileset.setMeanValue(0);
+        
+        double aux = 0;
+        
         for(int i = 0; i < ct.getSize(); ++i){
 
             for(int j = 0; j < ct.getSize(); ++j){
@@ -245,14 +252,18 @@ public class RandomCityInicializer {
                     VoidTile vt = (VoidTile) t;
                     int parkValue = ct.getValueOfPark(new Position(i,j));
                     vt.setPossibleValue(parkValue);
-                    
+                    aux += parkValue;
                     if(parkValue > CityTileset.getMaxValue()){
                         CityTileset.setMaxValue(parkValue);
-                        System.out.print(parkValue + " ");
+                    }
+                    else if(parkValue < CityTileset.getMinValue()){
+                        CityTileset.setMinValue(parkValue);
                     }
                 }
             }
         }
+        
+        CityTileset.setMeanValue(aux/(ct.getSize()*ct.getSize()));
         
     }
 }

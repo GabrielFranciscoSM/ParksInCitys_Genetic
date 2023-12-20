@@ -28,8 +28,8 @@ public class PonderatedFunction {
         for (CityTileset city : pop) {	// Get each city from the population
             // Fitness is the result of the multiplication of both percentages
             
-            Double fitnessValue = ((ValueFunction.Evaluate(city)*moneyPonderation + 
-                    MoneyFunction.Evaluate(city, ctp)*valuePonderation)/2);
+            Double fitnessValue = ((ValueFunction.Evaluate(city)* valuePonderation+ 
+                    MoneyFunction.Evaluate(city, ctp)*moneyPonderation));
             
             if(fitnessValue < 0){
                 System.out.print("money: " + MoneyFunction.Evaluate(city, ctp)*valuePonderation + "\n");

@@ -14,7 +14,8 @@ import Model.Individuals.Tiles.TileType;
  */
 public class ValueFunction {
     public static Double Evaluate(CityTileset city){
-        int maxPark = CityTileset.getMaxValue();
+        double maxPark = CityTileset.getMaxValue();
+        double minPark = CityTileset.getMinValue();
         int counter = 0;
         for (Position park : city.getArrayOfParkPositions()) {	// Get each park from the city
             int val = city.getTile(park).getValue(TileType.PARK);
@@ -22,6 +23,7 @@ public class ValueFunction {
     	}
     	double average = counter / city.getNparkTiles();	// Average score of the parks
 
-    	return average/maxPark;	// Percentage of the average of the parks
+    	//return (average-minPark)/(maxPark-minPark);	// Percentage of the average of the parks
+        return (average)/CityTileset.getMeanValue();
     }
 }

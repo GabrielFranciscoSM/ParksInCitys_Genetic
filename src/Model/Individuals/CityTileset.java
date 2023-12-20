@@ -43,6 +43,13 @@ public class CityTileset extends Individual{
     private static int maxValue;
     ///Saves the max value that a park can take. Used in fitness function.
     
+    private static int minValue;
+    ///Saves the min value that a park can take. Used in fitness function.
+    
+    private static double meanValue;
+    ///Saves the mean value that a park can take. Used in fitness function.
+
+    
     //id of a city.
     final private int id;
     
@@ -61,7 +68,6 @@ public class CityTileset extends Individual{
         id = ++nCities;
         freeTiles = CityParameters.DEFAULTSIZE*CityParameters.DEFAULTSIZE;
         disponibleTiles = freeTiles;
-        maxValue = 0;
         
         for(int i = 0; i < CityParameters.DEFAULTSIZE; ++i){
             
@@ -94,7 +100,6 @@ public class CityTileset extends Individual{
         id = ++nCities;
         freeTiles = size*size;
         disponibleTiles = freeTiles;
-        maxValue = 0;
         
         for(int i = 0; i < size; ++i){
             
@@ -126,7 +131,6 @@ public class CityTileset extends Individual{
         id = ++nCities;
         freeTiles = cp.getFreeTiles();
         disponibleTiles = freeTiles;
-        maxValue = cp.maxValue;
         
         for(int i = 0; i < cp.getSize(); ++i){
             
@@ -157,7 +161,6 @@ public class CityTileset extends Individual{
         id = nCities;
         freeTiles = 0;
         disponibleTiles = 0;
-        maxValue = 0;
         
         for(int i = 0; i < tiles.size(); ++i){
             
@@ -239,6 +242,22 @@ public class CityTileset extends Individual{
     
     public static void setMaxValue(int m){
         maxValue = m;
+    }
+    
+    public static int getMinValue(){
+        return minValue;
+    }
+    
+    public static void setMinValue(int m){
+        minValue = m;
+    }
+    
+    public static double getMeanValue(){
+        return meanValue;
+    }
+    
+    public static void setMeanValue(double m){
+        meanValue = m;
     }
     
     public int getDisponibleTiles(){

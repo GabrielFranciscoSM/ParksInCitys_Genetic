@@ -18,14 +18,18 @@ public class CrossoverController {
     
     NeighborhoodCrossover nc;
     Random generator;
+    ModelParameters mp;
     
     public CrossoverController(ModelParameters mp){
         nc = new NeighborhoodCrossover();
         generator = new Random(System.currentTimeMillis());
         REPETITIONS = mp.getCROSSOVERINTENSITY();
+        this.mp = mp;
     }
     
     public CityTilesetPopulation apply(CityTilesetPopulation pop){
-        return nc.apply(pop,generator);
+        if(generator.nextDouble() < mp.getCROSSOVERPROB())
+            return nc.apply(pop,generator);
+        else return pop;
     }
 }

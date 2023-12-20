@@ -10,14 +10,17 @@ import Model.Individuals.Population;
 
 import java.util.Random;
 
+import Basics.Position;
+import java.util.List;
+
 /**
  *
  * @author gabriel
  */
 public class RandomParkMutation {
     
+	private double MUTATIONPROB; // Mutation probability
     private Random generator;
-    private double MUTATIONPROB; // Mutation probability
 
     RandomParkMutation(double mutationProb){
     	this.generator = new Random();
