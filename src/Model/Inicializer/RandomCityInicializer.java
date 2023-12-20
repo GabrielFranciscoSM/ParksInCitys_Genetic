@@ -57,7 +57,7 @@ public class RandomCityInicializer {
         createRoads();
         createBuildings();
         this.setValuesUp();
-        _ct.setDisponibleTiles(_ct.getFreeTiles());
+        _ct.setAvailableTiles(_ct.getFreeTiles());
     }
     
     //Function to generate nodes.

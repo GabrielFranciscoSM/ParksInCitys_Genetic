@@ -14,7 +14,7 @@ import Model.CityParameters;
 public class MoneyFunction {
     public static double Evaluate(CityTileset city, CityParameters ctp){
         
-        Double recomendedParks = (double)(ctp.getParksPercentage()*city.getDisponibleTiles())/1000;
+        Double recomendedParks = (double)(ctp.getParksPercentage()*city.getAvailableTiles())/1000;
         
         return 1 - ((double)Math.abs(recomendedParks-city.getNparkTiles())/
                 recomendedParks);
