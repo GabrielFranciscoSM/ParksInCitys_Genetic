@@ -46,6 +46,10 @@ public class CityTileset extends Individual{
     //id of a city.
     final private int id;
     
+    //Offsets to access the tiles neighboring a given tile
+    static private Position[] parkOffsets = {new Position(-1, -1), new Position(0, -1), new Position(1, -1), new Position(-1, 0),
+    										new Position(1, 0), new Position(-1, 1), new Position(0, 1), new Position(1, 1)};
+    
     ////////////////////////////////////////////////////////////////////////////
     /*CONSTRUCTORS*/
     ////////////////////////////////////////////////////////////////////////////
@@ -565,6 +569,23 @@ public class CityTileset extends Individual{
             }
         }
         
+        return false;
+    }
+    
+    public boolean extendPark(Position pos, int tile){
+    	if (this.getTile(pos).isPark()) {
+            int parkOffsetsLength = CityTileset.parkOffsets.length;
+
+            for (int i = 0; i < parkOffsetsLength; i++) {
+                int index = (tile + i) % parkOffsetsLength;
+                Position auxPos = Position.sum(pos, CityTileset.parkOffsets[index]);
+
+                if (this.inRange(auxPos) && getTile(auxPos).isVoid()) {
+                    NewParkTile(auxPos);
+                    return true;
+                }
+            }
+        }
         return false;
     }
     

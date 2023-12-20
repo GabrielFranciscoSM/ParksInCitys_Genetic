@@ -13,7 +13,7 @@ import Model.Individuals.Population;
  */
 public class MutationController {
 
-    RandomParkMutation rpm;
+    private RandomParkMutation rpm;
 	
     public MutationController(double mutationProb) {
     	rpm = new RandomParkMutation(mutationProb);
