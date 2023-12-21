@@ -14,12 +14,17 @@ import Model.Individuals.Population;
 public class MutationController {
 
     private RandomParkMutation rpm;
+    private PointNeighborhoodMutation pnm;
+    private int POINTGENERATION;
 	
-    public MutationController(double mutationProb) {
+    public MutationController(double mutationProb, int pointNeigh, int pointGen) {
     	rpm = new RandomParkMutation(mutationProb);
+    	pnm = new PointNeighborhoodMutation(mutationProb, pointNeigh);
+    	POINTGENERATION = pointGen;
     }
     
     public void apply(Population<CityTileset> pop){
-    	rpm.apply(pop);
+    	//rpm.apply(pop);
+    	pnm.apply(pop);
     }
 }

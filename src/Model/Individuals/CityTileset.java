@@ -391,6 +391,10 @@ public class CityTileset extends Individual{
         return neighborhoods.size();
     }
     
+    public int getTotalNeighborhoods(){
+        return neighborhoods.size() * neighborhoods.get(0).size();
+    }
+    
         
     private void setTile(Position pos, Tile t){        
         tileset.get(pos.getX()).set(pos.getY(), t);
