@@ -21,6 +21,7 @@ public class ValueFunction {
             int val = city.getTile(park).getValue(TileType.PARK);
             counter += val;
     	}
+        
     	double average = counter / city.getNparkTiles();	// Average score of the parks
 
     	//return (average-minPark)/(maxPark-minPark);	// Percentage of the average of the parks

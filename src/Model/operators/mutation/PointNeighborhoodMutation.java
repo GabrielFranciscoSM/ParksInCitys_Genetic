@@ -5,7 +5,6 @@ import java.util.Random;
 import Basics.Position;
 import Model.Individuals.CityTileset;
 import Model.Individuals.Population;
-import Model.Individuals.Tiles.Tile;
 
 import java.util.ArrayList;
 import java.util.List;

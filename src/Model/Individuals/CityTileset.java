@@ -10,6 +10,7 @@ import Model.CityParameters;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 /**
  * @author Gabriel Sanchez
@@ -54,8 +55,10 @@ public class CityTileset extends Individual{
     ///id of a city.
     
     //Offsets to access the tiles neighboring a given tile
-    static private Position[] parkOffsets = {new Position(-1, -1), new Position(0, -1), new Position(1, -1), new Position(-1, 0),
-    										new Position(1, 0), new Position(-1, 1), new Position(0, 1), new Position(1, 1)};
+    final static public Position[] parkOffsets = 
+    {new Position(-1, -1), new Position(0, -1), new Position(1, -1), 
+     new Position(-1, 0),new Position(1, 0), new Position(-1, 1), 
+     new Position(0, 1), new Position(1, 1)};
     
     ////////////////////////////////////////////////////////////////////////////
     /*CONSTRUCTORS*/
