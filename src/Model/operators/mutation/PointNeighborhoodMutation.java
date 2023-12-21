@@ -8,8 +8,9 @@ import Model.Individuals.Population;
 import Model.Individuals.Tiles.Tile;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class PointNeighborhoodMutation {
+public class PointNeighborhoodMutation extends MutationHandler{
 	private Random generator;
 	private double MUTATIONPROB; // Mutation probability
 	private double POINTNEIGHBORHOODS;
@@ -33,14 +34,8 @@ public class PointNeighborhoodMutation {
     	for (CityTileset city : pop) {
     		ArrayList<Integer> neighborhoods = getRandomNeighborhoods();
     		for (Integer neighborhood : neighborhoods) {
-    			ArrayList<ArrayList<Tile>> tiles = city.getNeighborhoodTiles(new Position(neighborhood % 4, neighborhood/4));
-    			for (ArrayList<Tile> row : tiles) {
-    				for (Tile tile : row) {
-    					// Esta busqueda no es correcta debido a que accedo a las tiles, pero no puedo conseguir su Posicion
-    					// debo hacer la busqueda normal y cuando encuentre casillas de parques, guardar sus posiciones.
-    				}
-    			}
-
+    			List<Position> parks = city.getNeighborhoodParks(new Position(neighborhood % 4, neighborhood/4));
+    			this.mutate(city, parks.toArray(new Position[0]), MUTATIONPROB);
     		}
     		
     	}
