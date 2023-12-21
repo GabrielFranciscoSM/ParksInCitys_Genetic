@@ -30,7 +30,8 @@ public class PointNeighborhoodMutation extends MutationHandler{
         }
     	for (int i = 0; i < nNeighborhoods; i++) {
     		totalNeighborhoods.add(i);
-        }	// Todo lo de encima se puede definir en el constructor si identifico que variable determina el número de barrios
+        }	
+// Todo lo de encima se puede definir en el constructor si identifico que variable determina el nï¿½mero de barrios
     	for (CityTileset city : pop) {
     		ArrayList<Integer> neighborhoods = getRandomNeighborhoods();
     		for (Integer neighborhood : neighborhoods) {

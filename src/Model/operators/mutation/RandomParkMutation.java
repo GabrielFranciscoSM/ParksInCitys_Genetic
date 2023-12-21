@@ -4,14 +4,10 @@
  */
 package Model.operators.mutation;
 
-import Basics.Position;
 import Model.Individuals.CityTileset;
 import Model.Individuals.Population;
 
-import java.util.Random;
-
 import Basics.Position;
-import java.util.List;
 
 /**
  *

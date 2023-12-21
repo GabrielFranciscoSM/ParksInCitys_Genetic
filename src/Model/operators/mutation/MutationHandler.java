@@ -11,7 +11,7 @@ public class MutationHandler {
 
 	public void mutate(CityTileset city, Position[] parkPositions, double MUTATIONPROB) {
 		int action = -1;	//Stores the action that has been assigned until it is carried out (-1 -> no operation,
-							//0 -> extend park, 1 -> remove park)
+                                        //0 -> extend park, 1 -> remove park)
 		for (Position park : parkPositions) {
 			if ((generator.nextDouble() < MUTATIONPROB) || action != -1) {	
 				//action != -1 means that the operation assigned to another park have not been carried out, so

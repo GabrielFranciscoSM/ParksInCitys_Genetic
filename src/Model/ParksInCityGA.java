@@ -74,7 +74,7 @@ public class ParksInCityGA {
             }
             this.applySelection();
             this.applyCrossover();
-            //this.applyMutation();
+            this.applyMutation();
 
         }        
     }
