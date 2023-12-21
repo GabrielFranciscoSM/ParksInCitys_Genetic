@@ -4,6 +4,7 @@
  */
 package Model;
 
+
 /**
  *
  * @author gabriel
@@ -45,7 +46,9 @@ public class ModelParameters {
     ///< Min iterations of the algorithm.
 
     //Mutation
-    private final double MUTATIONPROB = 0.1;
+    private final double MUTATIONPROB = 0.1;	//Mutation probability
+    private final int POINTNEIGHMUT = 1;		//Point mutation neighborhoods
+    private final int POINTGENMUT = 50;			//Generations requires to apply a neighborhood point mutation
     
     private int repetitionLimits;
     
@@ -119,6 +122,14 @@ public class ModelParameters {
     
     public double getMUTATIONPROB(){
         return MUTATIONPROB;
+    }
+    
+    public int getPOINTNEIGHMUT(){
+        return POINTNEIGHMUT;
+    }
+    
+    public int getPOINTGENMUT(){
+        return POINTGENMUT;
     }
     
     /**

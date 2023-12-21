@@ -17,26 +17,18 @@ import java.util.List;
  *
  * @author gabriel
  */
-public class RandomParkMutation {
+public class RandomParkMutation extends MutationHandler {
     
-	private double MUTATIONPROB; // Mutation probability
-    private Random generator;
+    private double MUTATIONPROB; // Mutation probability
 
     RandomParkMutation(double mutationProb){
-    	this.generator = new Random();
     	this.MUTATIONPROB = mutationProb;
     }
 
     public void apply(Population<CityTileset> pop) {
         for (CityTileset city : pop) {
-        	Position[] parkPositions = city.getArrayOfParkPositions().toArray(new Position[0]);
-        	for (Position park : parkPositions) {
-	        	if (generator.nextDouble() < MUTATIONPROB) {
-		        	if (!(city.hasAvailableTiles()) || (generator.nextInt(2) == 0) || !city.extendPark(park)) {
-		        		city.removeParkTile(park);
-		        	}
-		        }
-	        }
+        	Position[] parkPositions = city.getArrayOfParkPositions().toArray(new Position[0]);	//Parks in a city
+        	this.mutate(city, parkPositions, MUTATIONPROB);
         }
     }
 }

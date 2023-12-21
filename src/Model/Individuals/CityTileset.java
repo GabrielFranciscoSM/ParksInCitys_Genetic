@@ -8,6 +8,7 @@ import Model.Individuals.Tiles.*;
 import Basics.*;
 import Model.CityParameters;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -51,6 +52,10 @@ public class CityTileset extends Individual{
 
     final private int id;
     ///id of a city.
+    
+    //Offsets to access the tiles neighboring a given tile
+    static private Position[] parkOffsets = {new Position(-1, -1), new Position(0, -1), new Position(1, -1), new Position(-1, 0),
+    										new Position(1, 0), new Position(-1, 1), new Position(0, 1), new Position(1, 1)};
     
     ////////////////////////////////////////////////////////////////////////////
     /*CONSTRUCTORS*/
@@ -438,10 +443,39 @@ public class CityTileset extends Individual{
     }
     
     /**
-     * Setter of a box of tiles
-     * @param topLeft Corner of the box in the city.
-     * @param tiles  Corner of the box in the city.
+     * Iterate all the positions in a neighborhood in search of those that are parks.
+     * @param pos - position of the neighborhood in relation to the rest of the neighborhoods
+     * @return list of positions of the park tiles that belong to the neighborhood
      */
+    public List<Position> getNeighborhoodParks(Position pos) {
+        // Scale position to actual map scale
+        Position realPos = Position.mul(pos, CityParameters.NEIGHBORHOODSIZE);
+        
+        // Verify if the scaled position is within the map range
+        if (!inRange(realPos)) {
+            return Collections.emptyList(); // Return an empty list if out of range
+        }
+
+        // Calculate the position of the lower right end of the neighborhood
+        int maxX = Math.min(realPos.getX() + CityParameters.NEIGHBORHOODSIZE, getSize() - 1);
+        int maxY = Math.min(realPos.getY() + CityParameters.NEIGHBORHOODSIZE, getSize() - 1);
+
+        // Ready to save the neighborhood park positions
+        List<Position> parks = new ArrayList<>();
+
+        // Iterate neighborhood positions
+        for (int x = realPos.getX(); x <= maxX; x++) {
+            for (int y = realPos.getY(); y <= maxY; y++) {
+                // Check if the tile is a park
+                if (this.getTile(new Position(x, y)).isPark()) {
+                    parks.add(new Position(x, y));
+                }
+            }
+        }
+        
+        return parks;
+    }
+    
     public void setTiles(Position topLeft, ArrayList<ArrayList<Tile>> tiles){  
         
         //Ensures the box fits in the city
@@ -528,11 +562,11 @@ public class CityTileset extends Individual{
         return neighborhoods.size();
     }
     
-    /**
-     * Setter for a tile
-     * @param pos Position of the tile.
-     * @param t New tile.
-     */    
+    public int getTotalNeighborhoods(){
+        return neighborhoods.size() * neighborhoods.get(0).size();
+    }
+    
+        
     private void setTile(Position pos, Tile t){        
         tileset.get(pos.getX()).set(pos.getY(), t);
     }
@@ -733,6 +767,23 @@ public class CityTileset extends Individual{
             }
         }
         
+        return false;
+    }
+    
+    public boolean extendPark(Position pos, int tile){
+    	if (this.getTile(pos).isPark()) {
+            int parkOffsetsLength = CityTileset.parkOffsets.length;
+
+            for (int i = 0; i < parkOffsetsLength; i++) {
+                int index = (tile + i) % parkOffsetsLength;
+                Position auxPos = Position.sum(pos, CityTileset.parkOffsets[index]);
+
+                if (this.inRange(auxPos) && getTile(auxPos).isVoid()) {
+                    NewParkTile(auxPos);
+                    return true;
+                }
+            }
+        }
         return false;
     }
     
