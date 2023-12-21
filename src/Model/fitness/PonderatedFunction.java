@@ -31,11 +31,6 @@ public class PonderatedFunction {
             Double fitnessValue = ((ValueFunction.Evaluate(city)* valuePonderation+ 
                     MoneyFunction.Evaluate(city, ctp)*moneyPonderation));
             
-            if(fitnessValue < 0){
-                System.out.print("money: " + MoneyFunction.Evaluate(city, ctp)*valuePonderation + "\n");
-                System.out.print("value: " + ValueFunction.Evaluate(city)*moneyPonderation + "\n");
-            }
-            
             if(fitnessValue > maxFitness){
                 maxFitness = fitnessValue;
                 pop.setBestIndividual(city);

@@ -17,12 +17,16 @@ public class ValueFunction {
         double maxPark = CityTileset.getMaxValue();
         double minPark = CityTileset.getMinValue();
         int counter = 0;
+        
         for (Position park : city.getArrayOfParkPositions()) {	// Get each park from the city
             int val = city.getTile(park).getValue(TileType.PARK);
             counter += val;
     	}
         
-    	double average = counter / city.getNparkTiles();	// Average score of the parks
+    	double average = 0;
+        if(city.getNparkTiles() != 0){
+            average = counter / city.getNparkTiles();
+        }	// Average score of the parks
 
     	//return (average-minPark)/(maxPark-minPark);	// Percentage of the average of the parks
         return (average)/CityTileset.getMeanValue();

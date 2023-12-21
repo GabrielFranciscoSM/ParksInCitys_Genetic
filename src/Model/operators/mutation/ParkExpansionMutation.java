@@ -13,10 +13,11 @@ import java.util.Random;
  * @author gabriel
  */
 public class ParkExpansionMutation {
-    static int maxSize = 105;
+    static int maxSize = 500;
+    final static double EXTENDPROB = 0.5;
     
     static public void apply(CityTileset ct, Random r){
-        if(r.nextInt(2) == 0){
+        if(r.nextDouble() < EXTENDPROB){
             Position auxPos = new Position(
                     r.nextInt(ct.getSize()),
                     r.nextInt(ct.getSize()));
@@ -42,6 +43,7 @@ public class ParkExpansionMutation {
                         r.nextInt(ct.getSize()));
                 }
 
+                ct.NewParkTile(auxPos);
                 extendParkRecursive(auxPos,ct,r,0);
             }
             else{
@@ -59,6 +61,7 @@ public class ParkExpansionMutation {
                             r.nextInt(ct.getSize()));
                     }
 
+                    ct.NewParkTile(auxPos);
                     extendParkRecursive(auxPos,ct,r,0);
                 }
 
