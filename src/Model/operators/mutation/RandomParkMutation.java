@@ -7,6 +7,8 @@ package Model.operators.mutation;
 import Model.Individuals.CityTileset;
 import Model.Individuals.Population;
 
+import java.util.List;
+
 import Basics.Position;
 
 /**

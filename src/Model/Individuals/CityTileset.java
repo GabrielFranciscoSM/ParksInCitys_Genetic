@@ -583,6 +583,10 @@ public class CityTileset extends Individual{
         return this.getNeigborhood(pos).getTotalValue();
     }
     
+    public double getNeighborhoodParkValue(Position pos) {
+    	return this.getNeigborhood(pos).getParkValue();
+    }
+    
     ////////////////////////////////////////////////////////////////////////////
     /*Processing of parkTiles*/
     ////////////////////////////////////////////////////////////////////////////
