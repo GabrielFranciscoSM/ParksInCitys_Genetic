@@ -24,9 +24,9 @@ public class PointNeighborhoodMutation extends MutationHandler{
 
     public void apply(Population<CityTileset> pop) {
     	int nNeighborhoods = pop.getArrayList().get(0).getTotalNeighborhoods();
-    	if (POINTNEIGHBORHOODS > nNeighborhoods) {
-    		POINTNEIGHBORHOODS = nNeighborhoods;
-        }
+    	// Ensure MUTABLENEIGHBORHOODS does not exceed the number of neighborhoods
+    	POINTNEIGHBORHOODS = Math.min(POINTNEIGHBORHOODS, nNeighborhoods);
+	    
     	for (int i = 0; i < nNeighborhoods; i++) {
     		totalNeighborhoods.add(i);
         }	

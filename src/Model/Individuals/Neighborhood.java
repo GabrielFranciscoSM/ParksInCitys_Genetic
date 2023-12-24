@@ -142,4 +142,8 @@ public class Neighborhood {
         else
             return false;
     }
+
+	public double getParkValue() {
+		return (double) totalValue / this.nparks;
+	}
 }

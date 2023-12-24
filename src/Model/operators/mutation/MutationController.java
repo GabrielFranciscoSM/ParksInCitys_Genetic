@@ -16,6 +16,7 @@ public class MutationController {
 
     private RandomParkMutation rpm;
     private PointNeighborhoodMutation pnm;
+    private TargetedNeighborhoodMutation tnm;
     private int POINTGENERATION;
     private double mutationProb;
     
@@ -24,6 +25,7 @@ public class MutationController {
     public MutationController(double mutationProb, int pointNeigh, int pointGen) {
     	rpm = new RandomParkMutation(mutationProb);
     	pnm = new PointNeighborhoodMutation(mutationProb, pointNeigh);
+    	tnm = new TargetedNeighborhoodMutation(mutationProb, pointNeigh);
     	POINTGENERATION = pointGen;
         r =     new Random(System.currentTimeMillis());
         this.mutationProb = mutationProb;
@@ -33,9 +35,11 @@ public class MutationController {
     public void apply(Population<CityTileset> pop){
     	//rpm.apply(pop);
     	//pnm.apply(pop);
+    	tnm.apply(pop);
+    	/*
         for(CityTileset ct: pop){
             if(r.nextDouble() < mutationProb)
                 ParkExpansionMutation.apply(ct, r);
-        }        
+        } */       
     }
 }
