@@ -156,7 +156,7 @@ public class CityTileset extends Individual{
                 aux.add(cp.getTile(i,j).makeCopy());
                 
                 if(j % (CityParameters.NEIGHBORHOODSIZE) == 0)
-                    aux2.add(cp.getNeigborhoodWithTilePos(new Position(i,j)));
+                    aux2.add(new Neighborhood(cp.getNeigborhoodWithTilePos(new Position(i,j))));
             }
             
             tileset.add(aux);

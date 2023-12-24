@@ -50,15 +50,15 @@ public class TargetedNeighborhoodMutation extends MutationHandler{
 	        // Sort the list using a custom comparator based on neighborhood values
 	        sortedNeighborhoods.sort(Comparator.comparingDouble(Map.Entry::getValue));
 
-	        System.out.println("Pairs sorted by value:");
+	        //System.out.println("Pairs sorted by value:");
 	        for (Map.Entry<Integer, Double> entry : sortedNeighborhoods.subList(0, MUTABLENEIGHBORHOODS)) {
-	            System.out.println("Index: " + entry.getKey() + ", Value: " + entry.getValue());
+	            //System.out.println("Index: " + entry.getKey() + ", Value: " + entry.getValue());
 	            
 	            List<Position> parks = city.getNeighborhoodParks(new Position(entry.getKey() % 4, entry.getKey() / 4));
 	            // Apply mutation to the city for the selected neighborhoods
 	            this.mutate(city, parks.toArray(new Position[0]), MUTATIONPROB);
 	            
-	            System.out.println("Mutation: " + city.getNeighborhoodParkValue(new Position(entry.getKey() % 4, entry.getKey() / 4)));
+	            //System.out.println("Mutation: " + city.getNeighborhoodParkValue(new Position(entry.getKey() % 4, entry.getKey() / 4)));
 	        }
 	    }
 	}

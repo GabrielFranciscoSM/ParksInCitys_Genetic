@@ -5,7 +5,7 @@
 package Model.Individuals.Tiles;
 
 /**
- *
+ * Tile that represents a building
  * @author gabriel
  */
 public class BuildingTile extends Tile{    
