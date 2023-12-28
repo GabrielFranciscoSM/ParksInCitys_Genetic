@@ -9,7 +9,7 @@ package Basics;
  */
 
 ///Position Represents a 2D point, and has methods to operate with them
-public class Position {
+public class Position implements Comparable<Position>{
     
     static final public Position ZERO = new Position(0);
     ///<Default position. Origin.
@@ -212,4 +212,17 @@ public class Position {
         return (this.x==c.x) && (this.y==c.y);
     }
     
+    @Override
+    public int compareTo(Position pos) {
+    	// Priority based on x, with tie-breaker on y in case of equality
+        if (this.x != pos.x) {
+            return Integer.compare(this.x, pos.x);
+        }
+        // In case of a tie on x, compare based on y
+        return Integer.compare(this.y, pos.y);
+    }
+
+	public Position copy() {
+		return new Position(this.x, this.y);
+	}
 }

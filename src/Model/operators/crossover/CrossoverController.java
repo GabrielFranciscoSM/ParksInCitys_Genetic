@@ -15,7 +15,6 @@ import java.util.Random;
 public class CrossoverController {
 
     public static int REPETITIONS = 2;
-    private double CROSSOVERPROB;
     
     NeighborhoodCrossover nc;
     TilesCrossover tc;
@@ -26,8 +25,7 @@ public class CrossoverController {
         nc = new NeighborhoodCrossover();
         generator = new Random(System.currentTimeMillis());
         REPETITIONS = mp.getCROSSOVERINTENSITY();
-        CROSSOVERPROB = mp.getCROSSOVERPROB();
-        tc = new TilesCrossover(REPETITIONS, CROSSOVERPROB);
+        tc = new TilesCrossover(REPETITIONS);
         this.mp = mp;
     }
     
