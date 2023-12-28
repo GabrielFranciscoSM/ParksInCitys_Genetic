@@ -24,7 +24,7 @@ public class ModelParameters {
     private final double CROSSOVERPROB = 0.1;
     ///< Actual crossover probability.
     
-    private final int DEFCROSSOVERINTENSITY = 2;
+    private final int DEFCROSSOVERINTENSITY = 10;
     ///< Crossover intensity. Times a crossover between the same two individuals.
     private final int CROSSOVERINTENSITY = 2;
     ///< Actual crossover intensity.

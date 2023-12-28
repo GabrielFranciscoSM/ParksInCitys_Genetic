@@ -20,7 +20,7 @@ public class CityParameters {
     public static final int MAXSIZE = 400;
     ///<Max Size of city
     
-    public static final int NEIGHBORHOODSIZE = 50;
+    public static final int NEIGHBORHOODSIZE = 5;
     ///<Size of the neighborhoods. It works better if it divides SETSIZE
     
     //How many schools per 1000 tiles

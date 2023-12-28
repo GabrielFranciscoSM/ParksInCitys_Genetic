@@ -35,11 +35,11 @@ public class MutationController {
     public void apply(Population<CityTileset> pop){
     	//rpm.apply(pop);
     	//pnm.apply(pop);
-    	tnm.apply(pop);
-    	/*
+    	//tnm.apply(pop);//error, accede a neighborhoods fuera de array
+    	
         for(CityTileset ct: pop){
             if(r.nextDouble() < mutationProb)
                 ParkExpansionMutation.apply(ct, r);
-        } */       
+        }       
     }
 }
