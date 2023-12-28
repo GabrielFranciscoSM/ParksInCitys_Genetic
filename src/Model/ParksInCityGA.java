@@ -47,7 +47,7 @@ public class ParksInCityGA {
         fitness =       new PonderatedFunction(mp.getMONEYPONDERATION());
         selection =     new SelectionController(mp);
         repetitionLimits = mp.getRepetitionsLimit();
-        mutation = new MutationController(mp.getMUTATIONPROB(), mp.getPOINTNEIGHMUT(), mp.getPOINTGENMUT());
+        mutation = new MutationController(mp.getMUTATIONPROB(), mp.getPOINTNEIGHMUT());
         this.cp = cp;
     }
     

@@ -10,57 +10,61 @@ import Basics.Position;
 import Model.Individuals.CityTileset;
 import Model.Individuals.Population;
 
-public class TargetedNeighborhoodMutation extends MutationHandler{
-	
-	private double MUTATIONPROB;
-	private int MUTABLENEIGHBORHOODS;
-	TreeMap<Integer, Double> totalNeighborhoods;
-	
-	TargetedNeighborhoodMutation(double mutationProb, int mutableNeighborhoods){
-    	this.MUTATIONPROB = mutationProb;
-    	this.MUTABLENEIGHBORHOODS = mutableNeighborhoods;
+/**
+ * Mutation handler for applying targeted neighborhoods mutation to a population of CityTilesets.
+ */
+public class TargetedNeighborhoodMutation extends MutationHandler {
+
+    private double MUTATIONPROB; // Mutation probability
+    private int MUTABLENEIGHBORHOODS; // Number of mutable neighborhoods
+    TreeMap<Integer, Double> totalNeighborhoods; // Map of neighborhood indices to values
+
+    /**
+     * Constructs a TargetedNeighborhoodMutation instance with a specified mutation probability and number of neighborhoods.
+     *
+     * @param mutationProb         Probability of mutation.
+     * @param mutableNeighborhoods Number of neighborhoods for mutation.
+     */
+    TargetedNeighborhoodMutation(double mutationProb, int mutableNeighborhoods) {
+        this.MUTATIONPROB = mutationProb;
+        this.MUTABLENEIGHBORHOODS = mutableNeighborhoods;
     }
-	
-	/**
-	 * Applies a genetic algorithm operation to a population of CityTileset instances.
-	 * The operation involves sorting neighborhoods within each city based on their values
-	 * and applying a mutation to the bottom MUTABLENEIGHBORHOODS neighborhoods.
-	 *
-	 * @param pop The population of CityTileset instances.
-	 */
-	public void apply(Population<CityTileset> pop) {
-	    // Get the total number of neighborhoods in a city
-	    int nNeighborhoods = pop.getArrayList().get(0).getTotalNeighborhoods();
 
-	    // Ensure MUTABLENEIGHBORHOODS does not exceed the number of neighborhoods
-	    MUTABLENEIGHBORHOODS = Math.min(MUTABLENEIGHBORHOODS, nNeighborhoods);
+    /**
+     * Applies targeted neighborhood mutation to the population of city tilesets.
+     *
+     * @param pop Population of city tilesets.
+     */
+    public void apply(Population<CityTileset> pop) {
+        int nNeighborhoods = pop.getArrayList().get(0).getTotalNeighborhoods();
 
-	    List<Map.Entry<Integer, Double>> sortedNeighborhoods = new ArrayList<>();
+        // Ensure MUTABLENEIGHBORHOODS does not exceed the number of neighborhoods
+        MUTABLENEIGHBORHOODS = Math.min(MUTABLENEIGHBORHOODS, nNeighborhoods);
 
-	    for (CityTileset city : pop) {
-	        this.totalNeighborhoods = new TreeMap<>();
+        List<Map.Entry<Integer, Double>> sortedNeighborhoods = new ArrayList<>();
 
-	        for (int i = 0; i < nNeighborhoods; i++) {
-	            this.totalNeighborhoods.put(i, city.getNeighborhoodParkValue(new Position(i % 4, i / 4)));
-	        }
+        for (CityTileset city : pop) {
+            this.totalNeighborhoods = new TreeMap<>();
 
-	        sortedNeighborhoods.clear();
-	        sortedNeighborhoods.addAll(totalNeighborhoods.entrySet());
+            // Populate totalNeighborhoods map with neighborhood indices and values
+            for (int i = 0; i < nNeighborhoods; i++) {
+                this.totalNeighborhoods.put(i, city.getNeighborhoodParkValue(new Position(i % 4, i / 4)));
+            }
 
-	        // Sort the list using a custom comparator based on neighborhood values
-	        sortedNeighborhoods.sort(Comparator.comparingDouble(Map.Entry::getValue));
+            sortedNeighborhoods.clear();
+            sortedNeighborhoods.addAll(totalNeighborhoods.entrySet());
 
-	        //System.out.println("Pairs sorted by value:");
-	        for (Map.Entry<Integer, Double> entry : sortedNeighborhoods.subList(0, MUTABLENEIGHBORHOODS)) {
-	            //System.out.println("Index: " + entry.getKey() + ", Value: " + entry.getValue());
-	            
-	            List<Position> parks = city.getNeighborhoodParks(new Position(entry.getKey() % 4, entry.getKey() / 4));
-	            // Apply mutation to the city for the selected neighborhoods
-	            this.mutate(city, parks.toArray(new Position[0]), MUTATIONPROB);
-	            
-	            //System.out.println("Mutation: " + city.getNeighborhoodParkValue(new Position(entry.getKey() % 4, entry.getKey() / 4)));
-	        }
-	    }
-	}
+            // Sort the list based on neighborhood values
+            sortedNeighborhoods.sort(Comparator.comparingDouble(Map.Entry::getValue));
 
+            // Iterate through the selected number of mutable neighborhoods
+            for (Map.Entry<Integer, Double> entry : sortedNeighborhoods.subList(0, MUTABLENEIGHBORHOODS)) {
+                // Get the parks in the selected neighborhood
+                List<Position> parks = city.getNeighborhoodParks(new Position(entry.getKey() % 4, entry.getKey() / 4));
+                // Apply mutation to the city for the selected neighborhoods
+                this.mutate(city, parks.toArray(new Position[0]), MUTATIONPROB);
+            }
+        }
+    }
 }
+
