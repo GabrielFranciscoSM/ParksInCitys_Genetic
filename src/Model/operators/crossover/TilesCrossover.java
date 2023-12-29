@@ -1,22 +1,19 @@
 package Model.operators.crossover;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 import java.util.TreeSet;
 
 import Basics.Position;
-import Model.CityParameters;
 import Model.Individuals.CityTileset;
 import Model.Individuals.CityTilesetPopulation;
-import Model.Individuals.Tiles.Tile;
 import Model.operators.crossover.CrossoverOperator.Pairing;
 
 public class TilesCrossover extends CrossoverOperator<CityTileset> {
 
     private Random generator = new Random();
-    private int SEGMENTS;
+    private int SEGMENTS; //Asumes que esto es par.
     private double PROBABILITY;
     private int size;
     private int totalTiles;
@@ -80,7 +77,9 @@ public class TilesCrossover extends CrossoverOperator<CityTileset> {
                 yEnd = temp;
             }
 
-            offspring.setTiles(new Position(xStart, yStart), secondParent.getTiles(new Position(xStart, yStart), new Position(xEnd, yEnd)));
+            offspring.setTiles(new Position(xStart, yStart), 
+                    secondParent.getTiles(new Position(xStart, yStart), 
+                            new Position(xEnd, yEnd)));
         }
 
         return offspring;
