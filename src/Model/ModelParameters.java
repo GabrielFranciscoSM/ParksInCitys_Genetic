@@ -48,7 +48,6 @@ public class ModelParameters {
     //Mutation
     private final double MUTATIONPROB = 0.4;	//Mutation probability
     private final int POINTNEIGHMUT = 1;		//Point mutation neighborhoods
-    private final int POINTGENMUT = 50;			//Generations requires to apply a neighborhood point mutation
     
     private int repetitionLimits;
     
@@ -126,10 +125,6 @@ public class ModelParameters {
     
     public int getPOINTNEIGHMUT(){
         return POINTNEIGHMUT;
-    }
-    
-    public int getPOINTGENMUT(){
-        return POINTGENMUT;
     }
     
     /**

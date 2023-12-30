@@ -10,7 +10,6 @@ import Model.CityParameters;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Random;
 
 /**
  * @author Gabriel Sanchez
@@ -135,32 +134,44 @@ public class CityTileset extends Individual{
     }
     
     /**
-     * Copy constructor.
-     * @param cp City to copy.
-     */ 
-    public CityTileset(CityTileset cp){
+     * Copy constructor to create a copy of a given CityTileset.
+     *
+     * @param cp CityTileset to copy.
+     */
+    public CityTileset(CityTileset cp) {
+        // Initialize collections
         tileset = new ArrayList<>();
         neighborhoods = new ArrayList<>();
         parkTiles = new ArrayList<>();
-        
+
+        // Copy park positions
+        for (Position pos : cp.getArrayOfParkPositions()) {
+            parkTiles.add(pos.copy());
+        }
+
+        // Set other attributes
         id = ++nCities;
         freeTiles = cp.getFreeTiles();
-        availableTiles = freeTiles;
-        
-        for(int i = 0; i < cp.getSize(); ++i){
-            
-            ArrayList<Tile> aux = new ArrayList<>(); 
-            ArrayList<Neighborhood> aux2 = new ArrayList<>(); 
-            
-            for(int j = 0; j < cp.getSize(); ++j){
-                aux.add(cp.getTile(i,j).makeCopy());
-                
-                if(j % (CityParameters.NEIGHBORHOODSIZE) == 0)
-                    aux2.add(new Neighborhood(cp.getNeigborhoodWithTilePos(new Position(i,j))));
+        availableTiles = cp.getAvailableTiles();
+
+        // Copy tiles and neighborhoods
+        for (int i = 0; i < cp.getSize(); ++i) {
+            ArrayList<Tile> aux = new ArrayList<>();
+            ArrayList<Neighborhood> aux2 = new ArrayList<>();
+
+            for (int j = 0; j < cp.getSize(); ++j) {
+                // Copy individual tile
+                aux.add(cp.getTile(i, j).makeCopy());
+
+                // Create neighborhood at specific positions
+                if (j % (CityParameters.NEIGHBORHOODSIZE) == 0) {
+                    aux2.add(new Neighborhood(cp.getNeigborhoodWithTilePos(new Position(i, j))));
+                }
             }
-            
+
             tileset.add(aux);
-            if(i % (CityParameters.NEIGHBORHOODSIZE) == 0){
+
+            if (i % (CityParameters.NEIGHBORHOODSIZE) == 0) {
                 this.neighborhoods.add(aux2);
             }
         }
@@ -586,6 +597,29 @@ public class CityTileset extends Individual{
     public double getNeighborhoodParkValue(Position pos) {
     	return this.getNeigborhood(pos).getParkValue();
     }
+    
+    /**
+     * Sets the tile at the specified position, updating the city's tileset.
+     *
+     * @param x    The x-coordinate of the tile.
+     * @param y    The y-coordinate of the tile.
+     * @param tile The new tile to be set.
+     */
+    public void setTile(int x, int y, Tile tile) {
+        // Retrieve the current tile at the specified position
+        Tile currentTile = tileset.get(x).get(y);
+
+        // Check if the current tile is a park and remove it if necessary
+        if (currentTile.isPark()) {
+            this.removeParkTile(new Position(x, y));
+        }
+
+        // Check if the new tile is a park and add it if necessary
+        if (tile.isPark()) {
+            this.NewParkTile(new Position(x, y));
+        }
+    }
+
     
     ////////////////////////////////////////////////////////////////////////////
     /*Processing of parkTiles*/

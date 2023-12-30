@@ -6,109 +6,136 @@ package Model.operators.mutation;
 
 import Basics.Position;
 import Model.Individuals.CityTileset;
+import Model.Individuals.Population;
+
+import java.util.ArrayList;
 import java.util.Random;
 
 /**
- *
- * @author gabriel
+ * Handles the park expansion mutation for a population of city tilesets.
  */
 public class ParkExpansionMutation {
     static int maxSize = 500;
     final static double EXTENDPROB = 0.5;
+    private Random generator;
+    private double MUTATIONPROB; // Mutation probability
     
-    static public void apply(CityTileset ct, Random r){
-        if(r.nextDouble() < EXTENDPROB){
-            Position auxPos = new Position(
-                    r.nextInt(ct.getSize()),
-                    r.nextInt(ct.getSize()));
-            
-            while(!ct.getTile(auxPos).isVoid()){
-                auxPos = new Position(
-                    r.nextInt(ct.getSize()),
-                    r.nextInt(ct.getSize()));
-            }
-            
-            ct.NewParkTile(auxPos);
-            extendParkRecursive(auxPos,ct,r,0);
-        }
-        else{
-            if(ct.getNparkTiles() <= 0){
-                Position auxPos = new Position(
-                    r.nextInt(ct.getSize()),
-                    r.nextInt(ct.getSize()));
-            
-                while(!ct.getTile(auxPos).isVoid()){
-                    auxPos = new Position(
-                        r.nextInt(ct.getSize()),
-                        r.nextInt(ct.getSize()));
-                }
+    ParkExpansionMutation(double mutationProb){
+    	this.generator = new Random();
+    	this.MUTATIONPROB = mutationProb;
+    }
+    
+    /**
+     * Applies park expansion mutation to the population of city tilesets.
+     *
+     * @param pop The population of city tilesets.
+     */
+    public void apply(Population<CityTileset> pop) {
+        for (CityTileset city : pop) {
+            if (generator.nextDouble() < MUTATIONPROB) {
+                if (generator.nextDouble() < EXTENDPROB) {
+                    Position auxPos = getRandomVoidPosition(city);
+                    city.NewParkTile(auxPos);
+                    extendParkRecursive(auxPos, city, 0);
+                } else {
+                    if (city.getNparkTiles() <= 0) {
+                        Position auxPos = getRandomVoidPosition(city);
+                        city.NewParkTile(auxPos);
+                        extendParkRecursive(auxPos, city, 0);
+                    } else {
+                        Position auxPos = city.getParkTile(generator.nextInt(city.getNparkTiles()));
+                        removeParkRecursive(auxPos, city);
 
-                ct.NewParkTile(auxPos);
-                extendParkRecursive(auxPos,ct,r,0);
-            }
-            else{
-                Position auxPos = ct.getParkTile(r.nextInt(ct.getNparkTiles()));
-                removeParkRecursive(auxPos,ct,r);
-                
-                if(ct.getNparkTiles() <= 0){
-                    auxPos = new Position(
-                    r.nextInt(ct.getSize()),
-                    r.nextInt(ct.getSize()));
-            
-                    while(!ct.getTile(auxPos).isVoid()){
-                        auxPos = new Position(
-                            r.nextInt(ct.getSize()),
-                            r.nextInt(ct.getSize()));
+                        if (city.getNparkTiles() <= 0) {
+                            auxPos = getRandomVoidPosition(city);
+                            city.NewParkTile(auxPos);
+                            extendParkRecursive(auxPos, city, 0);
+                        }
                     }
-
-                    ct.NewParkTile(auxPos);
-                    extendParkRecursive(auxPos,ct,r,0);
                 }
-
             }
         }
     }
     
-    static public int extendParkRecursive(Position pos, CityTileset ct, Random r, int size){
-                
-        if(ct.getTile(pos).isPark() && size < maxSize){
+    /**
+     * Get a random position in the city that is currently a void tile.
+     *
+     * @param city The CityTileset instance representing the city.
+     * @return A random void position in the city.
+     */
+    private Position getRandomVoidPosition(CityTileset city) {
+        // Generate a random position within the city size
+        Position auxPos = new Position(
+                generator.nextInt(city.getSize()),
+                generator.nextInt(city.getSize()));
+
+        // Keep generating new positions until a void tile is found
+        while (!city.getTile(auxPos).isVoid()) {
+            auxPos = new Position(
+                    generator.nextInt(city.getSize()),
+                    generator.nextInt(city.getSize()));
+        }
+
+        return auxPos;
+    }
+
+    
+    /**
+     * Recursive method to extend a park and its connected voids in a city tileset.
+     *
+     * @param pos  The position of the park to be extended.
+     * @param ct   The city tileset containing the park.
+     * @param size Current size of the extended park.
+     * @return The updated size of the extended park.
+     */
+    public int extendParkRecursive(Position pos, CityTileset ct, int size) {
+        // Check if the tile at the given position is a park and the size limit is not reached
+        if (ct.getTile(pos).isPark() && size < maxSize) {
             int parkOffsetsLength = CityTileset.parkOffsets.length;
-            
-            int tile = r.nextInt(parkOffsetsLength);
-            
+            int tile = generator.nextInt(parkOffsetsLength);
+
+            // Iterate through park offsets to extend the park
             for (int i = 0; i < parkOffsetsLength; i++) {
                 int index = (tile + i) % parkOffsetsLength;
                 Position auxPos = Position.sum(pos, CityTileset.parkOffsets[index]);
-                
-                if(ct.getTile(auxPos).isVoid() && size < maxSize){
+
+                // Check if the tile is void and the size limit is not reached
+                if (ct.getTile(auxPos).isVoid() && size < maxSize) {
                     ct.NewParkTile(auxPos);
                     size += 1;
-                    size = extendParkRecursive(auxPos,ct,r, size);
+                    size = extendParkRecursive(auxPos, ct, size);
                 }
             }
         }
-        
+
         return size;
     }
     
-    static public void removeParkRecursive(Position pos, CityTileset ct, Random r){
-                
-        if(ct.getTile(pos).isPark()){
+    /**
+     * Recursive method to remove a park and its connected parks from a city tileset.
+     *
+     * @param pos The position of the park to be removed.
+     * @param ct The city tileset containing the park.
+     */
+    public void removeParkRecursive(Position pos, CityTileset ct) {
+        // Check if the tile at the given position is a park
+        if (ct.getTile(pos).isPark()) {
             ct.removeParkTile(pos);
+
             int parkOffsetsLength = CityTileset.parkOffsets.length;
-            
-            int tile = r.nextInt(parkOffsetsLength);
-            
+            int tile = generator.nextInt(parkOffsetsLength);
+
+            // Iterate through park offsets to check connected parks
             for (int i = 0; i < parkOffsetsLength; i++) {
-                
                 int index = (tile + i) % parkOffsetsLength;
                 Position auxPos = Position.sum(pos, CityTileset.parkOffsets[index]);
-                
-                if(ct.getTile(auxPos).isPark()){
-                    removeParkRecursive(auxPos,ct,r);
+
+                // Recursively remove connected parks
+                if (ct.getTile(auxPos).isPark()) {
+                    removeParkRecursive(auxPos, ct);
                 }
             }
-        }        
+        }
     }
     
 }
