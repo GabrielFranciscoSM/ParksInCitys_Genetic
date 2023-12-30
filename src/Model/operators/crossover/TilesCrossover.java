@@ -19,13 +19,9 @@ public class TilesCrossover extends CrossoverOperator<CityTileset> {
     private int size;
     private int totalTiles;
 
-    /**
-     * Constructs a TilesCrossover operator with a specified number of segments.
-     *
-     * @param segments Number of crossover segments.
-     */
-    public TilesCrossover(int segments) {
+    public TilesCrossover(int segments, double probability) {
         this.SEGMENTS = segments;
+        this.PROBABILITY = probability;
     }
 
     /**
