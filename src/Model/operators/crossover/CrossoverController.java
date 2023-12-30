@@ -12,9 +12,8 @@ import java.util.Random;
  *
  * @author gabriel
  */
-public class CrossoverController {
-
-    public static int REPETITIONS = 2;
+public class CrossoverController {    
+    protected static int REPETITIONS = 2;
     private double CROSSOVERPROB;
     
     NeighborhoodCrossover nc;
@@ -31,10 +30,11 @@ public class CrossoverController {
         this.mp = mp;
     }
     
-    public CityTilesetPopulation apply(CityTilesetPopulation pop){
-        /*if(generator.nextDouble() < mp.getCROSSOVERPROB())
+    public CityTilesetPopulation apply(CityTilesetPopulation pop, int intensity){
+        this.REPETITIONS = intensity;
+        if(generator.nextDouble() < mp.getCROSSOVERPROB())
             return nc.apply(pop,generator);
-        else return pop;*/
-        return tc.apply(pop);
+        else return pop;
+        //return tc.apply(pop);
     }
 }

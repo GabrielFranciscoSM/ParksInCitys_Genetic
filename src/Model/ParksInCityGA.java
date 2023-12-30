@@ -35,6 +35,7 @@ public class ParksInCityGA {
     private int repetitionLimits;
     
     CityParameters cp;
+    ModelParameters mp;
     
     /**
      * Constructor.
@@ -49,6 +50,7 @@ public class ParksInCityGA {
         repetitionLimits = mp.getRepetitionsLimit();
         mutation = new MutationController(mp.getMUTATIONPROB(), mp.getPOINTNEIGHMUT(), mp.getPOINTGENMUT());
         this.cp = cp;
+        this.mp = mp;
     }
     
     /**
@@ -61,7 +63,14 @@ public class ParksInCityGA {
      */
     public void run(){
         pop = initializer.Inicialize();
+        int crossoverIntensity = mp.getCROSSOVERINTENSITY()*2;
+        
         for(int i = 0; i < repetitionLimits; ++i){
+            
+            if(i%(repetitionLimits/10) == 0){
+                crossoverIntensity *= 0.9;
+            }
+            
             this.applyFitness();
             if(i % (repetitionLimits/10) == 0){
                 System.out.print("\n\n Generation " + i + ": " + "\n");
@@ -73,7 +82,7 @@ public class ParksInCityGA {
                 System.out.print("\n");
             }
             this.applySelection();
-            this.applyCrossover();
+            this.applyCrossover(crossoverIntensity);
             this.applyMutation();
 
         }        
@@ -90,8 +99,8 @@ public class ParksInCityGA {
     /**
      * Apply the crossover function(s) of crossover.
      */
-    public void applyCrossover(){
-        pop = crossover.apply(pop);
+    public void applyCrossover(int intensity){
+        pop = crossover.apply(pop, intensity);
     }
     
     /**
