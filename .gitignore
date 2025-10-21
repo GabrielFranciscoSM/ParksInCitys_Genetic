@@ -1,3 +1,99 @@
+# Git ignore for ParksInCitys_Genetic
+# Tailored for Java / NetBeans projects, common OS files, build outputs and LaTeX artifacts
+
+### Operating System files
+# macOS
+.DS_Store
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+### Editor / IDE
+# NetBeans
+/nbproject/private/
+/.netbeans/
+# Eclipse
+.classpath
+.project
+.settings/
+# IntelliJ
+.idea/
+*.iml
+
+### Build / Binary
+/build/
+/dist/
+/out/
+target/
+*.class
+*.jar
+*.war
+*.ear
+
+### Logs and temp files
+*.log
+*.tmp
+*.temp
+*.swp
+
+### Maven
+/pom.xml.tag
+/pom.xml.releaseBackup
+/pom.xml.versionsBackup
+/pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+
+### Gradle
+/.gradle/
+gradle-app.setting
+
+### LaTeX
+# Aux files
+*.aux
+*.bbl
+*.blg
+*.brf
+*.log
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.xdv
+*.nav
+*.snm
+*.vrb
+*.lof
+*.lot
+*.lol
+*.thm
+*.ilg
+
+# Generated PDFs and intermediate files
+*.pdf
+*.dvi
+*.ps
+
+# LaTeX editor dirs
+_minted-* 
+texput.log
+
+### Documentation / Generated HTML (Doxygen, etc.)
+/html/
+/latex/
+
+### Misc
+node_modules/
+env/
+venv/
+__pycache__/
+*.py[cod]
+*.class
+
+# Keep README, source code and other important files tracked
 **/nbproject/private/
 **/nbproject/Makefile-*.mk
 **/nbproject/Package-*.bash
